@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOAR | Executive Operations</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <title>SOAR | Executive Operations Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
             --beige: #F5F2ED;
+            --cream: #FDFBF7;
             --dark: #1A1A1A;
             --gold: #C5A47E;
+            --rust: #8B4513;
             --white: #FFFFFF;
             --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; }
+        h1, h2, .serif { font-family: 'Playfair Display', serif; }
 
-        /* NAV FIX: Adding all pages and making it slim */
+        /* Navigation */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 25px 8%; position: fixed; width: 100%; top: 0;
@@ -24,37 +28,50 @@
         }
         .logo { font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; }
         .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--dark); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; transition: 0.3s; }
-        .nav-links a:hover { color: var(--gold); }
-        
+        .nav-links a { text-decoration: none; color: var(--dark); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
         .nav-cta { 
             background: var(--dark); color: white; border: none; 
             padding: 12px 28px; font-size: 10px; letter-spacing: 2px; 
             text-transform: uppercase; cursor: pointer; transition: var(--transition);
         }
-        .nav-cta:hover { background: var(--gold); transform: translateY(-2px); }
 
-        /* HERO FIX: Adding the "Bloom" airy feel */
+        /* Hero Section */
         .hero {
             height: 100vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
             background-color: var(--beige); padding: 0 10%;
         }
-        .hero h1 { font-size: clamp(45px, 7vw, 90px); font-weight: 200; margin-bottom: 25px; letter-spacing: -2px; line-height: 1.1; }
-        .hero p { max-width: 600px; font-size: 1.1rem; color: #666; font-weight: 300; margin-bottom: 40px; letter-spacing: 0.5px; }
+        .hero h1 { font-size: clamp(40px, 6vw, 80px); margin-bottom: 20px; line-height: 1.1; }
+        .hero p { max-width: 650px; font-size: 1.2rem; color: #555; margin-bottom: 40px; font-weight: 300; }
 
-        /* SERVICES SECTION */
-        section { padding: 120px 10%; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 60px; }
-        .service-card { background: var(--beige); padding: 60px 40px; transition: var(--transition); border: 1px solid transparent; }
-        .service-card:hover { border-color: var(--gold); background: #fff; }
-        .service-card h3 { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; color: var(--gold); }
+        /* Services Preview (Hire Us For) */
+        .services-preview { background: var(--rust); color: var(--white); padding: 100px 10%; }
+        .services-preview h2 { font-size: 2.5rem; margin-bottom: 50px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .service-item h3 { color: var(--gold); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 15px; }
+        .service-item p { font-size: 0.95rem; opacity: 0.9; font-weight: 300; }
 
-        /* REVEAL ANIMATION */
+        /* About Preview */
+        .about-preview { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; padding: 120px 10%; align-items: center; background: var(--cream); }
+        .about-image { background: #ddd; height: 500px; overflow: hidden; }
+        .about-image img { width: 100%; height: 100%; object-fit: cover; }
+        .about-text h2 { font-size: 2.5rem; margin-bottom: 25px; }
+        .about-text p { font-size: 1.1rem; color: #444; margin-bottom: 30px; }
+
+        /* Global Footer Contact */
+        .footer-cta { padding: 120px 10%; text-align: center; background: var(--beige); border-top: 1px solid #eee; }
+        .footer-cta h2 { font-size: 2.5rem; font-weight: 200; margin-bottom: 30px; }
+        
+        footer { padding: 60px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: #999; background: var(--white); }
+
+        /* Animations */
         .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        @media (max-width: 768px) { .nav-links { display: none; } }
+        @media (max-width: 768px) { 
+            .about-preview { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -73,28 +90,51 @@
     </nav>
 
     <section class="hero">
-        <h1 class="reveal">The New Standard of Support.</h1>
-        <p class="reveal">High-level executive operations and strategic leverage for industry leaders.</p>
-        <button class="nav-cta reveal" onclick="location.href='contact.html'">Book a Discovery Call</button>
+        <h1 class="reveal">Doing it all is costing you more than you think.</h1>
+        <p class="reveal serif" style="font-style: italic; color: var(--rust); font-size: 1.5rem; margin-bottom: 20px;">Delegate. Grow. Bloom.</p>
+        <p class="reveal">Reclaim your time and focus with elite virtual assistant support built for high performers.</p>
+        <button class="nav-cta reveal" onclick="document.getElementById('about').scrollIntoView()">Discover Your Solution</button>
     </section>
 
-    <section id="services">
-        <h2 style="text-align: center; font-weight: 200; text-transform: uppercase; letter-spacing: 5px;">Capabilities</h2>
+    <section class="services-preview">
+        <h2 class="reveal">Hire Us For</h2>
         <div class="services-grid">
-            <div class="service-card reveal">
-                <h3>Executive Admin</h3>
-                <p>Sophisticated calendar management and inbox gatekeeping.</p>
+            <div class="service-item reveal">
+                <h3>Operational Efficiency</h3>
+                <p>We manage your inbox, calendars, and SOPs, freeing you to focus on growth, not admin.</p>
             </div>
-            <div class="service-card reveal">
-                <h3>Ops & Strategy</h3>
-                <p>Management accounting and technical workflow automation.</p>
+            <div class="service-item reveal">
+                <h3>Client Experience Support</h3>
+                <p>From onboarding to follow-ups, we ensure your clients feel supported and never fall through the cracks.</p>
             </div>
-            <div class="service-card reveal">
-                <h3>Experience</h3>
-                <p>Elite onboarding for your premium clients.</p>
+            <div class="service-item reveal">
+                <h3>Executive Leverage</h3>
+                <p>Delegate tasks like CRM updates and vendor coordination to focus on high-impact decision-making.</p>
             </div>
         </div>
     </section>
+
+    <section id="about" class="about-preview">
+        <div class="about-text reveal">
+            <h2>About Us.</h2>
+            <p>At SOAR, we believe every successful business deserves behind-the-scenes support that is just as dynamic as its front-facing operations.</p>
+            <p>We are a premium virtual assistant agency designed for entrepreneurs who value precision, initiative, and discretion.</p>
+            <button class="nav-cta" style="background: transparent; color: var(--dark); border: 1px solid var(--dark);" onclick="location.href='about.html'">Read Our Story</button>
+        </div>
+        <div class="about-image reveal">
+            <img src="founder.jpg" alt="SOAR Team">
+        </div>
+    </section>
+
+    <section class="footer-cta">
+        <h2 class="reveal">Ready to reclaim your time?</h2>
+        <button class="nav-cta reveal" onclick="location.href='contact.html'">Begin the Partnership</button>
+    </section>
+
+    <footer>
+        <p>Nairobi, Kenya | info@soar-executive.com</p>
+        <div style="margin-top: 20px;">&copy; 2026 SOAR AGENCY | KES & INTERNATIONAL</div>
+    </footer>
 
     <script>
         const reveal = () => {
