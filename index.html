@@ -4,78 +4,172 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOAR | Executive Virtual Assistance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* This is the "Bloom" style: Minimalist & Elegant */
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            line-height: 1.6;
-            background-color: #fff;
+        :root {
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --light-grey: #f8f8f8;
+            --gold-accent: #c5a47e; /* Sophisticated accent like Bloom */
         }
-        header {
-            padding: 40px 10%;
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0; padding: 0; color: var(--black); line-height: 1.7;
+        }
+        
+        /* Navigation */
+        nav {
+            padding: 30px 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid #eee;
         }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
+        .logo { font-weight: 600; letter-spacing: 5px; text-transform: uppercase; font-size: 20px; }
+
+        /* Hero Section - The big "First Impression" */
         .hero {
-            padding: 100px 10%;
+            padding: 140px 10%;
             text-align: center;
+            background-color: var(--white);
         }
         .hero h1 {
-            font-size: 48px;
-            font-weight: 300;
-            margin-bottom: 20px;
+            font-size: clamp(32px, 5vw, 60px);
+            font-weight: 200;
+            letter-spacing: -1px;
+            margin-bottom: 25px;
+            text-transform: capitalize;
         }
         .hero p {
-            font-size: 20px;
+            font-size: 18px;
             color: #666;
-            max-width: 600px;
-            margin: 0 auto 30px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 300;
         }
-        .cta-button {
-            background-color: #000;
-            color: #fff;
-            padding: 15px 30px;
+
+        /* Buttons */
+        .cta {
+            background-color: var(--black);
+            color: white;
+            padding: 18px 40px;
             text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .cta:hover { background-color: var(--gold-accent); }
+
+        /* Services Section */
+        .services {
+            padding: 100px 10%;
+            background-color: var(--light-grey);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        .service-card {
+            background: white;
+            padding: 40px;
+            border: 1px solid #eee;
+        }
+        .service-card h3 {
             font-size: 14px;
             letter-spacing: 2px;
             text-transform: uppercase;
+            margin-bottom: 15px;
+            color: var(--gold-accent);
         }
-        .section {
-            padding: 80px 10%;
-            background-color: #f9f9f9;
+
+        /* "How It Works" Section (Crucial for Bloom style) */
+        .how-it-works {
+            padding: 100px 10%;
+            text-align: center;
+        }
+        .step-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+        .step {
+            flex: 1;
+            padding: 20px;
+            min-width: 200px;
+        }
+        .step-num {
+            font-size: 40px;
+            font-weight: 100;
+            color: var(--gold-accent);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 10%;
+            background: var(--black);
+            color: white;
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 2px;
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <nav>
         <div class="logo">SOAR</div>
-    </header>
+        <div style="font-size: 12px; letter-spacing: 1px;">EXECUTIVE SUPPORT</div>
+    </nav>
 
-    <div class="hero">
-        <h1>Elevate Your Operations.</h1>
-        <p>High-level executive support for visionary leaders. We handle the details so you can focus on the big picture.</p>
-        <a href="mailto:your-email@example.com" class="cta-button">Apply to Work With Us</a>
-    </div>
+    <section class="hero">
+        <h1>High-Level Leverage for Visionary Leaders.</h1>
+        <p>We provide elite executive assistance and operational systems, allowing you to focus on growth while we handle the precision of your daily operations.</p>
+        <a href="mailto:your-email@soar.com" class="cta">Book Your Consultation</a>
+    </section>
 
-    <div class="section">
-        <h2 style="text-align: center; font-weight: 300;">Elite Services</h2>
-        <ul style="list-style: none; padding: 0; text-align: center;">
-            <li>Strategic Calendar Management</li>
-            <li>Inbound Operations & Systems</li>
-            <li>Executive Travel & Lifestyle</li>
-        </ul>
-    </div>
+    <section class="services">
+        <div class="service-card">
+            <h3>Executive Admin</h3>
+            <p>Calendar management, travel coordination, and inbox "zero" strategy for C-Suite leaders.</p>
+        </div>
+        <div class="service-card">
+            <h3>Operations</h3>
+            <p>SOP creation, project management, and CRM maintenance to keep your business running like a machine.</p>
+        </div>
+        <div class="service-card">
+            <h3>Client Experience</h3>
+            <p>Professional onboarding and high-touch communication so your clients feel supported and valued.</p>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <h2 style="font-weight: 300; letter-spacing: 3px;">HOW IT WORKS</h2>
+        <div class="step-container">
+            <div class="step">
+                <span class="step-num">01.</span>
+                <h4>Discovery Call</h4>
+                <p>We identify your bottlenecks and growth opportunities.</p>
+            </div>
+            <div class="step">
+                <span class="step-num">02.</span>
+                <h4>Matching</h4>
+                <p>We align you with a dedicated VA who understands your industry.</p>
+            </div>
+            <div class="step">
+                <span class="step-num">03.</span>
+                <h4>Onboarding</h4>
+                <p>Seamless integration into your current tools and workflows.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 SOAR AGENCY. ALL RIGHTS RESERVED.</p>
+    </footer>
 
 </body>
 </html>
