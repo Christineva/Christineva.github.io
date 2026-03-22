@@ -4,113 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | SOAR Executive Operations</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --beige: #F5F2ED;
-            --dark: #1A1A1A;
-            --gold: #C5A47E;
-            --white: #FFFFFF;
-            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+        :root { --beige: #F5F2ED; --dark-grey: #4A4E51; --stone-grey: #A8A8A8; --white: #FFFFFF; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; }
-
-        /* Navigation */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 25px 8%; position: fixed; width: 100%; top: 0;
-            background: rgba(255, 255, 255, 0.98); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        .logo { font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; }
+        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.6; }
+        nav { display: flex; justify-content: space-between; padding: 25px 8%; position: sticky; top: 0; background: white; z-index: 1000; border-bottom: 1px solid #eee; }
         .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--dark); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
-        
-        .nav-cta { 
-            background: var(--dark); color: white; border: none; 
-            padding: 12px 28px; font-size: 10px; letter-spacing: 2px; 
-            text-transform: uppercase; cursor: pointer; transition: var(--transition);
-        }
-
-        /* Content Sections */
-        .about-hero { background-color: var(--beige); padding: 180px 10% 100px; text-align: center; }
-        .about-hero h1 { font-size: 3.5rem; font-weight: 200; letter-spacing: -1px; }
-
-        .founder-container { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; padding: 100px 10%; align-items: center; }
-        .founder-image { background: var(--beige); height: 600px; overflow: hidden; }
-        .founder-image img { width: 100%; height: 100%; object-fit: cover; }
-        .founder-text h2 { font-size: 2.2rem; font-weight: 300; margin-bottom: 30px; color: var(--gold); }
-
-        /* Testimonials */
-        .testimonials-section { background-color: var(--beige); padding: 120px 10%; text-align: center; }
-        .testimonial-card { background: var(--white); padding: 50px; border: 1px solid #eee; margin-top: 40px; }
-
-        /* PERMANENT FOOTER CONTACT SECTION */
-        .footer-contact { padding: 120px 10%; text-align: center; background: var(--white); }
-        .footer-contact h2 { font-size: 2.5rem; font-weight: 200; margin-bottom: 30px; }
-        
-        footer { padding: 60px 10%; text-align: center; border-top: 1px solid #eee; font-size: 10px; letter-spacing: 2px; color: #999; }
-
-        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        @media (max-width: 768px) { .founder-container { grid-template-columns: 1fr; } .nav-links { display: none; } }
+        .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+        .content-hero { padding: 100px 10%; background: var(--beige); text-align: center; }
+        .content-hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 400; }
+        .bio-section { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding: 80px 10%; align-items: center; }
+        .bio-image { background: #eee; height: 500px; }
+        .bio-image img { width: 100%; height: 100%; object-fit: cover; }
     </style>
 </head>
 <body>
-
     <nav>
-        <div class="logo">SOAR</div>
+        <div style="font-weight: 600; letter-spacing: 4px;">SOAR</div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="process.html">Process</a></li>
-            <li><a href="testimonials.html">Testimonials</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-        <button class="nav-cta" onclick="location.href='contact.html'">Inquire</button>
     </nav>
-
-    <div class="about-hero">
-        <h1 class="reveal">The Visionary Behind SOAR</h1>
-    </div>
-
-    <section class="founder-container">
-        <div class="founder-image reveal">
-            <img src="founder.jpg" alt="Christine - Founder">
+    <section class="content-hero">
+        <h1>The Visionary Behind the Operations.</h1>
+    </section>
+    <section class="bio-section">
+        <div class="bio-image">
+             <img src="founder.jpg" alt="Founder">
         </div>
-        <div class="founder-text reveal">
-            <h2>High-Level Partnership.</h2>
-            <p>I specialize in protecting the time of industry leaders, ensuring that your business runs with precision while you focus on the big picture.</p>
+        <div>
+            <h2 style="font-family: 'Playfair Display'; margin-bottom: 20px;">Precision. Partnership. Purpose.</h2>
+            <p>I launched SOAR to bridge the gap between high-level vision and daily execution. As a Virtual Assistant specializing in executive operations, I handle the complexity so you can focus on your "zone of genius."</p>
         </div>
     </section>
-
-    <section class="testimonials-section">
-        <h3 style="letter-spacing: 4px; font-weight: 300;">INDUSTRY FEEDBACK</h3>
-        <div class="testimonial-card reveal">
-            <p style="font-style: italic; font-size: 1.2rem;">"Christine transformed our daily operations. I finally have the mental space to lead again."</p>
-            <p style="margin-top: 20px; font-weight: 600; font-size: 0.8rem; color: var(--gold);">— Founder, Tech Agency</p>
-        </div>
-    </section>
-
-    <section class="footer-contact">
-        <h2 class="reveal">Ready to scale?</h2>
-        <button class="nav-cta reveal" onclick="location.href='contact.html'">Begin the Partnership</button>
-    </section>
-
-    <footer>
-        &copy; 2026 SOAR AGENCY | KES & INTERNATIONAL
-    </footer>
-
-    <script>
-        const reveal = () => {
-            document.querySelectorAll('.reveal').forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
-            });
-        };
-        window.addEventListener('scroll', reveal);
-        reveal();
-    </script>
 </body>
 </html>
