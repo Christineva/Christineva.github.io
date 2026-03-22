@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
-        /* --- 1. DESIGN SYSTEM (BEIGE & MINIMAL) --- */
+        /* --- 1. DESIGN SYSTEM --- */
         :root {
             --beige: #F5F2ED;
             --dark: #1A1A1A;
@@ -39,9 +39,10 @@
             background: rgba(255, 255, 255, 0.95);
             z-index: 1000;
             backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         .logo { font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.2rem; }
-        .nav-links { display: flex; gap: 40px; list-style: none; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--dark); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
         .nav-cta { 
             background: var(--dark); color: white; border: none; 
@@ -76,7 +77,7 @@
             margin-bottom: 40px;
         }
 
-        /* --- 4. SERVICES GRID --- */
+        /* --- 4. SECTIONS & GRIDS --- */
         section { padding: 120px 10%; }
         .section-header { text-align: center; margin-bottom: 80px; }
         .section-header h2 { font-weight: 300; text-transform: uppercase; letter-spacing: 5px; font-size: 1.5rem; }
@@ -94,13 +95,13 @@
         .service-card:hover { transform: translateY(-10px); background: #eeebe6; }
         .service-card h3 { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; color: var(--gold); }
 
-        /* --- 5. ABOUT / FOUNDER --- */
+        /* --- 5. FOUNDER SECTION --- */
         .founder-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; background: var(--white); }
-        .founder-img { background: var(--beige); height: 600px; display: flex; align-items: center; justify-content: center; }
-        .founder-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); opacity: 0.9; }
+        .founder-img { background: var(--beige); height: 600px; overflow: hidden; }
+        .founder-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
         .founder-text h2 { font-size: 2.5rem; font-weight: 200; margin-bottom: 30px; }
 
-        /* --- 6. PROCESS / HOW IT WORKS --- */
+        /* --- 6. PROCESS --- */
         .process-row { display: flex; justify-content: space-between; gap: 40px; margin-top: 50px; }
         .process-step { flex: 1; border-top: 1px solid var(--dark); padding-top: 30px; }
         .step-num { font-size: 0.8rem; font-weight: 600; display: block; margin-bottom: 15px; color: var(--gold); }
@@ -109,7 +110,7 @@
         .testimonials { background: var(--beige); text-align: center; }
         .testimonial-text { font-size: 1.5rem; font-style: italic; font-weight: 300; max-width: 800px; margin: 0 auto 30px; }
 
-        /* --- 8. MODAL POPUP --- */
+        /* --- 8. MODAL --- */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.8);
@@ -131,7 +132,6 @@
         .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .founder-section { grid-template-columns: 1fr; }
             .nav-links { display: none; }
@@ -144,9 +144,12 @@
     <nav>
         <div class="logo">SOAR</div>
         <ul class="nav-links">
-            <li><a href="#services">Services</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#process">Process</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="process.html">Process</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
         <button class="nav-cta open-modal">Apply Now</button>
     </nav>
@@ -161,16 +164,16 @@
         <div class="section-header reveal">
             <h2>Capabilities</h2>
         </div>
-        <div class="services-grid reveal">
-            <div class="service-card">
+        <div class="services-grid">
+            <div class="service-card reveal">
                 <h3>Executive Admin</h3>
                 <p>Sophisticated calendar management, travel logistics, and inbox gatekeeping.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal">
                 <h3>Ops & Strategy</h3>
                 <p>SOP design, management accounting, and technical workflow automation.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal">
                 <h3>Client Experience</h3>
                 <p>Elite onboarding and high-touch communication for your premium clients.</p>
             </div>
@@ -179,7 +182,7 @@
 
     <section id="about" class="founder-section">
         <div class="founder-img reveal">
-            <img src="founder.jpg" alt="Founder Name">
+            <img src="founder.jpg" alt="Christine - Founder of SOAR">
         </div>
         <div class="founder-text reveal">
             <h2>The Vision Behind SOAR.</h2>
@@ -192,16 +195,16 @@
         <div class="section-header reveal">
             <h2>The Methodology</h2>
         </div>
-        <div class="process-row reveal">
-            <div class="process-step">
+        <div class="process-row">
+            <div class="process-step reveal">
                 <span class="step-num">01 / AUDIT</span>
                 <p>We analyze your current bottlenecks and hidden operational leaks.</p>
             </div>
-            <div class="process-step">
+            <div class="process-step reveal">
                 <span class="step-num">02 / STRATEGY</span>
                 <p>We build a custom executive support plan tailored to your lifestyle.</p>
             </div>
-            <div class="process-step">
+            <div class="process-step reveal">
                 <span class="step-num">03 / ELEVATE</span>
                 <p>Seamless integration and ongoing management of your business ops.</p>
             </div>
@@ -228,10 +231,10 @@
         <div class="modal-content">
             <button class="close-modal">&times;</button>
             <h2 style="font-weight: 300; margin-bottom: 20px;">Begin the Partnership</h2>
-            <form>
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <textarea rows="4" placeholder="How can we help?"></textarea>
+            <form action="mailto:contact@evachristine.com" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <textarea name="message" rows="4" placeholder="How can we help?"></textarea>
                 <button type="submit" class="nav-cta" style="width: 100%;">Send Inquiry</button>
             </form>
         </div>
@@ -259,6 +262,5 @@
         window.addEventListener('scroll', reveal);
         reveal(); // Run on load
     </script>
-
 </body>
 </html>
