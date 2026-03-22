@@ -11,14 +11,14 @@
             --dark-grey: #4A4E51;
             --stone-grey: #A8A8A8;
             --white: #FFFFFF;
-            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.6; overflow-x: hidden; }
-        h1, h2, .serif { font-family: 'Playfair Display', serif; }
+        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.8; overflow-x: hidden; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; font-weight: 400; }
 
-        /* Navigation - Removed Testimonials */
+        /* NAVIGATION */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 25px 8%; position: fixed; width: 100%; top: 0;
@@ -31,92 +31,48 @@
         .nav-cta { 
             background: var(--dark-grey); color: white; border: none; 
             padding: 12px 28px; font-size: 10px; letter-spacing: 2px; 
-            text-transform: uppercase; cursor: pointer; transition: var(--transition);
+            text-transform: uppercase; cursor: pointer; transition: 0.3s;
         }
 
-        /* Hero Section */
+        /* HERO SECTION */
         .hero {
             height: 100vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
             background-color: var(--beige); padding: 0 10%;
         }
-        .hero h1 { font-size: clamp(40px, 6vw, 80px); margin-bottom: 20px; line-height: 1.1; font-weight: 400; }
-        .hero p { max-width: 650px; font-size: 1.2rem; margin-bottom: 40px; font-weight: 300; }
+        .hero h1 { font-size: clamp(45px, 8vw, 90px); margin-bottom: 25px; line-height: 1.1; }
+        .hero .tagline { font-size: clamp(24px, 4vw, 40px); color: var(--dark-grey); margin-bottom: 30px; font-style: italic; }
+        .hero p { max-width: 600px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--stone-grey); margin-bottom: 40px; }
 
-        /* Grey Services Preview */
-        .services-scroll { background: var(--dark-grey); color: var(--white); padding: 100px 10%; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 50px; }
-        .service-item h3 { color: var(--stone-grey); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 15px; }
-        .service-item p { font-size: 0.95rem; opacity: 0.8; font-weight: 200; }
+        /* GREY SERVICES STRIP */
+        .services-strip { background: var(--dark-grey); color: var(--white); padding: 140px 10%; }
+        .services-strip h2 { font-size: 3rem; margin-bottom: 60px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 60px; }
+        .service-item h3 { font-size: 1.4rem; margin-bottom: 20px; color: var(--white); }
+        .service-item p { font-size: 0.95rem; font-weight: 200; color: #D1D1D1; line-height: 1.8; }
 
-        /* Permanent Contact Footer - Grey Background */
-        .footer-contact { padding: 120px 10%; text-align: center; background: var(--beige); border-top: 1px solid #eee; }
-        .footer-contact h2 { font-size: 2.5rem; font-weight: 200; margin-bottom: 30px; color: var(--dark-grey); }
+        /* STAGGERED CONTENT SECTIONS */
+        .content-block { padding: 160px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .content-block.reverse { direction: rtl; }
+        .content-block.reverse div { direction: ltr; }
+        .image-box { width: 100%; height: 600px; background: var(--beige); overflow: hidden; }
+        .image-box img { width: 100%; height: 100%; object-fit: cover; }
         
-        footer { padding: 60px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--stone-grey); background: var(--white); }
+        .text-box h2 { font-size: 3.5rem; margin-bottom: 30px; }
+        .text-box p { font-size: 1.1rem; color: var(--dark-grey); margin-bottom: 30px; font-weight: 300; }
 
-        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+        /* FOOTER & CTA */
+        .footer-cta { padding: 140px 10%; text-align: center; background: var(--beige); }
+        .footer-cta h2 { font-size: 3rem; margin-bottom: 40px; }
+        
+        footer { padding: 80px 10%; background: var(--white); display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        .footer-col h4 { font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: var(--stone-grey); margin-bottom: 25px; }
+        .footer-col p, .footer-col a { font-size: 12px; color: var(--dark-grey); text-decoration: none; display: block; margin-bottom: 10px; }
+
+        /* ANIMATIONS */
+        .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        @media (max-width: 768px) { .nav-links { display: none; } }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <div class="logo">SOAR</div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="process.html">Process</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <button class="nav-cta" onclick="location.href='contact.html'">Inquire</button>
-    </nav>
-
-    <section id="home" class="hero">
-        <h1 class="reveal">Doing it all is costing you more than you think.</h1>
-        <p class="reveal serif" style="font-style: italic; color: var(--dark-grey); font-size: 1.5rem; margin-bottom: 20px;">Delegate. Grow. Bloom.</p>
-        <p class="reveal">Reclaim your time with elite virtual assistant support built for high performers.</p>
-        <button class="nav-cta reveal" onclick="document.getElementById('services').scrollIntoView()">Explore Services</button>
-    </section>
-
-    <section id="services" class="services-scroll">
-        <h2 class="reveal">Hire Us For</h2>
-        <div class="services-grid">
-            <div class="service-item reveal">
-                <h3>Executive Support</h3>
-                <p>Inbox, calendar, and high-level travel management.</p>
-            </div>
-            <div class="service-item reveal">
-                <h3>Operations</h3>
-                <p>SOP documentation and workflow optimization.</p>
-            </div>
-            <div class="service-item reveal">
-                <h3>Client Care</h3>
-                <p>Premium onboarding and relationship management.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="footer-contact">
-        <h2 class="reveal">Ready to scale?</h2>
-        <button class="nav-cta reveal" onclick="location.href='contact.html'">Begin Partnership</button>
-    </section>
-
-    <footer>
-        &copy; 2026 SOAR AGENCY | NAIROBI, KENYA
-    </footer>
-
-    <script>
-        const reveal = () => {
-            document.querySelectorAll('.reveal').forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
-            });
-        };
-        window.addEventListener('scroll', reveal);
-        reveal();
-    </script>
-</body>
-</html>
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .content-block { grid-template-columns: 1fr
