@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOAR | Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .service-column {
+            background: var(--beige);
+            padding: 40px;
+            border: 1px solid #e0ddd8;
+        }
+        .service-column h2 {
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 10px;
+        }
+        .service-list {
+            list-style: none;
+            text-align: left;
+        }
+        .service-list li {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        .service-list strong {
+            display: block;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">SOAR</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="process.html">Process</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+        </ul>
+        <button class="nav-cta open-modal">Inquire</button>
+    </nav>
+
+    <section>
+        <h1 style="text-align: center; font-weight: 200; font-size: 3rem;">Our Expertise</h1>
+        <div class="services-container">
+            
+            <div class="service-column">
+                <h2>Executive Support</h2>
+                <ul class="service-list">
+                    <li><strong>Operations Management</strong> Efficient workflows across teams and projects.</li>
+                    <li><strong>Inbox & Calendar</strong> Daily sweeps and high-priority scheduling.</li>
+                    <li><strong>Travel Coordination</strong> Detailed itineraries and logistics.</li>
+                </ul>
+            </div>
+
+            <div class="service-column">
+                <h2>General Admin</h2>
+                <ul class="service-list">
+                    <li><strong>Data & Finance</strong> Bookkeeping, invoicing, and payroll support.</li>
+                    <li><strong>HR & Recruiting</strong> Applicant tracking and interview scheduling.</li>
+                    <li><strong>Sales Support</strong> CRM records and proposal drafting.</li>
+                </ul>
+            </div>
+
+            <div class="service-column">
+                <h2>Digital Marketing</h2>
+                <ul class="service-list">
+                    <li><strong>Social Media</strong> Content scheduling and community engagement.</li>
+                    <li><strong>SEO & Content</strong> Blog writing and search visibility audits.</li>
+                    <li><strong>Email Marketing</strong> Newsletter design and sequence automation.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
