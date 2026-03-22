@@ -31,13 +31,14 @@
         .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
         .nav-cta { background: var(--dark-grey); color: white; border: none; padding: 12px 28px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; }
 
-        /* Hero */
+        /* Updated Hero Section */
         .services-hero {
-            height: 50vh; display: flex; flex-direction: column;
+            height: 60vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
-            background-color: var(--beige); padding: 0 10%;
+            background-color: var(--beige); padding: 0 15%;
         }
-        .services-hero h1 { font-size: clamp(35px, 5vw, 60px); line-height: 1.2; }
+        .services-hero h1 { font-size: clamp(30px, 5vw, 55px); line-height: 1.2; margin-bottom: 20px; }
+        .services-hero p { max-width: 700px; font-size: 16px; font-weight: 300; color: var(--dark-grey); line-height: 1.8; }
 
         /* Service Grid Section */
         .services-container { padding: 80px 5%; background: var(--white); }
@@ -53,18 +54,18 @@
         .service-column.alt { background: var(--light-grey); }
 
         .col-header { text-align: center; margin-bottom: 40px; }
-        .col-header h2 { font-size: 1.4rem; margin-bottom: 10px; color: var(--dark-grey); height: 3.5rem; display: flex; align-items: center; justify-content: center; }
-        .divider { width: 40px; height: 1px; background: var(--stone-grey); margin: 20px auto; }
+        .col-header h2 { font-size: 1.3rem; margin-bottom: 10px; color: var(--dark-grey); min-height: 3.5rem; display: flex; align-items: center; justify-content: center; text-transform: uppercase; letter-spacing: 1px; }
+        .divider { width: 30px; height: 1px; background: var(--stone-grey); margin: 20px auto; }
 
         .service-list { list-style: none; }
         .service-list li { 
-            font-size: 12.5px; 
+            font-size: 12px; 
             color: var(--dark-grey); 
-            margin-bottom: 12px; 
-            padding-left: 20px; 
+            margin-bottom: 10px; 
+            padding-left: 18px; 
             position: relative; 
             font-weight: 300;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
         }
         .service-list li::before { 
             content: "—"; 
@@ -76,7 +77,6 @@
         /* CTA */
         .services-cta { text-align: center; padding: 100px 10%; background: var(--white); border-top: 1px solid var(--border); }
         .btn { background: var(--dark-grey); color: white; padding: 22px 60px; border: none; text-transform: uppercase; letter-spacing: 3px; font-size: 10px; cursor: pointer; transition: 0.3s; }
-        .btn:hover { background: #333; letter-spacing: 4px; }
 
         footer { padding: 60px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--stone-grey); }
 
@@ -85,7 +85,7 @@
 
         @media (max-width: 1024px) {
             .services-grid { grid-template-columns: 1fr; }
-            .col-header h2 { height: auto; }
+            .services-hero { height: auto; padding: 120px 10% 60px; }
         }
     </style>
 </head>
@@ -106,7 +106,8 @@
     </nav>
 
     <section class="services-hero">
-        <h1 class="reveal">Comprehensive <span class="serif" style="font-style: italic;">Capabilities.</span></h1>
+        <h1 class="reveal">Have a Project on mind?</h1>
+        <p class="reveal">We can help you bring your ideas to life. Let’s talk about what we can <span class="serif" style="font-style: italic;">build and raise together.</span></p>
     </section>
 
     <section class="services-container">
@@ -163,7 +164,7 @@
             <div class="service-column">
                 <div class="col-header">
                     <h2>Marketing & Digital Presence Management</h2>
-                    <div class="divider"></div>
+                    <div class="divider)</div>
                 </div>
                 <ul class="service-list">
                     <li>Social media management</li>
@@ -172,12 +173,12 @@
                     <li>Blog publishing & SEO optimization</li>
                     <li>Graphic design (Canva, branded templates)</li>
                     <li>Video editing for reels/stories</li>
-                    <li>Hashtag research and post performance tracking</li>
+                    <li>Hashtag research and performance tracking</li>
                     <li>CRM-based email automation</li>
-                    <li>Community management (Facebook Groups, LinkedIn)</li>
-                    <li>Landing page or lead magnet creation support</li>
+                    <li>Community management (Facebook, LinkedIn)</li>
+                    <li>Landing page or lead magnet support</li>
                     <li>Website content updates</li>
-                    <li>Podcast admin support (scheduling, show notes)</li>
+                    <li>Podcast admin (scheduling, show notes)</li>
                     <li>Webinar & live event backend assistance</li>
                     <li>Affiliate/partner outreach coordination</li>
                     <li>Analytics tracking and reporting</li>
