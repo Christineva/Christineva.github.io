@@ -6,69 +6,31 @@
     <title>Services | SOAR Executive Operations</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --beige: #F5F2ED;
-            --cream: #FDFBF7;
-            --dark-grey: #4A4E51; /* New Grey */
-            --stone-grey: #A8A8A8; /* New Light Grey */
-            --white: #FFFFFF;
-            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        
+        :root { --beige: #F5F2ED; --dark-grey: #4A4E51; --stone-grey: #A8A8A8; --white: #FFFFFF; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.6; }
-        h1, h2, .serif { font-family: 'Playfair Display', serif; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; }
 
-        /* Navigation */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 25px 8%; position: fixed; width: 100%; top: 0;
-            background: rgba(255, 255, 255, 0.98); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; position: sticky; top: 0; background: white; z-index: 1000; border-bottom: 1px solid #eee; }
         .logo { font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; }
         .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
-        
-        .nav-cta { 
-            background: var(--dark-grey); color: white; border: none; 
-            padding: 12px 28px; font-size: 10px; letter-spacing: 2px; 
-            text-transform: uppercase; cursor: pointer; transition: var(--transition);
-        }
+        .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* Services Header */
-        .services-hero { background-color: var(--beige); padding: 180px 10% 80px; text-align: center; }
-        .services-hero h1 { font-size: clamp(35px, 5vw, 60px); font-weight: 200; margin-bottom: 10px; }
+        .services-hero { background: var(--beige); padding: 100px 10%; text-align: center; }
+        .services-hero h1 { font-size: 3rem; margin-bottom: 20px; }
 
-        /* Multi-Column Service Section */
-        .services-container { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            background: var(--dark-grey); /* Changed from brown to Grey */
-            color: var(--white);
-            padding: 80px 10%;
-            gap: 2px; /* Creates the line divider effect */
-        }
-
-        .service-column { padding: 40px; background: var(--dark-grey); }
-        .service-column h2 { font-size: 1.2rem; color: var(--stone-grey); margin-bottom: 30px; letter-spacing: 1px; height: 60px; }
-        .service-list { list-style: none; }
-        .service-list li { margin-bottom: 12px; font-size: 0.9rem; font-weight: 200; opacity: 0.8; position: relative; padding-left: 20px; }
+        .services-container { padding: 80px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .service-card { background: var(--beige); padding: 40px; border: 1px solid #eee; transition: 0.3s; }
+        .service-card:hover { border-color: var(--stone-grey); }
+        .service-card h3 { margin-bottom: 20px; color: var(--dark-grey); border-bottom: 1px solid var(--stone-grey); padding-bottom: 10px; }
+        .service-list { list-style: none; font-size: 0.9rem; font-weight: 300; }
+        .service-list li { margin-bottom: 10px; padding-left: 15px; position: relative; }
         .service-list li::before { content: "—"; position: absolute; left: 0; color: var(--stone-grey); }
 
-        /* Global Footer Contact */
-        .footer-cta { padding: 120px 10%; text-align: center; background: var(--beige); border-top: 1px solid #eee; }
-        .footer-cta h2 { font-size: 2.5rem; font-weight: 200; margin-bottom: 30px; color: var(--dark-grey); }
-        
-        footer { padding: 60px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--stone-grey); background: var(--white); }
-
-        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        @media (max-width: 768px) { .nav-links { display: none; } .services-container { grid-template-columns: 1fr; } }
+        footer { padding: 60px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--stone-grey); border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
-
     <nav>
         <div class="logo">SOAR</div>
         <ul class="nav-links">
@@ -76,75 +38,48 @@
             <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="process.html">Process</a></li>
-            <li><a href="testimonials.html">Testimonials</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-        <button class="nav-cta" onclick="location.href='contact.html'">Inquire</button>
     </nav>
 
-    <div class="services-hero">
-        <h1 class="reveal">How can we help you?</h1>
-    </div>
+    <section class="services-hero">
+        <h1>How we can help you?</h1>
+        <p>Strategic leverage designed for high-impact decision making.</p>
+    </section>
 
-    <section class="services-container">
-        <div class="service-column reveal">
-            <h2>Executive & Administrative Support</h2>
+    <div class="services-container">
+        <div class="service-card">
+            <h3>Executive Support</h3>
             <ul class="service-list">
                 <li>Inbox and calendar management</li>
                 <li>Scheduling and appointment coordination</li>
                 <li>Travel planning and itinerary management</li>
                 <li>Executive reporting and meeting summaries</li>
-                <li>Document preparation and formatting</li>
                 <li>Workflow and SOP documentation</li>
-                <li>Research and data compilation</li>
             </ul>
         </div>
-
-        <div class="service-column reveal">
-            <h2>Business Operations & Client Services</h2>
+        <div class="service-card">
+            <h3>Business Operations</h3>
             <ul class="service-list">
                 <li>Client onboarding and offboarding</li>
                 <li>CRM management and pipeline tracking</li>
                 <li>Proposal and contract creation</li>
-                <li>Payment and invoicing coordination</li>
-                <li>Customer support (email/live chat)</li>
                 <li>Project management (ClickUp, Asana)</li>
                 <li>Vendor and supplier coordination</li>
             </ul>
         </div>
-
-        <div class="service-column reveal">
-            <h2>Marketing & Digital Presence</h2>
+        <div class="service-card">
+            <h3>Digital Presence</h3>
             <ul class="service-list">
                 <li>Social media management</li>
                 <li>Content repurposing and copy editing</li>
                 <li>Newsletter setup and distribution</li>
-                <li>Blog publishing & SEO optimization</li>
-                <li>Graphic design (Canva templates)</li>
-                <li>Landing page or lead magnet support</li>
+                <li>Website content updates</li>
                 <li>Analytics tracking and reporting</li>
             </ul>
         </div>
-    </section>
+    </div>
 
-    <section class="footer-cta">
-        <h2 class="reveal">Ready to build a flourishing business?</h2>
-        <button class="nav-cta reveal" onclick="location.href='contact.html'">Connect with Us —></button>
-    </section>
-
-    <footer>
-        <p>Nairobi, Kenya | contact@evachristine.com</p>
-        <div style="margin-top: 20px;">&copy; 2026 SOAR AGENCY | BEIGE & GREY SERIES</div>
-    </footer>
-
-    <script>
-        const reveal = () => {
-            document.querySelectorAll('.reveal').forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
-            });
-        };
-        window.addEventListener('scroll', reveal);
-        reveal();
-    </script>
+    <footer>&copy; 2026 SOAR AGENCY | KES & INTERNATIONAL</footer>
 </body>
 </html>
