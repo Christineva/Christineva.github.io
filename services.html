@@ -1,19 +1,4 @@
-<nav>
-        <div class="logo">
-            <a href="index.html">
-                <img src="logo.png" alt="SOAR" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="height: 40px; width: auto;">
-                <span style="display: none;">SOAR</span>
-            </a>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="process.html">Process</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <button class="nav-cta" onclick="location.href='contact.html'">Inquire</button>
-    </nav><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,69 +18,78 @@
         body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.8; overflow-x: hidden; }
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; font-weight: 400; }
 
-        /* Navigation */
+        /* Unified Navigation */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 30px 8%; position: fixed; width: 100%; top: 0;
-            background: rgba(255, 255, 255, 0.95); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.03);
+            padding: 25px 8%; position: fixed; width: 100%; top: 0;
+            background: rgba(255, 255, 255, 0.98); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .logo { font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; }
+        .logo a { text-decoration: none; color: var(--dark-grey); font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; display: flex; align-items: center; }
         .nav-links { display: flex; gap: 35px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+        .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
+        
+        /* Interactive Shadow Effect */
+        .nav-links a:hover, .nav-cta:hover, .btn:hover { 
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+            transform: translateY(-1px);
+        }
+        .nav-cta { background: var(--dark-grey); color: white; border: none; padding: 12px 28px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
+        .nav-cta:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-        /* Massive Hero */
+        /* Hero Section */
         .services-hero {
-            height: 80vh; display: flex; flex-direction: column;
+            height: 70vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
             background-color: var(--beige); padding: 0 10%;
         }
-        .services-hero h1 { font-size: clamp(40px, 8vw, 80px); line-height: 1.1; margin-bottom: 20px; }
+        .services-hero h1 { font-size: clamp(40px, 6vw, 70px); line-height: 1.2; margin-bottom: 20px; }
 
-        section { padding: 160px 10%; }
-
-        /* Staggered Service Layouts (The Long Scroll) */
-        .service-row { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; margin-bottom: 120px; }
-        .service-row:nth-child(even) { direction: rtl; }
-        .service-row:nth-child(even) .service-text { direction: ltr; }
+        /* Staggered Layouts */
+        .service-section { padding: 100px 10% 0 10%; }
+        .service-row { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 80px; }
+        .service-row.reverse { direction: rtl; }
+        .service-row.reverse .service-text { direction: ltr; }
         
         .service-text h2 { font-size: 2.5rem; margin-bottom: 25px; border-bottom: 1px solid var(--beige); padding-bottom: 15px; }
         .service-list { list-style: none; }
-        .service-list li { margin-bottom: 12px; padding-left: 20px; position: relative; font-weight: 300; }
+        .service-list li { margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300; font-size: 0.95rem; }
         .service-list li::before { content: "—"; position: absolute; left: 0; color: var(--stone-grey); }
 
-        /* Bringing Ideas to Life Section */
-        .ideation-section { background: var(--beige); display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .ideation-content { max-width: 800px; margin-bottom: 80px; }
-        .ideation-content h2 { font-size: 3rem; margin-bottom: 30px; }
+        .image-placeholder { background: var(--beige); height: 550px; overflow: hidden; }
+        .image-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Reclaim Section (Distance Eliminated) */
+        .services-cta { text-align: center; padding: 100px 10%; background: var(--white); border-top: 1px solid #eee; }
+        .btn { background: var(--dark-grey); color: white; padding: 22px 60px; border: none; text-transform: uppercase; letter-spacing: 3px; font-size: 10px; cursor: pointer; transition: 0.4s; }
+
+        /* Ideas to Life (Banner Style) */
+        .ideation-section { background: var(--beige); padding: 120px 10%; text-align: center; }
+        .ideation-content { max-width: 900px; margin: 0 auto 60px; }
+        .ideation-content h2 { font-size: 3.5rem; margin-bottom: 30px; }
         
-        /* 4x8 Picture Space (Tall and slim aspect) */
-        .portrait-container {
-            width: 100%; max-width: 400px; /* Width relative to the 4:8 ratio */
-            height: 800px; /* Fixed height to force the 4:8 aesthetic */
-            background: #ddd; overflow: hidden; margin: 0 auto;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        .portrait-container img { width: 100%; height: 100%; object-fit: cover; }
+        .banner-container { width: 100%; height: 450px; background: #ddd; overflow: hidden; }
+        .banner-container img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* CTA */
-        .services-cta { text-align: center; background: var(--white); }
-        .btn { background: var(--dark-grey); color: white; padding: 20px 50px; border: none; text-transform: uppercase; letter-spacing: 3px; font-size: 10px; cursor: pointer; }
+        footer { padding: 80px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--stone-grey); background: var(--white); }
 
-        footer { padding: 80px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--stone-grey); }
-
-        .reveal { opacity: 0; transform: translateY(50px); transition: var(--transition); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 992px) {
-            .service-row { grid-template-columns: 1fr; gap: 50px; }
-            .service-row:nth-child(even) { direction: ltr; }
+            .service-row, .service-row.reverse { grid-template-columns: 1fr; direction: ltr; gap: 40px; }
+            .image-placeholder { height: 400px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">SOAR</div>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.png" alt="SOAR" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="height: 40px; width: auto;">
+                <span style="display: none;">SOAR</span>
+            </a>
+        </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
@@ -103,36 +97,65 @@
             <li><a href="process.html">Process</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
+        <button class="nav-cta" onclick="location.href='contact.html'">Inquire</button>
     </nav>
 
     <section class="services-hero">
+        <p class="reveal" style="letter-spacing: 3px; text-transform: uppercase; font-size: 11px; margin-bottom: 20px;">The Standard of High-Level Support</p>
         <h1 class="reveal">Elevated Support for <br><span class="serif" style="font-style: italic;">Elevated Leaders.</span></h1>
-        <p class="reveal" style="letter-spacing: 3px; text-transform: uppercase; font-size: 11px;">Our specialized capabilities</p>
+    </header>
+
+    <div class="service-section">
+        <div class="service-row reveal">
+            <div class="service-text">
+                <h2>Executive Operations</h2>
+                <ul class="service-list">
+                    <li>Elite Inbox & Calendar Management</li>
+                    <li>Travel Coordination & Itinerary Design</li>
+                    <li>Meeting Briefs & Executive Reporting</li>
+                    <li>Strategic Scheduling & Gatekeeping</li>
+                    <li>Business Operations & Workflow Management</li>
+                    <li>SOP Development & Operational Efficiency</li>
+                </ul>
+            </div>
+            <div class="image-placeholder"><img src="service1.jpg" alt="Executive Operations"></div>
+        </div>
+
+        <div class="service-row reverse reveal">
+            <div class="service-text">
+                <h2>Business Systems</h2>
+                <ul class="service-list">
+                    <li>CRM Architecture & Pipeline Tracking</li>
+                    <li>SOP Documentation & Workflow Automation</li>
+                    <li>Project Management (Asana, ClickUp, Notion)</li>
+                    <li>Client Onboarding Experience Design</li>
+                    <li>HR & Recruiting Support</li>
+                    <li>Invoicing & Bookkeeping Management</li>
+                </ul>
+            </div>
+            <div class="image-placeholder"><img src="service2.jpg" alt="Business Systems"></div>
+        </div>
+
+        <div class="service-row reveal">
+            <div class="service-text">
+                <h2>Digital Strategy</h2>
+                <ul class="service-list">
+                    <li>LinkedIn Presence & Content Repurposing</li>
+                    <li>Newsletter Operations & Distribution</li>
+                    <li>Community Management & Engagement</li>
+                    <li>Performance Analytics & Reporting</li>
+                    <li>Search Engine Optimization (SEO)</li>
+                    <li>Email Marketing & Campaign Support</li>
+                </ul>
+            </div>
+            <div class="image-placeholder"><img src="service3.jpg" alt="Digital Strategy"></div>
+        </div>
+    </div>
+
+    <section class="services-cta">
+        <h2 class="reveal" style="margin-bottom: 40px;">Ready to reclaim your <i class="serif">mental space?</i></h2>
+        <button class="btn reveal" onclick="location.href='contact.html'">Begin Partnership</button>
     </section>
-
-    <section class="service-row reveal">
-        <div class="service-text">
-            <h2>Executive Operations</h2>
-            <ul class="service-list">
-                <li>Elite Inbox & Calendar Management</li>
-                <li>Travel Coordination & Itinerary Design</li>
-                <li>Meeting Briefs & Executive Reporting</li>
-                <li>Strategic Scheduling & Gatekeeping</li>
-            </ul>
-        </div>
-        <div style="background: var(--beige); height: 500px;"></div> </section>
-
-    <section class="service-row reveal">
-        <div class="service-text">
-            <h2>Business Systems</h2>
-            <ul class="service-list">
-                <li>CRM Architecture & Pipeline Tracking</li>
-                <li>SOP Documentation & Workflow Automation</li>
-                <li>Project Management (Asana, ClickUp, Notion)</li>
-                <li>Client Onboarding Experience Design</li>
-            </ul>
-        </div>
-        <div style="background: var(--beige); height: 500px;"></div> </section>
 
     <section class="ideation-section reveal">
         <div class="ideation-content">
@@ -140,27 +163,9 @@
             <p>You provide the vision; we provide the architecture. We specialize in taking abstract concepts—whether it’s a new service launch, a content strategy, or a business pivot—and breaking them down into actionable, repeatable systems. We don’t just manage tasks; we build the bridge between "what if" and "it's done."</p>
         </div>
         
-        <div class="portrait-container reveal">
-            <img src="creative.jpg" alt="Creative Execution">
+        <div class="banner-container reveal">
+            <img src="creative.jpg" alt="Creative Execution Banner">
         </div>
-    </section>
-
-    <section class="service-row reveal" style="margin-top: 100px;">
-        <div class="service-text">
-            <h2>Digital Strategy</h2>
-            <ul class="service-list">
-                <li>LinkedIn Presence & Content Repurposing</li>
-                <li>Newsletter Operations & Distribution</li>
-                <li>Community Management & Engagement</li>
-                <li>Performance Analytics & Reporting</li>
-            </ul>
-        </div>
-        <div style="background: var(--beige); height: 500px;"></div>
-    </section>
-
-    <section class="services-cta">
-        <h2 class="reveal" style="margin-bottom: 40px;">Ready to reclaim your mental space?</h2>
-        <button class="btn reveal" onclick="location.href='contact.html'">Begin Partnership</button>
     </section>
 
     <footer>
