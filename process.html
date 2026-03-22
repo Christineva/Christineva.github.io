@@ -3,42 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOAR | Our Process</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Services | SOAR Executive Operations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
-        .process-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            max-width: 800px;
-            margin: 60px auto;
-            gap: 40px;
-            padding: 0 20px;
-        }
-        .step {
-            display: flex;
-            gap: 30px;
-            align-items: flex-start;
-            border-bottom: 1px solid #e0ddd8;
-            padding-bottom: 30px;
-        }
-        .step-number {
-            font-size: 0.8rem;
-            color: var(--gold);
-            letter-spacing: 2px;
-            font-weight: 600;
-        }
-        .step-content h3 {
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 0;
-        }
-        .step-content p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #555;
-        }
+        :root { --beige: #F5F2ED; --dark-grey: #4A4E51; --stone-grey: #A8A8A8; --white: #FFFFFF; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.6; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; }
+
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; position: sticky; top: 0; background: white; z-index: 1000; border-bottom: 1px solid #eee; }
+        .logo { font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+        .nav-cta { background: var(--dark-grey); color: white; border: none; padding: 12px 28px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; }
+
+        .services-hero { background: var(--beige); padding: 100px 10%; text-align: center; }
+        .services-hero h1 { font-size: 3rem; margin-bottom: 20px; }
+
+        .services-container { padding: 80px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .service-card { background: var(--beige); padding: 40px; border: 1px solid #eee; }
+        .service-card h3 { margin-bottom: 20px; color: var(--dark-grey); border-bottom: 1px solid var(--stone-grey); padding-bottom: 10px; font-size: 1.4rem; }
+        .service-list { list-style: none; font-size: 0.9rem; font-weight: 300; }
+        .service-list li { margin-bottom: 8px; padding-left: 15px; position: relative; }
+        .service-list li::before { content: "—"; position: absolute; left: 0; color: var(--stone-grey); }
+
+        footer { padding: 60px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--stone-grey); border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
@@ -46,45 +35,58 @@
         <div class="logo">SOAR</div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
             <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="process.html">Process</a></li>
-            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
-        <button class="nav-cta open-modal">Inquire</button>
+        <button class="nav-cta" onclick="location.href='contact.html'">Inquire</button>
     </nav>
 
-    <header class="hero">
-        <h1 class="reveal">The Method</h1>
-        <p class="reveal">A seamless transition to elevated operations.</p>
-    </header>
+    <section class="services-hero">
+        <h1>How can we help you?</h1>
+        <p>Strategic leverage designed for high-impact decision making.</p>
+    </section>
 
-    <div class="process-grid">
-        <div class="step reveal">
-            <div class="step-number">01</div>
-            <div class="step-content">
-                <h3>Discovery Consultation</h3>
-                <p>We begin with a deep dive into your current workflows, identifying bottlenecks and areas where you need to reclaim your time.</p>
-            </div>
+    <div class="services-container">
+        <div class="service-card">
+            <h3>Executive Support</h3>
+            <ul class="service-list">
+                <li>Inbox and calendar management</li>
+                <li>Scheduling and appointment coordination</li>
+                <li>Travel planning and itinerary management</li>
+                <li>Executive reporting and meeting summaries</li>
+                <li>Workflow and SOP documentation</li>
+                <li>Research and data compilation</li>
+                <li>Task and deadline monitoring</li>
+            </ul>
         </div>
-
-        <div class="step reveal">
-            <div class="step-number">02</div>
-            <div class="step-content">
-                <h3>Strategy & Setup</h3>
-                <p>I design a custom support plan and integrate into your preferred tools (Asana, Notion, or ClickUp) for a frictionless start.</p>
-            </div>
+        <div class="service-card">
+            <h3>Business Operations</h3>
+            <ul class="service-list">
+                <li>Client onboarding and offboarding</li>
+                <li>CRM management and pipeline tracking</li>
+                <li>Proposal and contract creation</li>
+                <li>Project management (ClickUp, Asana)</li>
+                <li>Vendor and supplier coordination</li>
+                <li>Lead qualification and nurturing</li>
+                <li>SOP implementation & improvement</li>
+            </ul>
         </div>
-
-        <div class="step reveal">
-            <div class="step-number">03</div>
-            <div class="step-content">
-                <h3>Ongoing Optimization</h3>
-                <p>Support begins. We hold weekly audits to refine processes, ensuring your business runs like a well-oiled machine while you focus on high-level growth.</p>
-            </div>
+        <div class="service-card">
+            <h3>Digital Presence</h3>
+            <ul class="service-list">
+                <li>Social media management</li>
+                <li>Content repurposing and copy editing</li>
+                <li>Newsletter setup and distribution</li>
+                <li>Graphic design (Canva templates)</li>
+                <li>Website content updates</li>
+                <li>Community management (LinkedIn)</li>
+                <li>Analytics tracking and reporting</li>
+            </ul>
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <footer>&copy; 2026 SOAR AGENCY | KES & INTERNATIONAL</footer>
 </body>
 </html>
