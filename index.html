@@ -8,17 +8,19 @@
     <style>
         :root {
             --beige: #F5F2ED;
-            --dark-grey: #4A4E51;
-            --stone-grey: #A8A8A8;
+            --cream: #FDFBF7;
+            --dark: #1A1A1A;
+            --gold: #C5A47E;
+            --rust: #8B4513;
             --white: #FFFFFF;
             --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; }
         h1, h2, .serif { font-family: 'Playfair Display', serif; }
 
-        /* Navigation - Removed Testimonials */
+        /* Navigation */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 25px 8%; position: fixed; width: 100%; top: 0;
@@ -26,10 +28,9 @@
         }
         .logo { font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; }
         .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
-        
+        .nav-links a { text-decoration: none; color: var(--dark); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
         .nav-cta { 
-            background: var(--dark-grey); color: white; border: none; 
+            background: var(--dark); color: white; border: none; 
             padding: 12px 28px; font-size: 10px; letter-spacing: 2px; 
             text-transform: uppercase; cursor: pointer; transition: var(--transition);
         }
@@ -40,25 +41,37 @@
             justify-content: center; align-items: center; text-align: center;
             background-color: var(--beige); padding: 0 10%;
         }
-        .hero h1 { font-size: clamp(40px, 6vw, 80px); margin-bottom: 20px; line-height: 1.1; font-weight: 400; }
-        .hero p { max-width: 650px; font-size: 1.2rem; margin-bottom: 40px; font-weight: 300; }
+        .hero h1 { font-size: clamp(40px, 6vw, 80px); margin-bottom: 20px; line-height: 1.1; }
+        .hero p { max-width: 650px; font-size: 1.2rem; color: #555; margin-bottom: 40px; font-weight: 300; }
 
-        /* Grey Services Preview */
-        .services-scroll { background: var(--dark-grey); color: var(--white); padding: 100px 10%; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 50px; }
-        .service-item h3 { color: var(--stone-grey); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 15px; }
-        .service-item p { font-size: 0.95rem; opacity: 0.8; font-weight: 200; }
+        /* Services Preview (Hire Us For) */
+        .services-preview { background: var(--rust); color: var(--white); padding: 100px 10%; }
+        .services-preview h2 { font-size: 2.5rem; margin-bottom: 50px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .service-item h3 { color: var(--gold); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 15px; }
+        .service-item p { font-size: 0.95rem; opacity: 0.9; font-weight: 300; }
 
-        /* Permanent Contact Footer - Grey Background */
-        .footer-contact { padding: 120px 10%; text-align: center; background: var(--beige); border-top: 1px solid #eee; }
-        .footer-contact h2 { font-size: 2.5rem; font-weight: 200; margin-bottom: 30px; color: var(--dark-grey); }
+        /* About Preview */
+        .about-preview { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; padding: 120px 10%; align-items: center; background: var(--cream); }
+        .about-image { background: #ddd; height: 500px; overflow: hidden; }
+        .about-image img { width: 100%; height: 100%; object-fit: cover; }
+        .about-text h2 { font-size: 2.5rem; margin-bottom: 25px; }
+        .about-text p { font-size: 1.1rem; color: #444; margin-bottom: 30px; }
+
+        /* Global Footer Contact */
+        .footer-cta { padding: 120px 10%; text-align: center; background: var(--beige); border-top: 1px solid #eee; }
+        .footer-cta h2 { font-size: 2.5rem; font-weight: 200; margin-bottom: 30px; }
         
-        footer { padding: 60px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--stone-grey); background: var(--white); }
+        footer { padding: 60px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: #999; background: var(--white); }
 
+        /* Animations */
         .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        @media (max-width: 768px) { .nav-links { display: none; } }
+        @media (max-width: 768px) { 
+            .about-preview { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -70,43 +83,57 @@
             <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="process.html">Process</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
         <button class="nav-cta" onclick="location.href='contact.html'">Inquire</button>
     </nav>
 
-    <section id="home" class="hero">
+    <section class="hero">
         <h1 class="reveal">Doing it all is costing you more than you think.</h1>
-        <p class="reveal serif" style="font-style: italic; color: var(--dark-grey); font-size: 1.5rem; margin-bottom: 20px;">Delegate. Grow. Bloom.</p>
-        <p class="reveal">Reclaim your time with elite virtual assistant support built for high performers.</p>
-        <button class="nav-cta reveal" onclick="document.getElementById('services').scrollIntoView()">Explore Services</button>
+        <p class="reveal serif" style="font-style: italic; color: var(--rust); font-size: 1.5rem; margin-bottom: 20px;">Delegate. Grow. Bloom.</p>
+        <p class="reveal">Reclaim your time and focus with elite virtual assistant support built for high performers.</p>
+        <button class="nav-cta reveal" onclick="document.getElementById('about').scrollIntoView()">Discover Your Solution</button>
     </section>
 
-    <section id="services" class="services-scroll">
+    <section class="services-preview">
         <h2 class="reveal">Hire Us For</h2>
         <div class="services-grid">
             <div class="service-item reveal">
-                <h3>Executive Support</h3>
-                <p>Inbox, calendar, and high-level travel management.</p>
+                <h3>Operational Efficiency</h3>
+                <p>We manage your inbox, calendars, and SOPs, freeing you to focus on growth, not admin.</p>
             </div>
             <div class="service-item reveal">
-                <h3>Operations</h3>
-                <p>SOP documentation and workflow optimization.</p>
+                <h3>Client Experience Support</h3>
+                <p>From onboarding to follow-ups, we ensure your clients feel supported and never fall through the cracks.</p>
             </div>
             <div class="service-item reveal">
-                <h3>Client Care</h3>
-                <p>Premium onboarding and relationship management.</p>
+                <h3>Executive Leverage</h3>
+                <p>Delegate tasks like CRM updates and vendor coordination to focus on high-impact decision-making.</p>
             </div>
         </div>
     </section>
 
-    <section class="footer-contact">
-        <h2 class="reveal">Ready to scale?</h2>
-        <button class="nav-cta reveal" onclick="location.href='contact.html'">Begin Partnership</button>
+    <section id="about" class="about-preview">
+        <div class="about-text reveal">
+            <h2>About Us.</h2>
+            <p>At SOAR, we believe every successful business deserves behind-the-scenes support that is just as dynamic as its front-facing operations.</p>
+            <p>We are a premium virtual assistant agency designed for entrepreneurs who value precision, initiative, and discretion.</p>
+            <button class="nav-cta" style="background: transparent; color: var(--dark); border: 1px solid var(--dark);" onclick="location.href='about.html'">Read Our Story</button>
+        </div>
+        <div class="about-image reveal">
+            <img src="founder.jpg" alt="SOAR Team">
+        </div>
+    </section>
+
+    <section class="footer-cta">
+        <h2 class="reveal">Ready to reclaim your time?</h2>
+        <button class="nav-cta reveal" onclick="location.href='contact.html'">Begin the Partnership</button>
     </section>
 
     <footer>
-        &copy; 2026 SOAR AGENCY | NAIROBI, KENYA
+        <p>Nairobi, Kenya | info@soar-executive.com</p>
+        <div style="margin-top: 20px;">&copy; 2026 SOAR AGENCY | KES & INTERNATIONAL</div>
     </footer>
 
     <script>
