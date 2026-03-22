@@ -11,11 +11,12 @@
             --charcoal: #333638;
             --dark-grey: #4A4E51;
             --stone-grey: #A8A8A8;
+            --light-grey: #F0F0F0; /* New Beautiful Light Grey Background */
             --white: #FFFFFF;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.8; }
+        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--light-grey); line-height: 1.8; }
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; font-weight: 400; }
 
         /* NAVIGATION */
@@ -28,35 +29,51 @@
         .logo a { text-decoration: none; color: var(--charcoal); font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; }
         .nav-links { display: flex; gap: 30px; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
-        .nav-cta { background: var(--charcoal); color: white; border: none; padding: 12px 28px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; }
+        .nav-cta { background: var(--charcoal); color: white; border: none; padding: 12px 28px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
+        .nav-cta:hover { opacity: 0.8; }
 
-        /* FULL HEIGHT SCROLL SECTIONS */
-        .process-step {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 15%;
-            position: relative;
+        /* PROCESS LAYOUT */
+        .process-container {
+            padding: 150px 10% 100px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        /* GREY THEME (Steps 1 & 3) */
-        .bg-grey { background-color: var(--charcoal); color: var(--white); }
-        .bg-grey .step-number { color: var(--stone-grey); }
-        .bg-grey .serif-text { color: var(--white); }
-        .bg-grey p { color: #D1D1D1; }
+        .process-header { text-align: center; margin-bottom: 80px; }
+        .process-header h1 { font-size: clamp(40px, 8vw, 70px); color: var(--charcoal); margin-bottom: 20px; }
+        .process-header p { text-transform: uppercase; letter-spacing: 3px; font-size: 12px; color: var(--stone-grey); }
 
-        /* BEIGE THEME (Step 2) */
-        .bg-beige { background-color: var(--beige); color: var(--charcoal); }
-        .bg-beige .step-number { color: var(--stone-grey); }
+        /* BEIGE CARDS */
+        .step-card {
+            background: var(--beige);
+            margin-bottom: 40px;
+            padding: 80px 10%;
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 40px;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-radius: 2px; /* Subtle high-end sharp edges */
+        }
 
-        /* TYPOGRAPHY */
-        .step-number { font-size: 12px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; display: block; }
-        .process-step h2 { font-size: clamp(35px, 6vw, 70px); line-height: 1.2; margin-bottom: 30px; }
-        .process-step p { max-width: 700px; font-size: 1.1rem; font-weight: 300; margin-bottom: 40px; }
+        .step-number { 
+            font-size: 12px; 
+            letter-spacing: 5px; 
+            text-transform: uppercase; 
+            color: var(--stone-grey); 
+            transform: rotate(-90deg);
+            white-space: nowrap;
+        }
+
+        .step-content h2 { font-size: clamp(30px, 4vw, 45px); line-height: 1.2; margin-bottom: 25px; color: var(--charcoal); }
+        .step-content p { font-size: 1.1rem; font-weight: 300; max-width: 700px; color: var(--dark-grey); }
         .serif-text { font-style: italic; }
+
+        /* FINAL CTA SECTION */
+        .final-cta {
+            text-align: center;
+            padding: 100px 0;
+        }
 
         /* FOOTER */
         footer { padding: 80px 10%; text-align: center; background: var(--white); border-top: 1px solid #eee; }
@@ -65,7 +82,9 @@
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .process-step { padding: 0 8%; }
+            .step-card { grid-template-columns: 1fr; text-align: center; padding: 60px 8%; }
+            .step-number { transform: none; margin-bottom: 20px; }
+            .step-content p { margin: 0 auto; }
         }
     </style>
 </head>
@@ -74,41 +93,3 @@
     <nav>
         <div class="logo"><a href="index.html">SOAR</a></div>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="process.html">Process</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <button class="nav-cta" onclick="location.href='contact.html'">Inquire</button>
-    </nav>
-
-    <section class="process-step bg-grey">
-        <span class="step-number">Step 01</span>
-        <h2>Book Free <br><i class="serif-text">Consultation Call</i></h2>
-        <p>Schedule a no-pressure discovery call to tell us more about your business, workload, and where you need support. We’ll listen, ask the right questions, and offer initial guidance on where a VA can make the biggest impact.</p>
-        <div style="font-size: 2rem; opacity: 0.5;">📞</div>
-    </section>
-
-    <section class="process-step bg-beige">
-        <span class="step-number">Step 02</span>
-        <h2>Get Matched with <br><i class="serif-text">the Right VA</i></h2>
-        <p>Based on your unique business needs, we thoughtfully assign a dedicated virtual assistant with relevant industry experience and a communication style that complements yours. You'll receive a detailed profile outlining their expertise.</p>
-        <div style="font-size: 2rem; opacity: 0.5;">🎯</div>
-    </section>
-
-    <section class="process-step bg-grey">
-        <span class="step-number">Step 03</span>
-        <h2>Seamless Onboarding <br><i class="serif-text">& Ongoing Support</i></h2>
-        <p>After the match is confirmed, we guide your assistant through a tailored onboarding process aligned with your workflows. Our team remains available to ensure integration is smooth and your goals are met from day one.</p>
-        <button class="nav-cta" style="padding: 20px 40px; margin-top: 20px;" onclick="location.href='contact.html'">Start Delegating with Confidence</button>
-    </section>
-
-    <footer>
-        <div class="footer-logo">SOAR</div>
-        <p class="footer-tag">Serving Visionary Leaders Worldwide</p>
-        <p style="font-size: 9px; margin-top: 40px; color: var(--stone-grey); letter-spacing: 1px;">&copy; 2026 SOAR EXECUTIVE OPERATIONS | KES & INTERNATIONAL</p>
-    </footer>
-
-</body>
-</html>
