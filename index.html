@@ -7,169 +7,139 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --black: #1a1a1a;
+            --beige: #f5f2ed; /* The Bloom Beige */
+            --dark: #1a1a1a;
             --white: #ffffff;
-            --light-grey: #f8f8f8;
-            --gold-accent: #c5a47e; /* Sophisticated accent like Bloom */
+            --gold: #c5a47e;
         }
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0; padding: 0; color: var(--black); line-height: 1.7;
-        }
+
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; margin: 0; color: var(--dark); line-height: 1.6; background: var(--white); overflow-x: hidden; }
         
-        /* Navigation */
-        nav {
-            padding: 30px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #eee;
-        }
-        .logo { font-weight: 600; letter-spacing: 5px; text-transform: uppercase; font-size: 20px; }
+        /* Bloom-Style Nav */
+        nav { padding: 30px 10%; display: flex; justify-content: space-between; align-items: center; text-transform: uppercase; letter-spacing: 3px; font-size: 12px; background: var(--white); position: sticky; top: 0; z-index: 1000; }
 
-        /* Hero Section - The big "First Impression" */
-        .hero {
-            padding: 140px 10%;
-            text-align: center;
-            background-color: var(--white);
-        }
-        .hero h1 {
-            font-size: clamp(32px, 5vw, 60px);
-            font-weight: 200;
-            letter-spacing: -1px;
-            margin-bottom: 25px;
-            text-transform: capitalize;
-        }
-        .hero p {
-            font-size: 18px;
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            font-weight: 300;
-        }
+        /* Animation Classes */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Buttons */
-        .cta {
-            background-color: var(--black);
-            color: white;
-            padding: 18px 40px;
-            text-decoration: none;
-            font-size: 12px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            transition: 0.3s;
-            display: inline-block;
-        }
-        .cta:hover { background-color: var(--gold-accent); }
+        /* Hero Section */
+        .hero { padding: 150px 10%; text-align: center; background-color: var(--beige); }
+        .hero h1 { font-size: clamp(35px, 5vw, 65px); font-weight: 200; margin-bottom: 25px; letter-spacing: -1px; }
+        .hero p { font-size: 18px; color: #555; max-width: 650px; margin: 0 auto 40px; font-weight: 300; }
 
-        /* Services Section */
-        .services {
-            padding: 100px 10%;
-            background-color: var(--light-grey);
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        .service-card {
-            background: white;
-            padding: 40px;
-            border: 1px solid #eee;
-        }
-        .service-card h3 {
-            font-size: 14px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            color: var(--gold-accent);
-        }
+        .cta { background: var(--dark); color: white; padding: 18px 40px; text-decoration: none; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; transition: 0.3s; display: inline-block; }
+        .cta:hover { background: var(--gold); transform: translateY(-2px); }
 
-        /* "How It Works" Section (Crucial for Bloom style) */
-        .how-it-works {
-            padding: 100px 10%;
-            text-align: center;
-        }
-        .step-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 60px;
-            flex-wrap: wrap;
-        }
-        .step {
-            flex: 1;
-            padding: 20px;
-            min-width: 200px;
-        }
-        .step-num {
-            font-size: 40px;
-            font-weight: 100;
-            color: var(--gold-accent);
-            display: block;
-            margin-bottom: 10px;
-        }
+        /* General Section Styling */
+        section { padding: 100px 10%; }
+        .section-title { text-align: center; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 70px; font-size: 14px; color: var(--gold); }
 
-        /* Footer */
-        footer {
-            padding: 60px 10%;
-            background: var(--black);
-            color: white;
-            text-align: center;
-            font-size: 12px;
-            letter-spacing: 2px;
-        }
+        /* Services Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .card { background: var(--beige); padding: 50px; border-radius: 4px; text-align: center; }
+        .card h3 { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
+
+        /* How It Works (Minimalist Steps) */
+        .steps { display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; text-align: center; }
+        .step { flex: 1; min-width: 200px; padding: 20px; }
+        .step-num { font-size: 45px; font-weight: 100; color: var(--gold); display: block; margin-bottom: 15px; }
+
+        /* Founder Section (Beige background) */
+        .founder { display: flex; align-items: center; flex-wrap: wrap; gap: 60px; background: var(--beige); }
+        .founder-img { flex: 1; min-width: 300px; text-align: center; }
+        .founder-img img { width: 100%; max-width: 450px; border-radius: 2px; filter: grayscale(20%); }
+        .founder-text { flex: 1; min-width: 300px; }
+
+        footer { padding: 60px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; opacity: 0.6; border-top: 1px solid #eee; }
+
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">SOAR</div>
-        <div style="font-size: 12px; letter-spacing: 1px;">EXECUTIVE SUPPORT</div>
+        <div style="font-weight: 600;">SOAR</div>
+        <div>EXECUTIVE OPERATIONS</div>
     </nav>
 
-    <section class="hero">
-        <h1>High-Level Leverage for Visionary Leaders.</h1>
-        <p>We provide elite executive assistance and operational systems, allowing you to focus on growth while we handle the precision of your daily operations.</p>
-        <a href="mailto:your-email@soar.com" class="cta">Book Your Consultation</a>
+    <header class="hero">
+        <div class="reveal active">
+            <h1>Elevate Your Impact.</h1>
+            <p>Bespoke executive support and high-level management accounting for visionaries who need space to lead.</p>
+            <a href="mailto:your-email@example.com" class="cta">Book Your Consultation</a>
+        </div>
+    </header>
+
+    <section id="services">
+        <h2 class="section-title reveal">Our Services</h2>
+        <div class="grid reveal">
+            <div class="card">
+                <h3>Executive Admin</h3>
+                <p>High-touch calendar, travel, and lifestyle management for C-suite leaders.</p>
+            </div>
+            <div class="card">
+                <h3>Management Accounting</h3>
+                <p>Strategic oversight of costs, variances, and operational budgets.</p>
+            </div>
+            <div class="card">
+                <h3>Systems Strategy</h3>
+                <p>Building the SOPs and workflows that allow your agency to scale seamlessly.</p>
+            </div>
+        </div>
     </section>
 
-    <section class="services">
-        <div class="service-card">
-            <h3>Executive Admin</h3>
-            <p>Calendar management, travel coordination, and inbox "zero" strategy for C-Suite leaders.</p>
-        </div>
-        <div class="service-card">
-            <h3>Operations</h3>
-            <p>SOP creation, project management, and CRM maintenance to keep your business running like a machine.</p>
-        </div>
-        <div class="service-card">
-            <h3>Client Experience</h3>
-            <p>Professional onboarding and high-touch communication so your clients feel supported and valued.</p>
+    <section style="background-color: #fafafa;">
+        <h2 class="section-title reveal">The Process</h2>
+        <div class="steps reveal">
+            <div class="step">
+                <span class="step-num">01</span>
+                <h4>Audit</h4>
+                <p>A deep analysis of your current bottlenecks and operations.</p>
+            </div>
+            <div class="step">
+                <span class="step-num">02</span>
+                <h4>Integration</h4>
+                <p>We deploy high-level systems tailored to your specific goals.</p>
+            </div>
+            <div class="step">
+                <span class="step-num">03</span>
+                <h4>Scale</h4>
+                <p>Ongoing support that grows with your agency’s demands.</p>
+            </div>
         </div>
     </section>
 
-    <section class="how-it-works">
-        <h2 style="font-weight: 300; letter-spacing: 3px;">HOW IT WORKS</h2>
-        <div class="step-container">
-            <div class="step">
-                <span class="step-num">01.</span>
-                <h4>Discovery Call</h4>
-                <p>We identify your bottlenecks and growth opportunities.</p>
-            </div>
-            <div class="step">
-                <span class="step-num">02.</span>
-                <h4>Matching</h4>
-                <p>We align you with a dedicated VA who understands your industry.</p>
-            </div>
-            <div class="step">
-                <span class="step-num">03.</span>
-                <h4>Onboarding</h4>
-                <p>Seamless integration into your current tools and workflows.</p>
-            </div>
+    <section class="founder">
+        <div class="founder-img reveal">
+            <img src="founder.jpg" alt="Founder of SOAR">
+        </div>
+        <div class="founder-text reveal">
+            <h2 style="font-weight: 300; letter-spacing: 2px;">MEET THE FOUNDER</h2>
+            <p>At SOAR, we don't just "assist." We partner. My mission is to provide the operational leverage necessary for leaders to step back from the weeds and back into their genius.</p>
+            <p>Currently offering a <strong>one-week trial</strong> for select agency partners.</p>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 SOAR AGENCY. ALL RIGHTS RESERVED.</p>
+        &copy; 2026 SOAR AGENCY | KES & INTERNATIONAL OPS
     </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Run once on load
+        reveal();
+    </script>
 
 </body>
 </html>
