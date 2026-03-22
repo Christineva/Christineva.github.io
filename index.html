@@ -8,6 +8,7 @@
     <style>
         :root {
             --beige: #F5F2ED;
+            --charcoal: #333638; /* The new refined grey */
             --dark-grey: #4A4E51;
             --stone-grey: #A8A8A8;
             --white: #FFFFFF;
@@ -20,36 +21,36 @@
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 25px 8%; position: fixed; width: 100%; top: 0;
-            background: white; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
+            background: rgba(255, 255, 255, 0.98); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .logo { font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; }
+        .logo { font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; color: var(--charcoal); }
         .nav-links { display: flex; gap: 30px; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
         
         .nav-cta { 
-            background: var(--dark-grey); color: white; border: none; 
+            background: var(--charcoal); color: white; border: none; 
             padding: 12px 28px; font-size: 10px; letter-spacing: 2px; 
             text-transform: uppercase; cursor: pointer;
         }
 
-        /* Hero Section - The "Bloom" Look */
+        /* Hero Section */
         .hero {
             height: 100vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
             background-color: var(--beige); padding: 0 10%;
         }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(40px, 8vw, 80px); margin-bottom: 20px; line-height: 1.1; }
-        .hero .tagline { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2rem; margin-bottom: 30px; }
-        .hero p { max-width: 600px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--stone-grey); }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(40px, 8vw, 80px); margin-bottom: 20px; line-height: 1.1; color: var(--charcoal); }
+        .hero .tagline { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.2rem; margin-bottom: 30px; color: var(--charcoal); }
+        .hero p { max-width: 600px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--stone-grey); }
 
-        /* Services Preview Strip */
-        .services-strip { background: var(--dark-grey); color: white; padding: 100px 10%; text-align: center; }
-        .services-strip h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 50px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .item h3 { font-size: 1.2rem; margin-bottom: 15px; }
-        .item p { font-size: 0.9rem; opacity: 0.8; font-weight: 200; }
+        /* Services Strip - Now using Charcoal */
+        .services-strip { background: var(--charcoal); color: white; padding: 120px 10%; text-align: center; }
+        .services-strip h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 60px; letter-spacing: 1px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 60px; }
+        .item h3 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; color: var(--stone-grey); }
+        .item p { font-size: 0.95rem; opacity: 0.9; font-weight: 200; line-height: 1.8; }
 
-        footer { padding: 60px 10%; text-align: center; background: var(--beige); color: var(--stone-grey); font-size: 10px; letter-spacing: 2px; }
+        footer { padding: 80px 10%; text-align: center; background: var(--beige); color: var(--stone-grey); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
     </style>
 </head>
 <body>
@@ -68,7 +69,7 @@
     <section class="hero">
         <h1>Doing it all is costing you <br>more than you think.</h1>
         <div class="tagline">Delegate and Soar.</div>
-        <p>Elite Executive Support for Visionary Leaders Worldwide</p>
+        <p>Strategic Executive Support for Visionary Leaders Worldwide</p>
     </section>
 
     <section class="services-strip">
@@ -76,15 +77,15 @@
         <div class="grid">
             <div class="item">
                 <h3>Efficiency</h3>
-                <p>Inbox, calendar, and high-level operations management.</p>
+                <p>Inbox, calendar, and high-level travel management—executed with absolute precision.</p>
             </div>
             <div class="item">
                 <h3>Client Care</h3>
-                <p>Premium onboarding and relationship management.</p>
+                <p>Premium onboarding and white-glove relationship management for your high-value stakeholders.</p>
             </div>
             <div class="item">
-                <h3>Strategy</h3>
-                <p>Workflow optimization and executive leverage.</p>
+                <h3>Operations</h3>
+                <p>Workflow optimization and system builds that turn chaos into scalable executive leverage.</p>
             </div>
         </div>
     </section>
