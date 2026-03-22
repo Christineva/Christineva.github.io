@@ -3,140 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOAR | Executive Operations Agency</title>
-    
+    <title>SOAR | Executive Operations</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    
     <style>
-        /* --- 1. DESIGN SYSTEM --- */
         :root {
             --beige: #F5F2ED;
             --dark: #1A1A1A;
             --gold: #C5A47E;
             --white: #FFFFFF;
-            --soft-grey: #707070;
-            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            color: var(--dark); 
-            background-color: var(--white);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+        body { font-family: 'Inter', sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; overflow-x: hidden; }
 
-        /* --- 2. NAVIGATION --- */
+        /* NAV FIX: Adding all pages and making it slim */
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 8%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 25px 8%; position: fixed; width: 100%; top: 0;
+            background: rgba(255, 255, 255, 0.98); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .logo { font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.2rem; }
+        .logo { font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; }
         .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--dark); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+        
         .nav-cta { 
             background: var(--dark); color: white; border: none; 
-            padding: 12px 25px; font-size: 10px; letter-spacing: 2px; 
+            padding: 12px 28px; font-size: 10px; letter-spacing: 2px; 
             text-transform: uppercase; cursor: pointer; transition: var(--transition);
         }
-        .nav-cta:hover { background: var(--gold); }
+        .nav-cta:hover { background: var(--gold); transform: translateY(-2px); }
 
-        /* --- 3. HERO SECTION --- */
+        /* HERO FIX: Adding the "Bloom" airy feel */
         .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-color: var(--beige);
-            padding: 0 10%;
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            background-color: var(--beige); padding: 0 10%;
         }
-        .hero h1 { 
-            font-size: clamp(40px, 8vw, 80px); 
-            font-weight: 200; 
-            margin-bottom: 25px; 
-            letter-spacing: -2px;
-            line-height: 1.1;
-        }
-        .hero p { 
-            max-width: 600px; 
-            font-size: 1.2rem; 
-            color: var(--soft-grey); 
-            font-weight: 300;
-            margin-bottom: 40px;
-        }
+        .hero h1 { font-size: clamp(45px, 7vw, 90px); font-weight: 200; margin-bottom: 25px; letter-spacing: -2px; line-height: 1.1; }
+        .hero p { max-width: 600px; font-size: 1.1rem; color: #666; font-weight: 300; margin-bottom: 40px; letter-spacing: 0.5px; }
 
-        /* --- 4. SECTIONS & GRIDS --- */
+        /* SERVICES SECTION */
         section { padding: 120px 10%; }
-        .section-header { text-align: center; margin-bottom: 80px; }
-        .section-header h2 { font-weight: 300; text-transform: uppercase; letter-spacing: 5px; font-size: 1.5rem; }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        .service-card {
-            background: var(--beige);
-            padding: 60px 40px;
-            transition: var(--transition);
-        }
-        .service-card:hover { transform: translateY(-10px); background: #eeebe6; }
-        .service-card h3 { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; color: var(--gold); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 60px; }
+        .service-card { background: var(--beige); padding: 60px 40px; transition: var(--transition); border: 1px solid transparent; }
+        .service-card:hover { border-color: var(--gold); background: #fff; }
+        .service-card h3 { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; color: var(--gold); }
 
-        /* --- 5. FOUNDER SECTION --- */
-        .founder-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; background: var(--white); }
-        .founder-img { background: var(--beige); height: 600px; overflow: hidden; }
-        .founder-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
-        .founder-text h2 { font-size: 2.5rem; font-weight: 200; margin-bottom: 30px; }
-
-        /* --- 6. PROCESS --- */
-        .process-row { display: flex; justify-content: space-between; gap: 40px; margin-top: 50px; }
-        .process-step { flex: 1; border-top: 1px solid var(--dark); padding-top: 30px; }
-        .step-num { font-size: 0.8rem; font-weight: 600; display: block; margin-bottom: 15px; color: var(--gold); }
-
-        /* --- 7. TESTIMONIALS --- */
-        .testimonials { background: var(--beige); text-align: center; }
-        .testimonial-text { font-size: 1.5rem; font-style: italic; font-weight: 300; max-width: 800px; margin: 0 auto 30px; }
-
-        /* --- 8. MODAL --- */
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
-            display: none; justify-content: center; align-items: center;
-            z-index: 2000;
-        }
-        .modal-content {
-            background: var(--white); padding: 60px; max-width: 500px; width: 90%;
-            position: relative; text-align: center;
-        }
-        .close-modal { position: absolute; top: 20px; right: 20px; font-size: 2rem; cursor: pointer; border: none; background: none; }
-        
-        input, textarea { 
-            width: 100%; padding: 15px; margin-bottom: 15px; 
-            border: 1px solid #ddd; font-family: 'Inter', sans-serif; 
-        }
-
-        /* --- 9. ANIMATIONS --- */
-        .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); }
+        /* REVEAL ANIMATION */
+        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        @media (max-width: 768px) {
-            .founder-section { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .process-row { flex-direction: column; }
-        }
+        @media (max-width: 768px) { .nav-links { display: none; } }
     </style>
 </head>
 <body>
@@ -151,116 +69,41 @@
             <li><a href="testimonials.html">Testimonials</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-        <button class="nav-cta open-modal">Apply Now</button>
+        <button class="nav-cta" onclick="location.href='contact.html'">Inquire</button>
     </nav>
 
     <section class="hero">
         <h1 class="reveal">The New Standard of Support.</h1>
         <p class="reveal">High-level executive operations and strategic leverage for industry leaders.</p>
-        <button class="nav-cta open-modal reveal">Book a Discovery Call</button>
+        <button class="nav-cta reveal" onclick="location.href='contact.html'">Book a Discovery Call</button>
     </section>
 
     <section id="services">
-        <div class="section-header reveal">
-            <h2>Capabilities</h2>
-        </div>
+        <h2 style="text-align: center; font-weight: 200; text-transform: uppercase; letter-spacing: 5px;">Capabilities</h2>
         <div class="services-grid">
             <div class="service-card reveal">
                 <h3>Executive Admin</h3>
-                <p>Sophisticated calendar management, travel logistics, and inbox gatekeeping.</p>
+                <p>Sophisticated calendar management and inbox gatekeeping.</p>
             </div>
             <div class="service-card reveal">
                 <h3>Ops & Strategy</h3>
-                <p>SOP design, management accounting, and technical workflow automation.</p>
+                <p>Management accounting and technical workflow automation.</p>
             </div>
             <div class="service-card reveal">
-                <h3>Client Experience</h3>
-                <p>Elite onboarding and high-touch communication for your premium clients.</p>
+                <h3>Experience</h3>
+                <p>Elite onboarding for your premium clients.</p>
             </div>
         </div>
     </section>
-
-    <section id="about" class="founder-section">
-        <div class="founder-img reveal">
-            <img src="founder.jpg" alt="Christine - Founder of SOAR">
-        </div>
-        <div class="founder-text reveal">
-            <h2>The Vision Behind SOAR.</h2>
-            <p>We partner with visionary founders to clear the operational noise. Our mission is to protect your time so you can focus on the big-picture strategy.</p>
-            <p style="margin-top: 20px; color: var(--gold); font-weight: 500;">Currently accepting select agency partnerships for 2026.</p>
-        </div>
-    </section>
-
-    <section id="process">
-        <div class="section-header reveal">
-            <h2>The Methodology</h2>
-        </div>
-        <div class="process-row">
-            <div class="process-step reveal">
-                <span class="step-num">01 / AUDIT</span>
-                <p>We analyze your current bottlenecks and hidden operational leaks.</p>
-            </div>
-            <div class="process-step reveal">
-                <span class="step-num">02 / STRATEGY</span>
-                <p>We build a custom executive support plan tailored to your lifestyle.</p>
-            </div>
-            <div class="process-step reveal">
-                <span class="step-num">03 / ELEVATE</span>
-                <p>Seamless integration and ongoing management of your business ops.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonials">
-        <div class="reveal">
-            <p class="testimonial-text">"SOAR transformed our daily operations. I finally have the mental space to lead again."</p>
-            <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 11px;">— Founder, Tech Agency</p>
-        </div>
-    </section>
-
-    <section style="text-align: center; background: var(--white);">
-        <h2 class="reveal" style="font-weight: 200; font-size: 2.5rem; margin-bottom: 30px;">Ready to Scale?</h2>
-        <button class="nav-cta open-modal reveal">Inquire Today</button>
-    </section>
-
-    <footer style="padding: 60px 10%; text-align: center; border-top: 1px solid #eee; font-size: 10px; letter-spacing: 2px; color: #999;">
-        &copy; 2026 SOAR AGENCY | KES & INTERNATIONAL
-    </footer>
-
-    <div class="modal-overlay" id="contactModal">
-        <div class="modal-content">
-            <button class="close-modal">&times;</button>
-            <h2 style="font-weight: 300; margin-bottom: 20px;">Begin the Partnership</h2>
-            <form action="mailto:contact@evachristine.com" method="post" enctype="text/plain">
-                <input type="text" name="name" placeholder="Full Name" required>
-                <input type="email" name="email" placeholder="Email Address" required>
-                <textarea name="message" rows="4" placeholder="How can we help?"></textarea>
-                <button type="submit" class="nav-cta" style="width: 100%;">Send Inquiry</button>
-            </form>
-        </div>
-    </div>
 
     <script>
-        // Modal Logic
-        const modal = document.getElementById('contactModal');
-        const openBtns = document.querySelectorAll('.open-modal');
-        const closeBtn = document.querySelector('.close-modal');
-
-        openBtns.forEach(btn => btn.onclick = () => modal.style.display = 'flex');
-        closeBtn.onclick = () => modal.style.display = 'none';
-        window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; }
-
-        // Scroll Reveal Logic
         const reveal = () => {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(el => {
-                let windowHeight = window.innerHeight;
-                let elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) el.classList.add('active');
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
             });
         };
         window.addEventListener('scroll', reveal);
-        reveal(); // Run on load
+        reveal();
     </script>
 </body>
 </html>
