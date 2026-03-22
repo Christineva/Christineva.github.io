@@ -6,22 +6,103 @@
     <title>About | SOAR Executive Operations</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
-        :root { --beige: #F5F2ED; --dark-grey: #4A4E51; --stone-grey: #A8A8A8; --white: #FFFFFF; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.6; }
-        nav { display: flex; justify-content: space-between; padding: 25px 8%; position: sticky; top: 0; background: white; z-index: 1000; border-bottom: 1px solid #eee; }
-        .nav-links { display: flex; gap: 30px; list-style: none; }
+        :root {
+            --beige: #F5F2ED;
+            --dark-grey: #4A4E51;
+            --stone-grey: #A8A8A8;
+            --white: #FFFFFF;
+            --transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.8; overflow-x: hidden; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; font-weight: 400; }
+
+        /* Navigation */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 30px 8%; position: fixed; width: 100%; top: 0;
+            background: rgba(255, 255, 255, 0.95); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.03);
+        }
+        .logo { font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; }
+        .nav-links { display: flex; gap: 35px; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
-        .content-hero { padding: 100px 10%; background: var(--beige); text-align: center; }
-        .content-hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 400; }
-        .bio-section { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding: 80px 10%; align-items: center; }
-        .bio-image { background: #eee; height: 500px; }
-        .bio-image img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Hero Section */
+        .about-hero {
+            height: 90vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            background-color: var(--beige); padding: 0 10%;
+        }
+        .about-hero h1 { font-size: clamp(40px, 8vw, 90px); line-height: 1.1; margin-bottom: 30px; }
+
+        section { padding: 120px 10%; }
+
+        /* Story Split */
+        .story-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .story-image { height: 600px; background: #ddd; overflow: hidden; }
+        .story-image img { width: 100%; height: 100%; object-fit: cover; }
+        .story-text h2 { font-size: 2.5rem; margin-bottom: 30px; }
+
+        /* Wide Banner Image (Right after first picture) */
+        .wide-banner {
+            width: 100%; height: 250px; /* Thin like a footer */
+            background: #eee; overflow: hidden;
+            padding: 0; margin: 40px 0;
+        }
+        .wide-banner img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Floating Testimonials Ticker */
+        .testimonial-ticker {
+            background: var(--dark-grey);
+            padding: 80px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        .ticker-track {
+            display: inline-flex;
+            animation: scroll 40s linear infinite;
+        }
+        .testimonial-item {
+            color: var(--white);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            margin: 0 100px;
+            opacity: 0.9;
+            font-weight: 200;
+        }
+        .testimonial-item span {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-style: normal;
+            font-size: 10px;
+            letter-spacing: 3px;
+            margin-top: 15px;
+            color: var(--stone-grey);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Final CTA */
+        .quote-section { text-align: center; padding: 120px 10%; }
+
+        footer { padding: 80px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--stone-grey); border-top: 1px solid #eee; }
+
+        .reveal { opacity: 0; transform: translateY(50px); transition: var(--transition); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 992px) { .story-split { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
+
     <nav>
-        <div style="font-weight: 600; letter-spacing: 4px;">SOAR</div>
+        <div class="logo">SOAR</div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
@@ -30,17 +111,34 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-    <section class="content-hero">
-        <h1>The Visionary Behind the Operations.</h1>
+
+    <section class="about-hero">
+        <h1 class="reveal">Built for the <br><span class="serif" style="font-style: italic;">Visionary.</span></h1>
+        <p class="reveal" style="letter-spacing: 3px; text-transform: uppercase; font-size: 11px;">Elite Operational Support</p>
     </section>
-    <section class="bio-section">
-        <div class="bio-image">
-             <img src="founder.jpg" alt="Founder">
+
+    <section class="story-split">
+        <div class="story-image reveal">
+            <img src="founder.jpg" alt="Christine - Founder">
         </div>
-        <div>
-            <h2 style="font-family: 'Playfair Display'; margin-bottom: 20px;">Precision. Partnership. Purpose.</h2>
-            <p>I launched SOAR to bridge the gap between high-level vision and daily execution. As a Virtual Assistant specializing in executive operations, I handle the complexity so you can focus on your "zone of genius."</p>
+        <div class="story-text reveal">
+            <h2>The Standard of Support.</h2>
+            <p>Operations shouldn't just be about checking boxes; it’s about strategic partnership. I built SOAR to offer a higher standard of support for founders ready to scale.</p>
         </div>
     </section>
-</body>
-</html>
+
+    <div class="wide-banner reveal">
+        <img src="banner.jpg" alt="Operational Excellence">
+    </div>
+
+    <section class="mission reveal">
+        <h2 style="font-size: 3rem; text-align: center; margin-bottom: 40px;">Our Philosophy</h2>
+        <p style="font-size: 1.4rem; text-align: center; max-width: 900px; margin: 0 auto; font-weight: 200;">We believe that high-level growth requires mental space. We handle the operational weight so you can lead from your zone of genius.</p>
+    </section>
+
+    <div class="testimonial-ticker">
+        <div class="ticker-track">
+            <div class="testimonial-item">"Christine’s approach to operations changed how I lead." <span>— CEO, TECH FIRM</span></div>
+            <div class="testimonial-item">"Precision, initiative, and total discretion." <span>— FOUNDER, BLOOM CREATIVE</span></div>
+            <div class="testimonial-item">"The systems put in place allowed us to scale with zero friction." <span>— DIRECTOR, ELITE OPS</span></div>
+            <div class="testimonial-item">"Christine’s approach to operations changed how I lead." <span>— CEO, TECH FIRM</span></div>
