@@ -17,13 +17,15 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; background-color: var(--light-grey); color: var(--charcoal); overflow-x: hidden; }
         
-        /* NAVIGATION */
+        /* NAVIGATION - HEADERS REINSTATED */
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 20px 8%; position: fixed; width: 100%; top: 0; 
+            padding: 25px 8%; position: fixed; width: 100%; top: 0; 
             background: white; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); 
         }
-        .logo a { text-decoration: none; color: var(--charcoal); font-weight: 600; letter-spacing: 4px; text-transform: uppercase; }
+        .logo a { text-decoration: none; color: var(--charcoal); font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--charcoal); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
 
         /* SCROLL LINE */
         .scroll-line {
@@ -32,7 +34,7 @@
             transform: translateX(-50%); z-index: 1;
         }
 
-        .process-wrapper { position: relative; padding: 100px 0; }
+        .process-wrapper { position: relative; padding: 150px 0 100px; }
 
         /* CIRCLE SECTIONS */
         .step-section {
@@ -44,9 +46,9 @@
             width: 600px; height: 600px; background: var(--beige);
             border-radius: 50%; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
-            padding: 60px; border: 8px solid var(--white);
+            padding: 80px; border: 8px solid var(--white);
             box-shadow: 0 20px 50px rgba(0,0,0,0.05);
-            transition: transform 0.5s ease;
+            position: relative;
         }
 
         .step-id {
@@ -55,23 +57,41 @@
             font-weight: 600; margin-bottom: 20px; font-size: 1.2rem;
         }
 
-        h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px; }
-        p { font-size: 1.1rem; line-height: 1.6; color: var(--dark-grey); }
+        h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 20px; line-height: 1.1; }
+        p { font-size: 1.1rem; line-height: 1.6; color: var(--charcoal); font-weight: 300; }
 
-        /* BIRD ANIMATION */
+        /* BIRD ANIMATION - RIGHTMOST CORNER */
         .bird {
-            position: fixed; left: 50%; top: 50%; font-size: 2rem;
-            z-index: 10; transform: translate(-50%, -50%);
-            pointer-events: none; animation: fly 4s infinite ease-in-out;
+            position: fixed; 
+            right: calc(50% - 330px); /* Positioned just outside the 600px circle */
+            top: 50%; font-size: 2.5rem;
+            z-index: 10; transform: translateY(-50%);
+            pointer-events: none; 
+            animation: flyVertical 5s infinite ease-in-out;
         }
 
-        @keyframes fly {
-            0%, 100% { transform: translate(-50%, -150px) rotate(-10deg); }
-            50% { transform: translate(-50%, 150px) rotate(10deg); }
+        @keyframes flyVertical {
+            0%, 100% { transform: translateY(-180px) rotate(-5deg); }
+            50% { transform: translateY(180px) rotate(5deg); }
         }
+
+        /* FOOTER / CONTINUE LINK */
+        .continue-container {
+            text-align: center; padding: 100px 0; background: var(--light-grey);
+        }
+        .continue-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--charcoal); text-decoration: none;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 10px; transition: 0.3s;
+        }
+        .continue-link:hover { letter-spacing: 6px; }
 
         @media (max-width: 768px) {
-            .circle-card { width: 90vw; height: 90vw; padding: 30px; }
+            .nav-links { display: none; }
+            .circle-card { width: 90vw; height: 90vw; padding: 40px; }
+            .bird { right: 10px; font-size: 1.5rem; }
             .scroll-line { display: none; }
         }
     </style>
@@ -80,6 +100,13 @@
 
     <nav>
         <div class="logo"><a href="index.html">SOAR</a></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="process.html">Process</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
     </nav>
 
     <div class="bird">🕊️</div>
@@ -91,8 +118,8 @@
             <div class="circle-card">
                 <div class="step-id">1</div>
                 <h2>Discovery <br><i>Call</i></h2>
-                <p>This is all about <strong>your</strong> vision. We dive deep into your unique business needs, identifying exactly where operational friction is holding you back so we can create a roadmap built for your success.</p>
-                <div style="font-size: 2.5rem; margin-top: 20px;">📞</div>
+                <p>This session is dedicated to <strong>your</strong> needs. We explore your business landscape together to identify operational gaps and design a custom partnership that ensures you can focus on growth while we handle the complexity.</p>
+                <div style="font-size: 2rem; margin-top: 20px; opacity: 0.6;">📞</div>
             </div>
         </section>
 
@@ -100,14 +127,18 @@
             <div class="circle-card">
                 <div class="step-id">2</div>
                 <h2>Seamless <br><i>Onboarding</i></h2>
-                <p>We integrate directly into your world. We take over the heavy lifting of setting up workflows and systems, ensuring a smooth handoff that allows you to start delegating with absolute confidence from day one.</p>
-                <div style="font-size: 2.5rem; margin-top: 20px;">🚀</div>
+                <p>Your transition to freedom starts here. We lead the integration process, syncing with your current tools and communication style to provide a high-touch, white-glove handoff that feels effortless from day one.</p>
+                <div style="font-size: 2rem; margin-top: 20px; opacity: 0.6;">🚀</div>
             </div>
         </section>
     </div>
 
-    <footer style="padding: 60px; text-align: center; background: white;">
-        <button onclick="location.href='contact.html'" style="background: var(--charcoal); color: white; padding: 20px 40px; border: none; text-transform: uppercase; letter-spacing: 2px; cursor: pointer;">Start Your Partnership</button>
+    <div class="continue-container">
+        <a href="contact.html" class="continue-link">Continue</a>
+    </div>
+
+    <footer style="padding: 40px; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--charcoal); opacity: 0.5;">
+        &copy; 2026 SOAR EXECUTIVE OPERATIONS
     </footer>
 
 </body>
