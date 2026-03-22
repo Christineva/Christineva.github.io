@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOAR | Our Process</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .process-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            max-width: 800px;
+            margin: 60px auto;
+            gap: 40px;
+            padding: 0 20px;
+        }
+        .step {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            border-bottom: 1px solid #e0ddd8;
+            padding-bottom: 30px;
+        }
+        .step-number {
+            font-size: 0.8rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        .step-content h3 {
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0;
+        }
+        .step-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">SOAR</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="process.html">Process</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+        </ul>
+        <button class="nav-cta open-modal">Inquire</button>
+    </nav>
+
+    <header class="hero">
+        <h1 class="reveal">The Method</h1>
+        <p class="reveal">A seamless transition to elevated operations.</p>
+    </header>
+
+    <div class="process-grid">
+        <div class="step reveal">
+            <div class="step-number">01</div>
+            <div class="step-content">
+                <h3>Discovery Consultation</h3>
+                <p>We begin with a deep dive into your current workflows, identifying bottlenecks and areas where you need to reclaim your time.</p>
+            </div>
+        </div>
+
+        <div class="step reveal">
+            <div class="step-number">02</div>
+            <div class="step-content">
+                <h3>Strategy & Setup</h3>
+                <p>I design a custom support plan and integrate into your preferred tools (Asana, Notion, or ClickUp) for a frictionless start.</p>
+            </div>
+        </div>
+
+        <div class="step reveal">
+            <div class="step-number">03</div>
+            <div class="step-content">
+                <h3>Ongoing Optimization</h3>
+                <p>Support begins. We hold weekly audits to refine processes, ensuring your business runs like a well-oiled machine while you focus on high-level growth.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
