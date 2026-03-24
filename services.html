@@ -41,39 +41,39 @@
         .services-hero p { max-width: 700px; font-size: 16px; font-weight: 300; color: var(--dark-grey); line-height: 1.8; }
 
         /* Service Grid Section */
-        .services-container { padding: 80px 5%; background: var(--white); }
+        .services-container { padding: 80px 8%; background: var(--white); }
         .services-grid { 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
-            gap: 20px; 
+            gap: 30px; /* Better spacing for executive feel */
         }
 
-        .service-column { background: var(--light-grey); padding: 60px 40px; border-radius: 2px; }
+        .service-column { background: var(--light-grey); padding: 60px 40px; border-radius: 2px; display: block; }
 
         .col-header { text-align: center; margin-bottom: 40px; }
         .col-header h2 { 
             font-size: 1.4rem; 
             margin-bottom: 10px; 
             color: var(--dark-grey); 
-            min-height: 4rem; 
+            min-height: 4.5rem; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             text-transform: uppercase; 
             letter-spacing: 1px;
-            font-weight: 600; /* Made Titles Bold */
+            font-weight: 700; /* Titles are Bold */
         }
         .divider { width: 30px; height: 1px; background: var(--stone-grey); margin: 20px auto; }
 
         .service-list { list-style: none; }
         .service-list li { 
-            font-size: 13px; /* Increased Font */
+            font-size: 14px; /* Increased font size for readability */
             color: var(--dark-grey); 
-            margin-bottom: 12px; 
+            margin-bottom: 14px; 
             padding-left: 20px; 
             position: relative; 
-            font-weight: 300;
-            letter-spacing: 0.2px;
+            font-weight: 400; /* Slightly heavier for precision */
+            letter-spacing: 0.1px;
         }
         .service-list li::before { 
             content: "—"; 
@@ -82,8 +82,8 @@
             color: var(--stone-grey); 
         }
 
-        /* Banner Before CTA */
-        .cta-banner { width: 100%; height: 400px; background: #eee; overflow: hidden; margin-top: 40px; }
+        /* Banner Photo Section */
+        .cta-banner { width: 100%; height: 450px; background: #eee; overflow: hidden; margin-top: 60px; }
         .cta-banner img { width: 100%; height: 100%; object-fit: cover; }
 
         /* CTA */
@@ -92,11 +92,12 @@
 
         footer { padding: 60px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--stone-grey); border-top: 1px solid var(--border); }
 
-        .reveal { opacity: 0; transform: translateY(20px); transition: var(--transition); }
+        /* Scroll Animation */
+        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 1024px) {
-            .services-grid { grid-template-columns: 1fr; gap: 20px; }
+            .services-grid { grid-template-columns: 1fr; gap: 30px; }
             .services-hero { height: auto; padding: 120px 10% 60px; }
         }
     </style>
@@ -126,9 +127,9 @@
     </section>
 
     <section class="services-container">
-        <div class="services-grid reveal">
+        <div class="services-grid">
             
-            <div class="service-column">
+            <div class="service-column reveal">
                 <div class="col-header">
                     <h2>Executive & Administrative Support</h2>
                     <div class="divider"></div>
@@ -147,3 +148,87 @@
                     <li>Internal communication support</li>
                     <li>Board and stakeholder meeting prep</li>
                     <li>Recruitment coordination & applicant tracking</li>
+                    <li>Task and deadline monitoring</li>
+                    <li>Project timeline oversight</li>
+                </ul>
+            </div>
+
+            <div class="service-column reveal">
+                <div class="col-header">
+                    <h2>Business Operations & Client Services</h2>
+                    <div class="divider"></div>
+                </div>
+                <ul class="service-list">
+                    <li>Client onboarding and offboarding</li>
+                    <li>CRM management and pipeline tracking</li>
+                    <li>Proposal and contract creation</li>
+                    <li>Payment and invoicing coordination</li>
+                    <li>Customer support (email/live chat)</li>
+                    <li>Product or service fulfillment follow-up</li>
+                    <li>Feedback and testimonial collection</li>
+                    <li>Scheduling and managing client calls</li>
+                    <li>Team coordination and communication</li>
+                    <li>SOP implementation & improvement</li>
+                    <li>Inventory or service availability updates</li>
+                    <li>Internal project management (ClickUp, Asana)</li>
+                    <li>Vendor and supplier coordination</li>
+                    <li>Lead qualification and nurturing</li>
+                    <li>Sales and funnel support tasks</li>
+                </ul>
+            </div>
+
+            <div class="service-column reveal">
+                <div class="col-header">
+                    <h2>Marketing & Digital Presence Management</h2>
+                    <div class="divider"></div>
+                </div>
+                <ul class="service-list">
+                    <li>Social media management</li>
+                    <li>Content repurposing and copy editing</li>
+                    <li>Newsletter setup and distribution</li>
+                    <li>Blog publishing & SEO optimization</li>
+                    <li>Graphic design (Canva, branded templates)</li>
+                    <li>Video editing for reels/stories</li>
+                    <li>Hashtag research and performance tracking</li>
+                    <li>CRM-based email automation</li>
+                    <li>Community management (Facebook, LinkedIn)</li>
+                    <li>Landing page or lead magnet support</li>
+                    <li>Website content updates</li>
+                    <li>Podcast admin (scheduling, show notes)</li>
+                    <li>Webinar & live event backend assistance</li>
+                    <li>Affiliate/partner outreach coordination</li>
+                    <li>Analytics tracking and reporting</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="cta-banner reveal">
+        <img src="services-banner.jpg" alt="Strategic Operations">
+    </div>
+
+    <section class="services-cta">
+        <h2 class="reveal" style="margin-bottom: 40px;">Ready to reclaim your <i class="serif">mental space?</i></h2>
+        <button class="btn reveal" onclick="location.href='contact.html'">Begin Partnership</button>
+    </section>
+
+    <footer>
+        &copy; 2026 SOAR AGENCY | KES & INTERNATIONAL
+    </footer>
+
+    <script>
+        const reveal = () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 50) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('load', reveal);
+        reveal();
+    </script>
+</body>
+</html>
