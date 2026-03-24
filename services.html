@@ -45,7 +45,7 @@
         .services-grid { 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
-            gap: 30px; /* Better spacing for executive feel */
+            gap: 30px;
         }
 
         .service-column { background: var(--light-grey); padding: 60px 40px; border-radius: 2px; display: block; }
@@ -61,18 +61,18 @@
             justify-content: center; 
             text-transform: uppercase; 
             letter-spacing: 1px;
-            font-weight: 700; /* Titles are Bold */
+            font-weight: 700;
         }
         .divider { width: 30px; height: 1px; background: var(--stone-grey); margin: 20px auto; }
 
         .service-list { list-style: none; }
         .service-list li { 
-            font-size: 14px; /* Increased font size for readability */
+            font-size: 14px; 
             color: var(--dark-grey); 
             margin-bottom: 14px; 
             padding-left: 20px; 
             position: relative; 
-            font-weight: 400; /* Slightly heavier for precision */
+            font-weight: 400; 
             letter-spacing: 0.1px;
         }
         .service-list li::before { 
@@ -82,12 +82,23 @@
             color: var(--stone-grey); 
         }
 
-        /* Banner Photo Section */
-        .cta-banner { width: 100%; height: 450px; background: #eee; overflow: hidden; margin-top: 60px; }
-        .cta-banner img { width: 100%; height: 100%; object-fit: cover; }
+        /* Banner Photo Section - Adjusted for your uploaded image */
+        .cta-banner { 
+            width: 100%; 
+            height: 500px; 
+            background: var(--light-grey); 
+            overflow: hidden; 
+            margin-top: 40px; 
+        }
+        .cta-banner img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            object-position: 50% 30%; /* Focuses on the hands/table content */
+        }
 
-        /* CTA */
-        .services-cta { text-align: center; padding: 120px 10%; background: var(--white); }
+        /* CTA Section */
+        .services-cta { text-align: center; padding: 100px 10%; background: var(--white); }
         .btn { background: var(--dark-grey); color: white; padding: 22px 60px; border: none; text-transform: uppercase; letter-spacing: 3px; font-size: 10px; cursor: pointer; transition: 0.3s; }
 
         footer { padding: 60px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--stone-grey); border-top: 1px solid var(--border); }
@@ -99,6 +110,7 @@
         @media (max-width: 1024px) {
             .services-grid { grid-template-columns: 1fr; gap: 30px; }
             .services-hero { height: auto; padding: 120px 10% 60px; }
+            .cta-banner { height: 350px; }
         }
     </style>
 </head>
@@ -205,7 +217,7 @@
     </section>
 
     <div class="cta-banner reveal">
-        <img src="services-banner.jpg" alt="Strategic Operations">
+        <img src="image_d6be44.jpg" alt="Collaborative Executive Operations">
     </div>
 
     <section class="services-cta">
