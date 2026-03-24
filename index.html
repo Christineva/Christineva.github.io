@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOAR | Executive Operations</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --beige: #F5F2ED;
             --charcoal: #333638;
+            --light-grey: #F9F9F9;
             --dark-grey: #4A4E51;
             --stone-grey: #A8A8A8;
             --white: #FFFFFF;
+            --brand-brown: #8B735B; /* The thin frame color */
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -20,86 +23,87 @@
             color: var(--dark-grey); 
             background: var(--white); 
             line-height: 1.8; 
-            font-size: 18px; /* High-end readability base */
+            font-size: 18px; 
             overflow-x: hidden; 
         }
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; font-weight: 400; }
 
-        /* Navigation - Logo Only Header */
+        /* Navigation */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 35px 8%; position: fixed; width: 100%; top: 0;
             background: rgba(255, 255, 255, 0.98); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         .logo img { height: 50px; width: auto; display: block; }
-        
         .nav-links { display: flex; gap: 45px; list-style: none; }
-        .nav-links a { 
-            text-decoration: none; 
-            color: var(--dark-grey); 
-            font-size: 14px; /* Larger nav */
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-            transition: 0.3s; 
-        }
+        .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
         .nav-links a:hover { color: var(--charcoal); }
-        
-        .nav-cta { 
-            background: var(--charcoal); color: white; border: none; 
-            padding: 16px 35px; font-size: 12px; letter-spacing: 2px; 
-            text-transform: uppercase; cursor: pointer; transition: 0.4s;
-        }
+        .nav-cta { background: var(--charcoal); color: white; border: none; padding: 16px 35px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: 0.4s; }
 
-        /* Hero Section - Maximum Impact */
+        /* Hero Section */
         .hero {
             height: 100vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
             background-color: var(--beige); padding: 0 10%;
         }
-        .hero h1 { 
-            font-size: clamp(45px, 8vw, 85px); 
-            margin-bottom: 30px; 
-            line-height: 1.1; 
-            color: var(--charcoal); 
-        }
-        .hero .tagline { 
-            font-family: 'Playfair Display', serif; 
-            font-style: italic; 
-            font-size: 3rem; 
-            margin-bottom: 45px; 
-            color: var(--charcoal); 
-        }
-        .hero p { 
-            max-width: 900px; 
-            font-size: 15px; 
-            letter-spacing: 5px; 
-            text-transform: uppercase; 
-            color: var(--stone-grey); 
-            font-weight: 400; 
+        .hero h1 { font-size: clamp(40px, 7vw, 75px); margin-bottom: 30px; line-height: 1.1; color: var(--charcoal); }
+        .hero .tagline { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.8rem; margin-bottom: 45px; color: var(--charcoal); }
+        .hero p { max-width: 900px; font-size: 14px; letter-spacing: 5px; text-transform: uppercase; color: var(--stone-grey); font-weight: 400; }
+
+        /* Hire Us For Section - Light Grey with Brown Frame */
+        .services-strip { 
+            background: var(--light-grey); 
+            padding: 100px 8%; 
+            text-align: center;
         }
 
-        /* Hire Us For Section */
-        .services-strip { background: var(--charcoal); color: white; padding: 150px 10%; text-align: center; }
-        .services-strip h2 { font-size: 3.5rem; margin-bottom: 90px; letter-spacing: 1px; color: var(--white); }
+        .frame-box {
+            border: 1px solid var(--brand-brown); /* The thin brown frame */
+            padding: 80px 40px;
+            width: 100%;
+        }
+
+        .services-strip h2 { 
+            font-size: 2.5rem; 
+            margin-bottom: 70px; 
+            letter-spacing: 1px; 
+            color: var(--charcoal); 
+            text-transform: uppercase;
+        }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 100px; }
-        .item h3 { font-size: 1.5rem; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 30px; color: var(--stone-grey); }
-        .item p { font-size: 1.2rem; opacity: 0.9; font-weight: 300; line-height: 1.8; color: var(--beige); }
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); /* Force one line */
+            gap: 40px; 
+        }
 
-        /* Unified Footer */
+        .item h3 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 25px; color: var(--brand-brown); font-weight: 600; }
+        .item p { font-size: 1rem; opacity: 0.9; font-weight: 300; line-height: 1.7; color: var(--dark-grey); }
+
+        /* Footer */
         footer { 
-            padding: 100px 10%; 
+            padding: 80px 10%; 
             text-align: center; 
-            background: var(--beige); 
+            background: var(--white); 
             color: var(--stone-grey); 
-            font-size: 12px; 
+            font-size: 11px; 
             letter-spacing: 3px; 
             text-transform: uppercase; 
         }
 
-        @media (max-width: 768px) {
+        .social-link {
+            display: block;
+            margin-bottom: 25px;
+            font-size: 24px;
+            color: var(--charcoal);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .social-link:hover { color: var(--brand-brown); }
+
+        @media (max-width: 1024px) {
+            .grid { grid-template-columns: 1fr; gap: 60px; } /* Stack on mobile for readability */
             .hero h1 { font-size: 42px; }
-            .hero .tagline { font-size: 2.2rem; }
             .nav-links { display: none; }
         }
     </style>
@@ -128,24 +132,31 @@
     </section>
 
     <section class="services-strip">
-        <h2>Hire Us For</h2>
-        <div class="grid">
-            <div class="item">
-                <h3>Efficiency</h3>
-                <p>High-level inbox, calendar, and complex travel management—executed with absolute precision and foresight.</p>
-            </div>
-            <div class="item">
-                <h3>Client Care</h3>
-                <p>Premium onboarding and white-glove relationship management for your highest-value stakeholders and partners.</p>
-            </div>
-            <div class="item">
-                <h3>Operations</h3>
-                <p>Workflow optimization and system architecture that turn operational chaos into scalable executive leverage.</p>
+        <div class="frame-box">
+            <h2>Hire Us For</h2>
+            <div class="grid">
+                <div class="item">
+                    <h3>Efficiency</h3>
+                    <p>High-level inbox, calendar, and complex travel management—executed with absolute precision and foresight.</p>
+                </div>
+
+                <div class="item">
+                    <h3>Operations</h3>
+                    <p>Workflow optimization and system architecture that turn operational chaos into scalable executive leverage.</p>
+                </div>
+
+                <div class="item">
+                    <h3>Client Care</h3>
+                    <p>Premium onboarding and white-glove relationship management for your highest-value stakeholders and partners.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
+        <a href="https://www.linkedin.com/in/wanjiruchristine" target="_blank" class="social-link">
+            <i class="fa-brands fa-linkedin"></i>
+        </a>
         &copy; 2026 SOAR | SERVING LEADERS WORLDWIDE
     </footer>
 
