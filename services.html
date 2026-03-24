@@ -26,12 +26,12 @@
             padding: 25px 8%; position: fixed; width: 100%; top: 0;
             background: rgba(255, 255, 255, 0.98); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .logo a { text-decoration: none; color: var(--dark-grey); font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; }
+        .logo a { text-decoration: none; color: var(--dark-grey); font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; display: flex; align-items: center; }
         .nav-links { display: flex; gap: 35px; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
         .nav-cta { background: var(--dark-grey); color: white; border: none; padding: 12px 28px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; }
 
-        /* Updated Hero Section */
+        /* Hero Section */
         .services-hero {
             height: 60vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
@@ -45,24 +45,32 @@
         .services-grid { 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
-            gap: 1px; 
-            background: var(--border);
-            border: 1px solid var(--border);
+            gap: 20px; 
         }
 
-        .service-column { background: var(--white); padding: 50px 35px; }
-        .service-column.alt { background: var(--light-grey); }
+        .service-column { background: var(--light-grey); padding: 60px 40px; border-radius: 2px; }
 
         .col-header { text-align: center; margin-bottom: 40px; }
-        .col-header h2 { font-size: 1.2rem; margin-bottom: 10px; color: var(--dark-grey); min-height: 3.5rem; display: flex; align-items: center; justify-content: center; text-transform: uppercase; letter-spacing: 1px; }
+        .col-header h2 { 
+            font-size: 1.4rem; 
+            margin-bottom: 10px; 
+            color: var(--dark-grey); 
+            min-height: 4rem; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            font-weight: 600; /* Made Titles Bold */
+        }
         .divider { width: 30px; height: 1px; background: var(--stone-grey); margin: 20px auto; }
 
         .service-list { list-style: none; }
         .service-list li { 
-            font-size: 12px; 
+            font-size: 13px; /* Increased Font */
             color: var(--dark-grey); 
-            margin-bottom: 10px; 
-            padding-left: 18px; 
+            margin-bottom: 12px; 
+            padding-left: 20px; 
             position: relative; 
             font-weight: 300;
             letter-spacing: 0.2px;
@@ -74,17 +82,21 @@
             color: var(--stone-grey); 
         }
 
+        /* Banner Before CTA */
+        .cta-banner { width: 100%; height: 400px; background: #eee; overflow: hidden; margin-top: 40px; }
+        .cta-banner img { width: 100%; height: 100%; object-fit: cover; }
+
         /* CTA */
-        .services-cta { text-align: center; padding: 100px 10%; background: var(--white); border-top: 1px solid var(--border); }
+        .services-cta { text-align: center; padding: 120px 10%; background: var(--white); }
         .btn { background: var(--dark-grey); color: white; padding: 22px 60px; border: none; text-transform: uppercase; letter-spacing: 3px; font-size: 10px; cursor: pointer; transition: 0.3s; }
 
-        footer { padding: 60px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--stone-grey); }
+        footer { padding: 60px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--stone-grey); border-top: 1px solid var(--border); }
 
         .reveal { opacity: 0; transform: translateY(20px); transition: var(--transition); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 1024px) {
-            .services-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; gap: 20px; }
             .services-hero { height: auto; padding: 120px 10% 60px; }
         }
     </style>
@@ -93,7 +105,10 @@
 
     <nav>
         <div class="logo">
-            <a href="index.html">SOAR EXECUTIVE</a>
+            <a href="index.html">
+                <img src="logo.png" alt="SOAR" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="height: 35px; width: auto;">
+                <span style="display: none;">SOAR</span>
+            </a>
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -106,7 +121,7 @@
     </nav>
 
     <section class="services-hero">
-        <h1 class="reveal">Have a Project on mind?</h1>
+        <h1 class="reveal">Have a Project in mind?</h1>
         <p class="reveal">We can help you bring your ideas to life. Let’s talk about what we can <span class="serif" style="font-style: italic;">build and raise together.</span></p>
     </section>
 
@@ -132,79 +147,3 @@
                     <li>Internal communication support</li>
                     <li>Board and stakeholder meeting prep</li>
                     <li>Recruitment coordination & applicant tracking</li>
-                    <li>Task and deadline monitoring</li>
-                    <li>Project timeline oversight</li>
-                </ul>
-            </div>
-
-            <div class="service-column alt">
-                <div class="col-header">
-                    <h2>Business Operations & Client Services</h2>
-                    <div class="divider"></div>
-                </div>
-                <ul class="service-list">
-                    <li>Client onboarding and offboarding</li>
-                    <li>CRM management and pipeline tracking</li>
-                    <li>Proposal and contract creation</li>
-                    <li>Payment and invoicing coordination</li>
-                    <li>Customer support (email/live chat)</li>
-                    <li>Product or service fulfillment follow-up</li>
-                    <li>Feedback and testimonial collection</li>
-                    <li>Scheduling and managing client calls</li>
-                    <li>Team coordination and communication</li>
-                    <li>SOP implementation & improvement</li>
-                    <li>Inventory or service availability updates</li>
-                    <li>Internal project management (ClickUp, Asana)</li>
-                    <li>Vendor and supplier coordination</li>
-                    <li>Lead qualification and nurturing</li>
-                    <li>Sales and funnel support tasks</li>
-                </ul>
-            </div>
-
-            <div class="service-column">
-                <div class="col-header">
-                    <h2>Marketing & Digital Presence Management</h2>
-                    <div class="divider"></div>
-                </div>
-                <ul class="service-list">
-                    <li>Social media management</li>
-                    <li>Content repurposing and copy editing</li>
-                    <li>Newsletter setup and distribution</li>
-                    <li>Blog publishing & SEO optimization</li>
-                    <li>Graphic design (Canva, branded templates)</li>
-                    <li>Video editing for reels/stories</li>
-                    <li>Hashtag research and performance tracking</li>
-                    <li>CRM-based email automation</li>
-                    <li>Community management (Facebook, LinkedIn)</li>
-                    <li>Landing page or lead magnet support</li>
-                    <li>Website content updates</li>
-                    <li>Podcast admin (scheduling, show notes)</li>
-                    <li>Webinar & live event backend assistance</li>
-                    <li>Affiliate/partner outreach coordination</li>
-                    <li>Analytics tracking and reporting</li>
-                </ul>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="services-cta">
-        <h2 class="reveal" style="margin-bottom: 40px;">Ready to reclaim your <i class="serif">mental space?</i></h2>
-        <button class="btn reveal" onclick="location.href='contact.html'">Begin Partnership</button>
-    </section>
-
-    <footer>
-        &copy; 2026 SOAR AGENCY | KES & INTERNATIONAL
-    </footer>
-
-    <script>
-        const reveal = () => {
-            document.querySelectorAll('.reveal').forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
-            });
-        };
-        window.addEventListener('scroll', reveal);
-        reveal();
-    </script>
-</body>
-</html>
