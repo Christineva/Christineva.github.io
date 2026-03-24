@@ -28,14 +28,19 @@
         }
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; font-weight: 400; }
 
-        /* Navigation */
+        /* Navigation - Logo Size Update */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 35px 8%; position: fixed; width: 100%; top: 0;
+            padding: 20px 8%; /* Reduced padding to balance larger logo */
+            position: fixed; width: 100%; top: 0;
             background: rgba(255, 255, 255, 0.98); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .logo img { height: 50px; width: auto; display: block; }
-        .nav-links { display: flex; gap: 45px; list-style: none; }
+        .logo img { 
+            height: 85px; /* Increased for high-end visibility */
+            width: auto; 
+            display: block; 
+        }
+        .nav-links { display: flex; gap: 45px; list-style: none; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
         .nav-links a:hover { color: var(--charcoal); }
         .nav-cta { background: var(--charcoal); color: white; border: none; padding: 16px 35px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: 0.4s; }
@@ -58,7 +63,7 @@
         }
 
         .frame-box {
-            border: 1px solid var(--brand-brown); /* The thin brown frame */
+            border: 1px solid var(--brand-brown); 
             padding: 80px 40px;
             width: 100%;
         }
@@ -73,7 +78,7 @@
         
         .grid { 
             display: grid; 
-            grid-template-columns: repeat(3, 1fr); /* Force one line */
+            grid-template-columns: repeat(3, 1fr); 
             gap: 40px; 
         }
 
@@ -92,7 +97,7 @@
         }
 
         .social-link {
-            display: block;
+            display: inline-block;
             margin-bottom: 25px;
             font-size: 24px;
             color: var(--charcoal);
@@ -102,9 +107,10 @@
         .social-link:hover { color: var(--brand-brown); }
 
         @media (max-width: 1024px) {
-            .grid { grid-template-columns: 1fr; gap: 60px; } /* Stack on mobile for readability */
+            .grid { grid-template-columns: 1fr; gap: 60px; }
             .hero h1 { font-size: 42px; }
             .nav-links { display: none; }
+            .logo img { height: 60px; } /* Slightly smaller for mobile screens */
         }
     </style>
 </head>
@@ -157,7 +163,7 @@
         <a href="https://www.linkedin.com/in/wanjiruchristine" target="_blank" class="social-link">
             <i class="fa-brands fa-linkedin"></i>
         </a>
-        &copy; 2026 SOAR | SERVING LEADERS WORLDWIDE
+        <p>&copy; 2026 SOAR | SERVING LEADERS WORLDWIDE</p>
     </footer>
 
 </body>
