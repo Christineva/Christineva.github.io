@@ -1,14 +1,19 @@
 /* --- MOBILE MENU & LAYOUT LOGIC (SAMSUNG A02 OPTIMIZED) --- */
 #menu-toggle, .hamburger { display: none; }
 
+/* 1. Laptop/Desktop Fix: Hide the button inside the menu list by default */
+.nav-links li.mobile-only { 
+    display: none; 
+}
+
 @media (max-width: 1024px) {
-    /* 1. Navigation - Pulls icon next to logo */
+    /* 2. Navigation - Pulls icon next to logo */
     nav { 
         padding: 10px 8%; 
         width: 100%;
         display: flex;
         justify-content: flex-start; /* Aligns everything to the left */
-        gap: 15px; /* Tiny space between logo and 3 lines */
+        gap: 15px; 
         align-items: center;
     }
 
@@ -17,16 +22,16 @@
         font-size: 22px; 
         cursor: pointer; 
         order: 1; /* Puts icon after the logo */
-        margin-right: 0; 
     }
 
     .logo {
-        order: 0; /* Keeps logo first */
+        order: 0; 
     }
 
-    nav > .nav-cta { display: none; } 
+    /* Hide the standalone desktop button on phones */
+    .desktop-only { display: none; } 
 
-    /* 2. The Dropdown Menu */
+    /* 3. The Dropdown Menu */
     .nav-links {
         display: none;
         flex-direction: column;
@@ -42,11 +47,16 @@
         z-index: 1001;
     }
 
+    /* Show the button inside the mobile drawer */
+    .nav-links li.mobile-only { 
+        display: block; 
+    }
+
     #menu-toggle:checked ~ .nav-links {
         display: flex;
     }
 
-    /* 3. FIX: Stack Services Downward */
+    /* 4. FIX: Stack Services Downward */
     .grid { 
         display: flex !important;
         flex-direction: column !important; 
@@ -54,7 +64,7 @@
         margin-top: 30px !important;
     }
 
-    /* 4. Fix Crowding & Size for Samsung A02 */
+    /* 5. Fix Crowding & Size for Samsung A02 */
     section {
         padding: 40px 6% !important; 
         opacity: 1 !important;
@@ -65,7 +75,7 @@
     .hero { height: auto; padding: 80px 6% !important; }
 
     .hero h1 { 
-        font-size: 1.7rem !important; /* Slightly smaller for A02 width */
+        font-size: 1.7rem !important; 
         line-height: 1.2;
         margin-bottom: 15px;
     }
