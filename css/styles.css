@@ -4,25 +4,30 @@
 #menu-toggle, .hamburger { display: none; }
 
 @media (max-width: 1024px) {
-    nav { padding: 15px 5%; }
+    /* Fixed the padding to move the logo and icon away from the screen edges */
+    nav { 
+        padding: 15px 8%; 
+        position: fixed; /* Ensures it stays at the top while scrolling */
+    }
 
-    /* 2. Show the hamburger icon on mobile */
+    /* 2. Show the hamburger icon on mobile and move it left from the edge */
     .hamburger { 
         display: block; 
         font-size: 24px; 
         cursor: pointer; 
-        order: 2; /* Keeps it to the right */
+        order: 2; 
+        margin-right: 10px; /* This pushes the icon slightly further left */
     }
 
     /* 3. Hide the desktop Inquiry button on mobile so it doesn't double up */
     nav > .nav-cta { display: none; }
 
-    /* 4. Transform the nav-links into a hidden side/drop menu */
+    /* 4. Transform the nav-links into a hidden drop menu */
     .nav-links {
-        display: none; /* Hide by default */
+        display: none; 
         flex-direction: column;
         position: absolute;
-        top: 80px; /* Sits right under the nav bar */
+        top: 100%; /* Sits perfectly flush under the nav bar */
         left: 0;
         width: 100%;
         background: var(--white);
@@ -31,6 +36,7 @@
         text-align: center;
         border-bottom: 1px solid #eee;
         box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        z-index: 1001;
     }
 
     /* 5. Show the menu only when the hidden checkbox is checked */
@@ -38,7 +44,18 @@
         display: flex;
     }
 
-    /* 6. Ensure the button inside the list looks right on mobile */
+    /* 6. Fix the "Crowded" feel of the rest of the page */
+    section {
+        padding: 60px 8% !important; /* Reduces the huge gaps that cause crowding on phones */
+        opacity: 1 !important; /* Ensures content shows up immediately */
+        transform: none !important; /* Removes the movement that can disorient the layout */
+    }
+
+    .hero h1 { 
+        font-size: 2.2rem !important; /* Prevents large text from overlapping edges */
+        line-height: 1.2;
+    }
+
     .nav-links .nav-cta {
         display: inline-block;
         width: auto;
