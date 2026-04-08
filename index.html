@@ -54,6 +54,8 @@
         .nav-links { display: flex; gap: 45px; list-style: none; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
         .nav-links a:hover { color: var(--charcoal); }
+
+        /* Hide mobile button on Laptop */
         .nav-links li.mobile-only { display: none; }
         
         .nav-cta { 
@@ -68,18 +70,80 @@
             transition: 0.4s; 
         }
 
-        /* --- SAMSUNG A02 & MOBILE OPTIMIZATION --- */
+        /* --- OUR VALUES SECTION --- */
+        .values-cta-section {
+            background-color: var(--beige);
+            padding: 120px 8%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .values-container {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .cta-left h2 {
+            font-size: clamp(30px, 4vw, 50px);
+            line-height: 1.1;
+            color: var(--charcoal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .values-list { list-style: none; }
+        .values-list li {
+            margin-bottom: 35px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .values-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--brand-brown);
+            font-weight: bold;
+        }
+
+        .values-list li strong {
+            display: block;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+        }
+
+        .values-list li p {
+            font-size: 15px;
+            color: var(--dark-grey);
+            line-height: 1.6;
+        }
+
+        /* Scroll Animation State */
+        .animate-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- MOBILE OPTIMIZATION --- */
         @media (max-width: 1024px) {
-            nav { 
-                padding: 10px 8%; 
-                justify-content: flex-start; /* Pulls 3-lines next to logo */
-                gap: 20px;
-            }
+            nav { padding: 10px 8%; justify-content: flex-start; gap: 20px; }
             .logo img { height: 45px; }
             .hamburger { display: block; order: 1; }
             .logo { order: 0; }
 
-            .desktop-only { display: none; } /* Removes the extra button on mobile bar */
+            .desktop-only { display: none; }
             .nav-links li.mobile-only { display: block; margin-top: 10px; }
 
             .nav-links {
@@ -93,64 +157,34 @@
                 padding: 40px 0;
                 gap: 30px;
                 text-align: center;
-                border-bottom: 1px solid rgba(0,0,0,0.05);
                 box-shadow: 0 5px 10px rgba(0,0,0,0.05);
             }
 
             #menu-toggle:checked ~ .nav-links { display: flex; }
 
-            /* Grid Stacking for Samsung A02 */
-            .grid { 
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 30px;
-            }
+            .grid { display: flex !important; flex-direction: column !important; gap: 30px; }
+
+            .values-container { grid-template-columns: 1fr; gap: 50px; text-align: center; }
+            .values-list li { padding-left: 0; }
+            .values-list li::before { display: none; }
 
             .hero { padding: 80px 6% !important; height: auto; }
             .hero h1 { font-size: 1.7rem !important; }
-            .hero .tagline { font-size: 1.4rem !important; }
-            
             section { padding: 40px 6% !important; }
-            .frame-box { padding: 30px 15px !important; }
         }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center;
-            background-color: var(--beige); padding: 0 10%;
-        }
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background-color: var(--beige); padding: 0 10%; }
         .hero h1 { font-size: clamp(35px, 7vw, 75px); margin-bottom: 30px; line-height: 1.1; color: var(--charcoal); }
         .hero .tagline { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.5rem; margin-bottom: 45px; color: var(--charcoal); }
-        .hero p { max-width: 900px; font-size: 14px; letter-spacing: 5px; text-transform: uppercase; color: var(--stone-grey); font-weight: 400; }
+        .hero p { max-width: 900px; font-size: 14px; letter-spacing: 5px; text-transform: uppercase; color: var(--stone-grey); }
 
-        /* Services Section */
-        .services-strip { 
-            background: var(--light-grey); 
-            padding: 80px 8%; 
-            text-align: center;
-        }
-        .frame-box {
-            border: 1px solid var(--brand-brown); 
-            padding: 60px 30px;
-            width: 100%;
-        }
-        .services-strip h2 { 
-            font-size: 2rem; 
-            margin-bottom: 50px; 
-            letter-spacing: 1px; 
-            color: var(--charcoal); 
-            text-transform: uppercase;
-        }
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 40px; 
-        }
+        .services-strip { background: var(--light-grey); padding: 80px 8%; text-align: center; }
+        .frame-box { border: 1px solid var(--brand-brown); padding: 60px 30px; width: 100%; }
+        .services-strip h2 { font-size: 2rem; margin-bottom: 50px; letter-spacing: 1px; color: var(--charcoal); text-transform: uppercase; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
         .item h3 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 25px; color: var(--brand-brown); font-weight: 600; }
         .item p { font-size: 1rem; opacity: 0.9; font-weight: 300; line-height: 1.7; color: var(--dark-grey); }
 
-        /* Footer */
         footer { padding: 60px 10%; text-align: center; background: var(--white); color: var(--stone-grey); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; }
         .social-link { display: inline-block; margin-bottom: 25px; font-size: 24px; color: var(--charcoal); text-decoration: none; }
     </style>
@@ -206,6 +240,34 @@
         </div>
     </section>
 
+    <section class="values-cta-section animate-scroll">
+        <div class="values-container">
+            <div class="cta-left">
+                <h2>LET'S BUILD A<br>FLOURISHING BUSINESS<br>TOGETHER.</h2>
+            </div>
+            <div class="cta-right">
+                <ul class="values-list">
+                    <li>
+                        <strong>Excellence in Execution</strong>
+                        <p>Unwavering commitment to delivering superior results in every strategic task.</p>
+                    </li>
+                    <li>
+                        <strong>Radical Integrity</strong>
+                        <p>Maintaining total transparency and honesty in all professional interactions.</p>
+                    </li>
+                    <li>
+                        <strong>Invested Partnership</strong>
+                        <p>Approaching your business objectives with the same dedication as our own.</p>
+                    </li>
+                    <li>
+                        <strong>Technological Agility</strong>
+                        <p>Continuously evolving with emerging tools to provide modern, efficient solutions.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <a href="https://www.linkedin.com/in/wanjiruchristine" target="_blank" class="social-link">
             <i class="fa-brands fa-linkedin"></i>
@@ -213,5 +275,10 @@
         <p>&copy; 2026 SOAR | SERVING LEADERS WORLDWIDE</p>
     </footer>
 
-</body>
-</html>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
