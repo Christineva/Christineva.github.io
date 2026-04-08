@@ -41,11 +41,7 @@
             z-index: 1000; 
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .logo img { 
-            height: 70px; 
-            width: auto; 
-            display: block; 
-        }
+        .logo img { height: 70px; width: auto; display: block; }
         
         #menu-toggle { display: none; }
         .hamburger {
@@ -58,6 +54,7 @@
         .nav-links { display: flex; gap: 45px; list-style: none; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
         .nav-links a:hover { color: var(--charcoal); }
+        .nav-links li.mobile-only { display: none; }
         
         .nav-cta { 
             background: var(--charcoal); 
@@ -71,18 +68,25 @@
             transition: 0.4s; 
         }
 
-        /* Mobile Adjustments */
+        /* --- SAMSUNG A02 & MOBILE OPTIMIZATION --- */
         @media (max-width: 1024px) {
-            nav { padding: 10px 5%; }
-            .logo img { height: 50px; }
-            .hamburger { display: block; }
-            nav > .nav-cta { display: none; } /* Hide main CTA on mobile */
+            nav { 
+                padding: 10px 8%; 
+                justify-content: flex-start; /* Pulls 3-lines next to logo */
+                gap: 20px;
+            }
+            .logo img { height: 45px; }
+            .hamburger { display: block; order: 1; }
+            .logo { order: 0; }
+
+            .desktop-only { display: none; } /* Removes the extra button on mobile bar */
+            .nav-links li.mobile-only { display: block; margin-top: 10px; }
 
             .nav-links {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 70px;
+                top: 100%;
                 left: 0;
                 width: 100%;
                 background: var(--white);
@@ -90,11 +94,24 @@
                 gap: 30px;
                 text-align: center;
                 border-bottom: 1px solid rgba(0,0,0,0.05);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.05);
             }
 
-            #menu-toggle:checked ~ .nav-links {
-                display: flex;
+            #menu-toggle:checked ~ .nav-links { display: flex; }
+
+            /* Grid Stacking for Samsung A02 */
+            .grid { 
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 30px;
             }
+
+            .hero { padding: 80px 6% !important; height: auto; }
+            .hero h1 { font-size: 1.7rem !important; }
+            .hero .tagline { font-size: 1.4rem !important; }
+            
+            section { padding: 40px 6% !important; }
+            .frame-box { padding: 30px 15px !important; }
         }
 
         /* Hero Section */
@@ -134,22 +151,8 @@
         .item p { font-size: 1rem; opacity: 0.9; font-weight: 300; line-height: 1.7; color: var(--dark-grey); }
 
         /* Footer */
-        footer { 
-            padding: 60px 10%; 
-            text-align: center; 
-            background: var(--white); 
-            color: var(--stone-grey); 
-            font-size: 11px; 
-            letter-spacing: 3px; 
-            text-transform: uppercase; 
-        }
-        .social-link {
-            display: inline-block;
-            margin-bottom: 25px;
-            font-size: 24px;
-            color: var(--charcoal);
-            text-decoration: none;
-        }
+        footer { padding: 60px 10%; text-align: center; background: var(--white); color: var(--stone-grey); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; }
+        .social-link { display: inline-block; margin-bottom: 25px; font-size: 24px; color: var(--charcoal); text-decoration: none; }
     </style>
 </head>
 <body>
@@ -171,10 +174,10 @@
             <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><button class="nav-cta" onclick="location.href='contact.html'">Inquire</button></li>
+            <li class="mobile-only"><button class="nav-cta" onclick="location.href='contact.html'">Inquire</button></li>
         </ul>
         
-        <button class="nav-cta" onclick="location.href='contact.html'">Inquire</button>
+        <button class="nav-cta desktop-only" onclick="location.href='contact.html'">Inquire</button>
     </nav>
 
     <section class="hero">
