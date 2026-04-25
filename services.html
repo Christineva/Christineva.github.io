@@ -41,7 +41,7 @@
         .services-hero p { max-width: 700px; font-size: 16px; font-weight: 300; color: var(--dark-grey); line-height: 1.8; }
 
         /* Service Grid Section */
-        .services-container { padding: 80px 8%; background: var(--white); }
+        .services-container { padding: 80px 8% 40px; background: var(--white); }
         .services-grid { 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
@@ -82,19 +82,32 @@
             color: var(--stone-grey); 
         }
 
-        /* Banner Photo Section - Adjusted for your uploaded image */
-        .cta-banner { 
-            width: 100%; 
-            height: 500px; 
-            background: var(--light-grey); 
-            overflow: hidden; 
-            margin-top: 40px; 
+        /* NEW: 3-Image Split Section */
+        .split-image-section {
+            padding: 0 8%;
+            margin-top: 40px;
         }
-        .cta-banner img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            object-position: 50% 30%; /* Focuses on the hands/table content */
+        .split-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px; /* Thin divider line */
+            background-color: var(--white);
+        }
+        .split-box {
+            aspect-ratio: 1 / 1; /* Forces 800x800 square shape */
+            overflow: hidden;
+            background: var(--light-grey);
+        }
+        .split-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            image-rendering: -webkit-optimize-contrast;
+            transition: transform 0.8s ease;
+        }
+        .split-box:hover img {
+            transform: scale(1.05);
         }
 
         /* CTA Section */
@@ -108,9 +121,8 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 1024px) {
-            .services-grid { grid-template-columns: 1fr; gap: 30px; }
+            .services-grid, .split-container { grid-template-columns: 1fr; gap: 20px; }
             .services-hero { height: auto; padding: 120px 10% 60px; }
-            .cta-banner { height: 350px; }
         }
     </style>
 </head>
@@ -155,13 +167,6 @@
                     <li>CRM data entry and upkeep</li>
                     <li>Workflow and SOP documentation</li>
                     <li>Research and data compilation</li>
-                    <li>Client follow-ups and reminders</li>
-                    <li>File and digital asset organization</li>
-                    <li>Internal communication support</li>
-                    <li>Board and stakeholder meeting prep</li>
-                    <li>Recruitment coordination & applicant tracking</li>
-                    <li>Task and deadline monitoring</li>
-                    <li>Project timeline oversight</li>
                 </ul>
             </div>
 
@@ -176,16 +181,9 @@
                     <li>Proposal and contract creation</li>
                     <li>Payment and invoicing coordination</li>
                     <li>Customer support (email/live chat)</li>
-                    <li>Product or service fulfillment follow-up</li>
-                    <li>Feedback and testimonial collection</li>
-                    <li>Scheduling and managing client calls</li>
-                    <li>Team coordination and communication</li>
                     <li>SOP implementation & improvement</li>
-                    <li>Inventory or service availability updates</li>
                     <li>Internal project management (ClickUp, Asana)</li>
                     <li>Vendor and supplier coordination</li>
-                    <li>Lead qualification and nurturing</li>
-                    <li>Sales and funnel support tasks</li>
                 </ul>
             </div>
 
@@ -201,24 +199,26 @@
                     <li>Blog publishing & SEO optimization</li>
                     <li>Graphic design (Canva, branded templates)</li>
                     <li>Video editing for reels/stories</li>
-                    <li>Hashtag research and performance tracking</li>
-                    <li>CRM-based email automation</li>
                     <li>Community management (Facebook, LinkedIn)</li>
-                    <li>Landing page or lead magnet support</li>
                     <li>Website content updates</li>
-                    <li>Podcast admin (scheduling, show notes)</li>
-                    <li>Webinar & live event backend assistance</li>
-                    <li>Affiliate/partner outreach coordination</li>
-                    <li>Analytics tracking and reporting</li>
                 </ul>
             </div>
-
         </div>
     </section>
 
-    <div class="cta-banner reveal">
-        <img src="image_d6be44.jpg" alt="Collaborative Executive Operations">
-    </div>
+    <section class="split-image-section reveal">
+        <div class="split-container">
+            <div class="split-box">
+                <img src="service-1.webp" alt="Executive Strategy">
+            </div>
+            <div class="split-box">
+                <img src="service-2.webp" alt="Operational Excellence">
+            </div>
+            <div class="split-box">
+                <img src="service-3.webp" alt="Digital Management">
+            </div>
+        </div>
+    </section>
 
     <section class="services-cta">
         <h2 class="reveal" style="margin-bottom: 40px;">Ready to reclaim your <i class="serif">mental space?</i></h2>
@@ -226,7 +226,7 @@
     </section>
 
     <footer>
-        &copy; 2026 SOAR AGENCY | KES & INTERNATIONAL
+        &copy; 2026 SOAR AGENCY | SERVING VISIONARIES WORLDWIDE
     </footer>
 
     <script>
@@ -242,5 +242,9 @@
         window.addEventListener('load', reveal);
         reveal();
     </script>
+
+    <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script>
+    <script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siq367740f3a0887b857834c2422a914562" defer></script>
+
 </body>
 </html>
