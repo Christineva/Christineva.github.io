@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | SOAR Executive Operations</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -26,9 +27,9 @@
             padding: 25px 8%; position: fixed; width: 100%; top: 0;
             background: rgba(255, 255, 255, 0.98); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .logo a { text-decoration: none; color: var(--dark-grey); font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; display: flex; align-items: center; }
+        .logo a { text-decoration: none; color: var(--dark-grey); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; display: flex; align-items: center; }
         .nav-links { display: flex; gap: 35px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+        .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
         .nav-cta { background: var(--dark-grey); color: white; border: none; padding: 12px 28px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; }
 
         /* Hero Section */
@@ -82,7 +83,7 @@
             color: var(--stone-grey); 
         }
 
-        /* NEW: 3-Image Split Section */
+        /* 3-Image Split Section */
         .split-image-section {
             padding: 0 8%;
             margin-top: 40px;
@@ -90,11 +91,11 @@
         .split-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 4px; /* Thin divider line */
+            gap: 4px; 
             background-color: var(--white);
         }
         .split-box {
-            aspect-ratio: 1 / 1; /* Forces 800x800 square shape */
+            aspect-ratio: 1 / 1; 
             overflow: hidden;
             background: var(--light-grey);
         }
@@ -130,121 +131,13 @@
 
     <nav>
         <div class="logo">
-            <a href="index.html">
-                <img src="logo.png" alt="SOAR" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="height: 35px; width: auto;">
-                <span style="display: none;">SOAR</span>
-            </a>
+            <a href="index.html">SOAR</a>
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About</a></li>
             <li><a href="process.html">Process</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
         <button class="nav-cta" onclick="location.href='contact.html'">Inquire</button>
-    </nav>
-
-    <section class="services-hero">
-        <h1 class="reveal">Have a Project in mind?</h1>
-        <p class="reveal">We can help you bring your ideas to life. Let’s talk about what we can <span class="serif" style="font-style: italic;">build and raise together.</span></p>
-    </section>
-
-    <section class="services-container">
-        <div class="services-grid">
-            
-            <div class="service-column reveal">
-                <div class="col-header">
-                    <h2>Executive & Administrative Support</h2>
-                    <div class="divider"></div>
-                </div>
-                <ul class="service-list">
-                    <li>Inbox and calendar management</li>
-                    <li>Scheduling and appointment coordination</li>
-                    <li>Travel planning and itinerary management</li>
-                    <li>Executive reporting and meeting summary</li>
-                    <li>Document preparation and formatting</li>
-                    <li>CRM data entry and upkeep</li>
-                    <li>Workflow and SOP documentation</li>
-                    <li>Research and data compilation</li>
-                </ul>
-            </div>
-
-            <div class="service-column reveal">
-                <div class="col-header">
-                    <h2>Business Operations & Client Services</h2>
-                    <div class="divider"></div>
-                </div>
-                <ul class="service-list">
-                    <li>Client onboarding and offboarding</li>
-                    <li>CRM management and pipeline tracking</li>
-                    <li>Proposal and contract creation</li>
-                    <li>Payment and invoicing coordination</li>
-                    <li>Customer support (email/live chat)</li>
-                    <li>SOP implementation & improvement</li>
-                    <li>Internal project management (ClickUp, Asana)</li>
-                    <li>Vendor and supplier coordination</li>
-                </ul>
-            </div>
-
-            <div class="service-column reveal">
-                <div class="col-header">
-                    <h2>Marketing & Digital Presence Management</h2>
-                    <div class="divider"></div>
-                </div>
-                <ul class="service-list">
-                    <li>Social media management</li>
-                    <li>Content repurposing and copy editing</li>
-                    <li>Newsletter setup and distribution</li>
-                    <li>Blog publishing & SEO optimization</li>
-                    <li>Graphic design (Canva, branded templates)</li>
-                    <li>Video editing for reels/stories</li>
-                    <li>Community management (Facebook, LinkedIn)</li>
-                    <li>Website content updates</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="split-image-section reveal">
-        <div class="split-container">
-            <div class="split-box">
-                <img src="service-1.webp" alt="Executive Strategy">
-            </div>
-            <div class="split-box">
-                <img src="service-2.webp" alt="Operational Excellence">
-            </div>
-            <div class="split-box">
-                <img src="service-3.webp" alt="Digital Management">
-            </div>
-        </div>
-    </section>
-
-    <section class="services-cta">
-        <h2 class="reveal" style="margin-bottom: 40px;">Ready to reclaim your <i class="serif">mental space?</i></h2>
-        <button class="btn reveal" onclick="location.href='contact.html'">Begin Partnership</button>
-    </section>
-
-    <footer>
-        &copy; 2026 SOAR AGENCY | SERVING VISIONARIES WORLDWIDE
-    </footer>
-
-    <script>
-        const reveal = () => {
-            document.querySelectorAll('.reveal').forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 50) {
-                    el.classList.add('active');
-                }
-            });
-        };
-        window.addEventListener('scroll', reveal);
-        window.addEventListener('load', reveal);
-        reveal();
-    </script>
-
-    <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script>
-    <script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siq367740f3a0887b857834c2422a914562" defer></script>
-
-</body>
-</html>
