@@ -19,7 +19,15 @@
         
         html { scroll-behavior: smooth; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.8; font-size: 18px; overflow-x: hidden; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            color: var(--dark-grey); 
+            background: var(--white); 
+            line-height: 1.8; 
+            font-size: 18px; 
+            overflow-x: hidden; 
+        }
         h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; }
 
         /* Navigation */
@@ -97,8 +105,45 @@
         .value-item strong { display: block; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; color: var(--charcoal); margin-bottom: 8px; }
         .value-item p { font-size: 20px; color: var(--dark-grey); line-height: 1.5; font-weight: 300; }
 
-        footer { padding: 60px 10%; text-align: center; background: var(--white); color: var(--stone-grey); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; }
+        /* --- STICKY CONVERSION SECTION --- */
+        .conversion-strip { background-color: #333638; padding: 60px 8%; color: white; text-align: center; }
+        .conversion-title { margin-bottom: 50px; }
+        .conversion-title h2 { font-family: 'Inter', sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: 5px; color: #A8A8A8; font-weight: 400; }
+        
+        .conversion-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        
+        .c-icon-box { 
+            display: flex; flex-direction: column; align-items: center; text-align: center; padding: 25px;
+            background: #2a2c2e; border: 1px solid rgba(168,168,168,0.2); 
+            border-radius: 10px; transition: 0.3s ease;
+        }
+        .c-icon-box:hover { background: #3c3e41; border-color: #8B735B; transform: translateY(-3px); }
+        
+        /* THE SPECIFIC BEIGE CIRCLE STYLE */
+        .beige-circle {
+            width: 70px; height: 70px; border-radius: 50%;
+            background-color: var(--beige); display: flex; justify-content: center; align-items: center; margin-bottom: 25px;
+            border: 2px solid var(--white); /* This thin white outer frame makes it pop */
+        }
+        .beige-circle i { font-size: 24px; color: var(--charcoal); } /* The dark icon inside */
+        
+        .c-text h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #FFFFFF; font-weight: 400; margin-bottom: 12px; }
+        .c-text p { font-size: 13px; color: rgba(255,255,255,0.8); letter-spacing: 1px; text-transform: uppercase; font-weight: 300; line-height: 1.5; }
+
+        footer { padding: 60px 10% 120px; text-align: center; background: var(--white); color: var(--stone-grey); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; }
         .social-link { display: inline-block; margin-bottom: 25px; font-size: 24px; color: var(--charcoal); text-decoration: none; }
+
+        /* THE STICKY INQUIRY PANEL */
+        .sticky-inquiry { 
+            position: fixed; bottom: 0; left: 0; width: 100%; 
+            padding: 20px 10%; background: rgba(245,242,237, 0.98); 
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05); z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center; gap: 30px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        .sticky-left h3 { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--dark-grey); letter-spacing: 2px; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
+        .sticky-left p { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #1a1a1a; font-weight: 400; }
+        .sticky-btn { background: var(--charcoal); color: white; padding: 25px 50px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; text-align: center; }
 
         @media (max-width: 1024px) {
             nav { padding: 10px 8%; }
@@ -106,9 +151,12 @@
             .hamburger { display: block; }
             .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--white); padding: 40px 0; }
             #menu-toggle:checked ~ .nav-links { display: flex; }
-            .grid, .values-grid { grid-template-columns: 1fr; text-align: center; }
+            .grid, .values-grid, .conversion-grid { grid-template-columns: 1fr; text-align: center; }
             .value-item { padding-left: 0; }
             .value-item::before { display: none; }
+            .sticky-inquiry { flex-direction: column; text-align: center; padding: 20px; }
+            .sticky-left p { font-size: 1.5rem !important; }
+            .sticky-btn { width: 100%; }
         }
     </style>
 </head>
@@ -138,9 +186,9 @@
         <div class="frame-box">
             <h2>Hire Us For</h2>
             <div class="grid">
-                <div class="item"><h3>Efficiency</h3><p>High-level inbox, calendar, and complex travel management.</p></div>
-                <div class="item"><h3>Operations</h3><p>Workflow optimization and system architecture for leverage.</p></div>
-                <div class="item"><h3>Client Care</h3><p>Premium onboarding and white-glove relationship management.</p></div>
+                <div class="item"><h3>Efficiency</h3><p>High-level inbox, calendar, and complex travel management—executed with absolute precision and foresight.</p></div>
+                <div class="item"><h3>Operations</h3><p>Workflow optimization and system architecture that turn operational chaos into scalable executive leverage.</p></div>
+                <div class="item"><h3>Client Care</h3><p>Premium onboarding and white-glove relationship management for your highest-value stakeholders and partners.</p></div>
             </div>
         </div>
     </section>
@@ -166,10 +214,63 @@
         </div>
     </section>
 
+    <section class="conversion-strip">
+        <div class="conversion-title">
+            <h2>Why SOAR Executive Operations</h2>
+        </div>
+        <div class="conversion-grid">
+            
+            <div class="c-icon-box">
+                <div class="beige-circle">
+                    <i class="fas fa-clock"></i> </div>
+                <div class="c-text">
+                    <h4>24/7 Availability</h4>
+                    <p>Execute seamless operations across all time zones, maximizing productivity while you sleep.</p>
+                </div>
+            </div>
+
+            <div class="c-icon-box">
+                <div class="beige-circle">
+                    <i class="fas fa-star"></i> </div>
+                <div class="c-text">
+                    <h4>Vetted Elite Talent</h4>
+                    <p>Instantly access carefully selected professionals with specialized operational skill sets.</p>
+                </div>
+            </div>
+
+            <div class="c-icon-box">
+                <div class="beige-circle">
+                    <i class="fas fa-bolt"></i> </div>
+                <div class="c-text">
+                    <h4>Immediate ROI</h4>
+                    <p>Leverage immediate strategic results with our streamlined and efficient onboarding process.</p>
+                </div>
+            </div>
+
+            <div class="c-icon-box">
+                <div class="beige-circle">
+                    <i class="fas fa-shield-alt"></i> </div>
+                <div class="c-text">
+                    <h4>Guaranteed Excellence</h4>
+                    <p>Experience premium service architecture fully backed by our satisfaction commitment.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <footer>
         <a href="https://www.linkedin.com/in/wanjiruchristine" target="_blank" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
         <p>&copy; 2026 SOAR | SERVING LEADERS WORLDWIDE</p>
     </footer>
+
+    <div class="sticky-inquiry">
+        <div class="sticky-left">
+            <h3>READY TO SCALE WITHOUT BURNOUT?</h3>
+            <p>Ready to Soar?</p>
+        </div>
+        <a href="contact.html" class="sticky-btn">Book Your Initial Consultation</a>
+    </div>
 
     <script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siq367740f3a0887b857834c2422a914562" defer></script>
 </body>
