@@ -19,144 +19,64 @@
         
         html { scroll-behavior: smooth; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: 'Inter', sans-serif; 
-            color: var(--dark-grey); 
-            background: var(--white); 
-            line-height: 1.8; 
-            font-size: 18px; 
-            overflow-x: hidden; 
-        }
+        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.8; font-size: 18px; overflow-x: hidden; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; }
 
         /* Navigation */
-        nav {
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            padding: 15px 8%;
-            position: fixed; 
-            width: 100%; 
-            top: 0;
-            background: rgba(255, 255, 255, 0.98); 
-            z-index: 1000; 
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; position: fixed; width: 100%; top: 0; background: rgba(255, 255, 255, 0.98); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
         .logo img { height: 70px; width: auto; display: block; }
-        
-        #menu-toggle { display: none; }
-        .hamburger {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--charcoal);
-        }
-
         .nav-links { display: flex; gap: 45px; list-style: none; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
-        .nav-links a:hover { color: var(--charcoal); }
-        
-        .nav-cta { 
-            background: var(--charcoal); 
-            color: white; 
-            padding: 12px 25px; 
-            font-size: 11px; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-            cursor: pointer; 
-            transition: 0.4s; 
-            text-decoration: none;
-        }
+        .nav-cta { background: var(--charcoal); color: white; padding: 12px 25px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
 
         /* Hero */
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background-color: var(--beige); padding: 0 10%; }
         .hero h1 { font-size: clamp(35px, 7vw, 75px); margin-bottom: 20px; line-height: 1.1; color: var(--charcoal); }
-        .hero .tagline { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.5rem, 3vw, 2.5rem); margin-bottom: 20px; color: var(--charcoal); }
-        .hero p { max-width: 900px; font-size: 12px; letter-spacing: 5px; text-transform: uppercase; color: var(--stone-grey); margin-bottom: 30px; }
+        .hero .tagline { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.5rem, 3vw, 2.5rem); margin-bottom: 20px; }
+        .hero-btn { display: inline-block; padding: 15px 35px; border: 1px solid var(--charcoal); color: var(--charcoal); text-decoration: none; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; }
 
-        .hero-btn {
-            display: inline-block;
-            padding: 15px 35px;
-            border: 1px solid var(--charcoal);
-            color: var(--charcoal);
-            text-decoration: none;
-            font-size: 12px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-weight: 600;
-            transition: all 0.4s ease;
-        }
-        .hero-btn:hover { background: var(--charcoal); color: var(--white); }
-
-        /* Services Strip */
+        /* Services */
         .services-strip { background: var(--light-grey); padding: 80px 8%; text-align: center; }
-        .frame-box { border: 1px solid var(--brand-brown); padding: 60px 30px; width: 100%; }
-        .services-strip h2 { font-size: 2rem; margin-bottom: 50px; letter-spacing: 1px; color: var(--charcoal); text-transform: uppercase; }
+        .frame-box { border: 1px solid var(--brand-brown); padding: 60px 30px; }
         .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-        .item h3 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 25px; color: var(--brand-brown); font-weight: 600; }
-        .item p { font-size: 1rem; opacity: 0.9; font-weight: 300; line-height: 1.7; color: var(--dark-grey); }
 
-        /* Compact Values Section (2x2) */
-        .values-section { background-color: var(--beige); padding: 80px 8%; }
+        /* Values (2x2) */
+        .values-section { background-color: var(--white); padding: 80px 8%; }
         .values-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px 80px; }
         .value-item { position: relative; padding-left: 30px; }
-        .value-item::before { content: "—"; position: absolute; left: 0; color: var(--brand-brown); font-weight: bold; }
-        .value-item strong { display: block; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; color: var(--charcoal); margin-bottom: 8px; }
-        .value-item p { font-size: 20px; color: var(--dark-grey); line-height: 1.5; font-weight: 300; }
+        .value-item::before { content: "—"; position: absolute; left: 0; color: var(--brand-brown); }
+        .value-item p { font-size: 20px; font-weight: 300; }
 
-        /* --- STICKY CONVERSION SECTION --- */
-        .conversion-strip { background-color: #333638; padding: 60px 8%; color: white; text-align: center; }
-        .conversion-title { margin-bottom: 50px; }
-        .conversion-title h2 { font-family: 'Inter', sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: 5px; color: #A8A8A8; font-weight: 400; }
+        /* WHY CHOOSE US SECTION - NEW STYLE */
+        .conversion-strip { background-color: var(--charcoal); padding: 100px 8%; text-align: center; }
+        .conversion-title h2 { color: var(--white); font-size: 24px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 60px; }
         
-        .conversion-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .conversion-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
         
         .c-icon-box { 
-            display: flex; flex-direction: column; align-items: center; text-align: center; padding: 25px;
-            background: #2a2c2e; border: 1px solid rgba(168,168,168,0.2); 
-            border-radius: 10px; transition: 0.3s ease;
+            background: var(--beige); 
+            border: 2px solid var(--white); /* White boundary line */
+            padding: 40px 25px;
+            border-radius: 4px;
+            display: flex; flex-direction: column; align-items: center;
         }
-        .c-icon-box:hover { background: #3c3e41; border-color: #8B735B; transform: translateY(-3px); }
-        
-        /* THE SPECIFIC BEIGE CIRCLE STYLE */
+
         .beige-circle {
-            width: 70px; height: 70px; border-radius: 50%;
-            background-color: var(--beige); display: flex; justify-content: center; align-items: center; margin-bottom: 25px;
-            border: 2px solid var(--white); /* This thin white outer frame makes it pop */
+            width: 60px; height: 60px; border-radius: 50%;
+            background: var(--charcoal); color: var(--white);
+            display: flex; justify-content: center; align-items: center; margin-bottom: 20px;
         }
-        .beige-circle i { font-size: 24px; color: var(--charcoal); } /* The dark icon inside */
-        
-        .c-text h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #FFFFFF; font-weight: 400; margin-bottom: 12px; }
-        .c-text p { font-size: 13px; color: rgba(255,255,255,0.8); letter-spacing: 1px; text-transform: uppercase; font-weight: 300; line-height: 1.5; }
 
-        footer { padding: 60px 10% 120px; text-align: center; background: var(--white); color: var(--stone-grey); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; }
-        .social-link { display: inline-block; margin-bottom: 25px; font-size: 24px; color: var(--charcoal); text-decoration: none; }
+        .c-text h4 { color: #000000; font-family: 'Inter', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; margin-bottom: 15px; }
+        .c-text p { color: #333333; font-size: 14px; line-height: 1.5; font-weight: 400; }
 
-        /* THE STICKY INQUIRY PANEL */
-        .sticky-inquiry { 
-            position: fixed; bottom: 0; left: 0; width: 100%; 
-            padding: 20px 10%; background: rgba(245,242,237, 0.98); 
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.05); z-index: 1000;
-            display: flex; justify-content: space-between; align-items: center; gap: 30px;
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-        .sticky-left h3 { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--dark-grey); letter-spacing: 2px; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
-        .sticky-left p { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #1a1a1a; font-weight: 400; }
-        .sticky-btn { background: var(--charcoal); color: white; padding: 25px 50px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; text-align: center; }
+        footer { padding: 60px 10%; text-align: center; color: var(--stone-grey); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; }
+        .social-link { font-size: 24px; color: var(--charcoal); display: block; margin-bottom: 20px; }
 
+        /* Mobile */
         @media (max-width: 1024px) {
-            nav { padding: 10px 8%; }
-            .logo img { height: 45px; }
-            .hamburger { display: block; }
-            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--white); padding: 40px 0; }
-            #menu-toggle:checked ~ .nav-links { display: flex; }
-            .grid, .values-grid, .conversion-grid { grid-template-columns: 1fr; text-align: center; }
-            .value-item { padding-left: 0; }
-            .value-item::before { display: none; }
-            .sticky-inquiry { flex-direction: column; text-align: center; padding: 20px; }
-            .sticky-left p { font-size: 1.5rem !important; }
-            .sticky-btn { width: 100%; }
+            .grid, .values-grid, .conversion-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 40px; }
         }
     </style>
 </head>
@@ -164,8 +84,6 @@
 
     <nav>
         <div class="logo"><a href="index.html"><img src="logo.png" alt="SOAR"></a></div>
-        <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle" class="hamburger"><i class="fas fa-bars"></i></label>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
@@ -186,76 +104,55 @@
         <div class="frame-box">
             <h2>Hire Us For</h2>
             <div class="grid">
-                <div class="item"><h3>Efficiency</h3><p>High-level inbox, calendar, and complex travel management—executed with absolute precision and foresight.</p></div>
-                <div class="item"><h3>Operations</h3><p>Workflow optimization and system architecture that turn operational chaos into scalable executive leverage.</p></div>
-                <div class="item"><h3>Client Care</h3><p>Premium onboarding and white-glove relationship management for your highest-value stakeholders and partners.</p></div>
+                <div class="item"><h3>Efficiency</h3><p>High-level inbox and complex travel management.</p></div>
+                <div class="item"><h3>Operations</h3><p>Workflow optimization and system architecture.</p></div>
+                <div class="item"><h3>Client Care</h3><p>White-glove relationship management.</p></div>
             </div>
         </div>
     </section>
 
     <section class="values-section">
         <div class="values-grid">
-            <div class="value-item">
-                <strong>Excellence in Execution</strong>
-                <p>Unwavering commitment to delivering superior results in every strategic task.</p>
-            </div>
-            <div class="value-item">
-                <strong>Radical Integrity</strong>
-                <p>Maintaining total transparency and honesty in all professional interactions.</p>
-            </div>
-            <div class="value-item">
-                <strong>Invested Partnership</strong>
-                <p>Approaching your business objectives with the same dedication as our own.</p>
-            </div>
-            <div class="value-item">
-                <strong>Technological Agility</strong>
-                <p>Continuously evolving with emerging tools to provide modern solutions.</p>
-            </div>
+            <div class="value-item"><strong>Excellence</strong><p>Unwavering commitment to superior results.</p></div>
+            <div class="value-item"><strong>Integrity</strong><p>Total transparency in all interactions.</p></div>
+            <div class="value-item"><strong>Partnership</strong><p>Dedicated to your business objectives.</p></div>
+            <div class="value-item"><strong>Agility</strong><p>Evolving with modern efficient solutions.</p></div>
         </div>
     </section>
 
     <section class="conversion-strip">
         <div class="conversion-title">
-            <h2>Why SOAR Executive Operations</h2>
+            <h2>Why Choose Us</h2>
         </div>
         <div class="conversion-grid">
-            
             <div class="c-icon-box">
-                <div class="beige-circle">
-                    <i class="fas fa-clock"></i> </div>
+                <div class="beige-circle"><i class="fas fa-clock"></i></div>
                 <div class="c-text">
                     <h4>24/7 Availability</h4>
-                    <p>Execute seamless operations across all time zones, maximizing productivity while you sleep.</p>
+                    <p>Execute seamless operations across all time zones, maximizing productivity.</p>
                 </div>
             </div>
-
             <div class="c-icon-box">
-                <div class="beige-circle">
-                    <i class="fas fa-star"></i> </div>
+                <div class="beige-circle"><i class="fas fa-users"></i></div>
                 <div class="c-text">
-                    <h4>Vetted Elite Talent</h4>
-                    <p>Instantly access carefully selected professionals with specialized operational skill sets.</p>
+                    <h4>Vetted Talent</h4>
+                    <p>Access carefully selected professionals with specialized operational skill sets.</p>
                 </div>
             </div>
-
             <div class="c-icon-box">
-                <div class="beige-circle">
-                    <i class="fas fa-bolt"></i> </div>
+                <div class="beige-circle"><i class="fas fa-bolt"></i></div>
                 <div class="c-text">
                     <h4>Immediate ROI</h4>
-                    <p>Leverage immediate strategic results with our streamlined and efficient onboarding process.</p>
+                    <p>Leverage immediate results with our streamlined onboarding process.</p>
                 </div>
             </div>
-
             <div class="c-icon-box">
-                <div class="beige-circle">
-                    <i class="fas fa-shield-alt"></i> </div>
+                <div class="beige-circle"><i class="fas fa-check-shield"></i></div>
                 <div class="c-text">
-                    <h4>Guaranteed Excellence</h4>
-                    <p>Experience premium service architecture fully backed by our satisfaction commitment.</p>
+                    <h4>Guaranteed</h4>
+                    <p>Experience premium service architecture backed by our excellence commitment.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -263,14 +160,6 @@
         <a href="https://www.linkedin.com/in/wanjiruchristine" target="_blank" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
         <p>&copy; 2026 SOAR | SERVING LEADERS WORLDWIDE</p>
     </footer>
-
-    <div class="sticky-inquiry">
-        <div class="sticky-left">
-            <h3>READY TO SCALE WITHOUT BURNOUT?</h3>
-            <p>Ready to Soar?</p>
-        </div>
-        <a href="contact.html" class="sticky-btn">Book Your Initial Consultation</a>
-    </div>
 
     <script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siq367740f3a0887b857834c2422a914562" defer></script>
 </body>
