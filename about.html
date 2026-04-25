@@ -6,7 +6,14 @@
     <title>About | SOAR Executive Operations</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
-        :root { --beige: #F5F2ED; --dark-grey: #4A4E51; --stone-grey: #A8A8A8; --white: #FFFFFF; --transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        :root { 
+            --beige: #F5F2ED; 
+            --dark-grey: #4A4E51; 
+            --stone-grey: #A8A8A8; 
+            --white: #FFFFFF; 
+            --transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.8; overflow-x: hidden; }
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; font-weight: 400; }
@@ -16,62 +23,74 @@
         .logo a { text-decoration: none; color: var(--dark-grey); font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; display: flex; align-items: center; }
         .nav-links { display: flex; gap: 30px; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
-        .nav-cta { background: var(--dark-grey); color: white; border: none; padding: 12px 28px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: var(--transition); }
+        .nav-cta { background: var(--dark-grey); color: white; border: none; padding: 12px 28px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; }
 
         /* HERO SECTION */
         .hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: var(--beige); padding: 120px 10%; }
-        .hero h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.3; max-width: 900px; margin-bottom: 30px; }
+        .hero h1 { font-size: clamp(30px, 5vw, 48px); line-height: 1.3; max-width: 900px; margin-bottom: 30px; }
         .hero p { max-width: 750px; font-size: 1.1rem; font-weight: 300; color: var(--dark-grey); }
 
-        /* NEW STAGGERED TESTIMONIAL SECTION */
-        .staggered-section { padding: 120px 10%; background: var(--white); }
+        /* STAGGERED ABOUT CONTENT SECTION */
+        .staggered-container { padding: 100px 10%; background: var(--white); }
         
         .testimonial-row { 
             display: flex; 
             align-items: center; 
             gap: 80px; 
-            margin-bottom: 150px; /* Space between rows */
-            opacity: 0;
-            transform: translateY(50px);
-            transition: var(--transition);
+            margin-bottom: 120px; 
+            opacity: 0; /* Hidden initially */
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
         }
         
-        .testimonial-row.active { opacity: 1; transform: translateY(0); }
+        /* When the 'active' class is added via JS, content appears */
+        .testimonial-row.active { opacity: 1 !important; transform: translateY(0) !important; }
 
-        /* This creates the "One up, One down" effect */
-        .align-up { margin-top: -50px; }
-        .align-down { margin-top: 50px; }
-
+        /* Layout Logic */
         .row-reverse { flex-direction: row-reverse; }
 
         .test-image { 
             flex: 1; 
-            aspect-ratio: 1 / 1; /* Forced 800x800 square */
+            aspect-ratio: 1 / 1; 
             background: #f0f0f0; 
             overflow: hidden; 
         }
+        
+        /* The "One Up, One Down" staggering for Desktop */
+        @media (min-width: 1025px) {
+            .align-up { margin-top: -60px; }
+            .align-down { margin-top: 60px; }
+        }
+
         .test-image img { width: 100%; height: 100%; object-fit: cover; image-rendering: -webkit-optimize-contrast; }
 
         .test-content { flex: 1; }
         .test-content h2 { font-size: 2.2rem; margin-bottom: 20px; line-height: 1.2; }
         .test-content p { font-weight: 300; margin-bottom: 20px; font-size: 1.1rem; }
-        .testimonial-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; color: var(--stone-grey); border-left: 2px solid var(--beige); padding-left: 20px; margin-top: 30px; }
+        
+        .testimonial-quote { 
+            font-family: 'Playfair Display', serif; 
+            font-style: italic; 
+            font-size: 1.3rem; 
+            color: var(--stone-grey); 
+            border-left: 2px solid var(--beige); 
+            padding-left: 20px; 
+            margin-top: 30px; 
+        }
 
         /* TICKER */
-        .ticker { background: var(--dark-grey); padding: 80px 0; overflow: hidden; white-space: nowrap; }
+        .ticker { background: var(--dark-grey); padding: 60px 0; overflow: hidden; white-space: nowrap; }
         .ticker-track { display: inline-flex; animation: scroll 40s linear infinite; }
-        .ticker-item { color: white; font-family: 'Playfair Display'; font-size: 1.8rem; font-style: italic; margin: 0 100px; }
+        .ticker-item { color: white; font-family: 'Playfair Display'; font-size: 1.5rem; font-style: italic; margin: 0 80px; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        footer { padding: 80px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--stone-grey); border-top: 1px solid #eee; }
-        
-        .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        footer { padding: 60px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--stone-grey); border-top: 1px solid #eee; }
 
+        /* MOBILE OPTIMIZATION */
         @media (max-width: 1024px) {
             .testimonial-row, .row-reverse { flex-direction: column !important; text-align: center; gap: 40px; margin-bottom: 80px; }
-            .align-up, .align-down { margin-top: 0; }
             .test-image { width: 100%; }
+            .hero { padding-top: 150px; }
         }
     </style>
 </head>
@@ -95,16 +114,69 @@
     </nav>
 
     <section class="hero">
-        <h1 class="reveal">Running a business means constantly juggling priorities, but not everything needs your direct attention.</h1>
-        <p class="reveal">SOAR Executive Operations exists to take operational weight off your shoulders, so you can focus on decisions that actually move your business forward.</p>
+        <h1>Running a business means constantly juggling priorities, but not everything needs your direct attention.</h1>
+        <p>SOAR Executive Operations exists to take operational weight off your shoulders, so you can focus on decisions that actually move your business forward.</p>
     </section>
 
-    <section class="staggered-section">
+    <section class="staggered-container">
         
-        <div class="testimonial-row reveal align-up">
+        <div class="testimonial-row align-up">
             <div class="test-image">
                 <img src="about-left.webp" alt="Executive Strategy">
             </div>
             <div class="test-content">
                 <h2>Our Story & Vision</h2>
-                <p>I started SOAR after seeing how easily business
+                <p>I started SOAR after seeing how easily business owners get caught up in the day-to-day running of their work. I wanted to create support that actually helps you move forward with more clarity.</p>
+                <div class="testimonial-quote">
+                    "Since partnering with SOAR, my focus has shifted from fire-fighting to true scaling."
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-row align-down row-reverse">
+            <div class="test-image">
+                <img src="about-right.webp" alt="Operational Excellence">
+            </div>
+            <div class="test-content">
+                <h2>Thoughtful Support</h2>
+                <p>I believe support should feel reliable and easy to trust. We don’t believe in generic systems; everything we do is shaped around your specific goals and pace.</p>
+                <div class="testimonial-quote">
+                    "The discretion and initiative shown by this team is exactly what high-level founders need."
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="ticker">
+        <div class="ticker-track">
+            <div class="ticker-item">"Operations changed how I lead."</div>
+            <div class="ticker-item">"Precision, initiative, and discretion."</div>
+            <div class="ticker-item">"Scaling with zero friction."</div>
+            <div class="ticker-item">"Operations changed how I lead."</div>
+            <div class="ticker-item">"Precision, initiative, and discretion."</div>
+            <div class="ticker-item">"Scaling with zero friction."</div>
+        </div>
+    </div>
+
+    <footer>&copy; 2026 SOAR AGENCY | KES & INTERNATIONAL</footer>
+
+    <script>
+        const revealContent = () => {
+            const items = document.querySelectorAll('.testimonial-row');
+            items.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                // Trigger when item is 15% visible
+                if (rect.top < window.innerHeight * 0.85) {
+                    item.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealContent);
+        window.addEventListener('load', revealContent);
+        // Instant check for top-of-page content
+        revealContent();
+    </script>
+</body>
+</html>
