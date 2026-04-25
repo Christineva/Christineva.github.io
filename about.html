@@ -37,7 +37,7 @@
         .square-box img { width: 100%; height: 100%; object-fit: cover; }
 
         .content-side { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 450px; }
-        .label { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--stone-grey); margin-top: 20px; display: block; }
+        .label { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--stone-grey); margin-top: 20px; display: block; text-align: center; }
         
         .main-title { font-size: 2.5rem; margin-bottom: 30px; }
         .section-title { text-align: center; margin: 40px 0 80px; }
@@ -47,7 +47,6 @@
         .test-card { border-bottom: 1px solid #f0f0f0; padding-bottom: 40px; }
         .stars { color: var(--gold); font-size: 12px; margin-bottom: 15px; }
         .test-text { font-size: 1.1rem; font-weight: 300; line-height: 1.8; font-style: italic; }
-        .test-text strong { display: block; margin-bottom: 10px; font-style: normal; font-weight: 700; }
         
         .client-info { display: flex; align-items: center; gap: 15px; margin-top: 20px; }
         .headshot { width: 50px; height: 50px; border-radius: 50%; background: #eee; overflow: hidden; }
@@ -72,7 +71,7 @@
         .footer-cta h2 { font-size: clamp(28px, 4vw, 42px); line-height: 1.2; max-width: 700px; }
         .footer-cta p { max-width: 800px; font-weight: 300; font-size: 1.15rem; }
 
-        footer { padding: 40px 10%; text-align: center; font-size: 10px; letter-spacing: 3px; color: var(--stone-grey); text-transform: uppercase; font-weight: 700; }
+        footer { padding: 40px 10%; text-align: center; font-size: 10px; letter-spacing: 3px; color: var(--stone-grey); text-transform: uppercase; font-weight: 700; border-top: 1px solid #f4f4f4; }
 
         @media (max-width: 1100px) {
             .vertical-row, .row-reverse { flex-direction: column !important; text-align: center; gap: 50px; }
@@ -103,7 +102,7 @@
         <div class="vertical-row">
             <div>
                 <div class="founder-box">
-                    <img src="founder.jpg" alt="Founder Story">
+                    <img src="image_f186f4.png" alt="Founder Story">
                 </div>
                 <span class="label">FOUNDER AND CEO</span>
             </div>
@@ -129,24 +128,18 @@
                 <div class="testimonial-pair">
                     <div class="test-card">
                         <div class="stars">★★★★★</div>
-                        <p class="test-text">
-                            <strong>They didn't just lighten my workload, they transformed how I run my business.</strong>
-                            "Working with my VA felt like adding a COO to my team. She anticipated what I needed before I did, took initiative, and brought structure to my chaotic operations. Within weeks, I had more time to focus on growth instead of admin fires."
-                        </p>
+                        <p class="test-text">"They didn’t just handle tasks, they reshaped how my business functions. Working with my VA felt like bringing in an operations lead. I moved from being stuck in day, to, day admin to having the space to concentrate on growth."</p>
                         <div class="client-info">
-                            <div class="headshot"><img src="client-1.webp" alt="Beth McCarthy"></div>
-                            <span class="client-name">Beth McCarthy</span>
+                            <div class="headshot"><img src="client-1.webp" alt="Sol Kennedy"></div>
+                            <span class="client-name">Sol Kennedy</span>
                         </div>
                     </div>
                     <div class="test-card">
                         <div class="stars">★★★★★</div>
-                        <p class="test-text">
-                            <strong>Professional, reliable, and insanely efficient.</strong>
-                            "I've worked with several VAs before, but none matched the precision and thoughtfulness of this team. Tasks were completed ahead of schedule, communication was seamless, and the onboarding process felt like white, glove service."
-                        </p>
+                        <p class="test-text">"Highly professional, dependable, and exceptionally efficient. Having worked with multiple VAs before, this team stood out for their accuracy. Onboarding was handled with a level of care that felt truly premium."</p>
                         <div class="client-info">
-                            <div class="headshot"><img src="client-2.webp" alt="Mark Hoffman"></div>
-                            <span class="client-name">Mark Hoffman</span>
+                            <div class="headshot"><img src="client-2.webp" alt="Louise L."></div>
+                            <span class="client-name">Louise L.</span>
                         </div>
                     </div>
                 </div>
@@ -161,4 +154,35 @@
                 <div class="testimonial-pair">
                     <div class="test-card">
                         <div class="stars">★★★★★</div>
-                        <p class="test-text">
+                        <p class="test-text">"I went from constant overwhelm to real balance in just one month. Letting go of control wasn’t easy, but my VA made the shift seamless. Now I have the confidence that everything is handled, even when I’m offline."</p>
+                        <div class="client-info">
+                            <div class="headshot"><img src="client-3.webp" alt="Hamilton Conford"></div>
+                            <span class="client-name">Hamilton Conford</span>
+                        </div>
+                    </div>
+                    <div class="test-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="test-text">"Strategic, not just supportive. What set her apart was her proactive approach. She didn’t wait for direction, she came with ideas, refined my workflows, and introduced tools that saved us hours every week."</p>
+                        <div class="client-info">
+                            <div class="headshot"><img src="client-4.webp" alt="Michael Livingstone"></div>
+                            <span class="client-name">Michael Livingstone</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="cta-container">
+        <section class="footer-cta">
+            <h2>Let us together build a flourishing business</h2>
+            <p>When connected with us, you aren’t growing your business alone. We have your back and put in our best to contribute to the growth of your entire team and organization. So, if you are looking for the right agency that’ll help you scale up your business and bring in more revenue, we are right here!</p>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2026 SOAR AGENCY | SERVING VISIONARIES WORLDWIDE
+    </footer>
+
+</body>
+</html>
