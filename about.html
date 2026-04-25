@@ -19,24 +19,43 @@
         .nav-cta { background: var(--dark-grey); color: white; border: none; padding: 12px 28px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: var(--transition); }
 
         /* HERO SECTION */
-        .hero { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: var(--beige); padding: 120px 10%; }
+        .hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: var(--beige); padding: 120px 10%; }
         .hero h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.3; max-width: 900px; margin-bottom: 30px; }
         .hero p { max-width: 750px; font-size: 1.1rem; font-weight: 300; color: var(--dark-grey); }
 
-        /* STORY SECTION */
-        section { padding: 120px 10%; }
-        .story-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .story-img-container { text-align: left; }
-        .story-img { height: 600px; background: #eee; overflow: hidden; border-radius: 2px; margin-bottom: 15px; }
-        .story-img img { width: 100%; height: 100%; object-fit: cover; }
-        .founder-name { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--stone-grey); font-weight: 500; }
+        /* NEW STAGGERED TESTIMONIAL SECTION */
+        .staggered-section { padding: 120px 10%; background: var(--white); }
         
-        .story-text h2 { font-size: 2.5rem; margin-bottom: 25px; line-height: 1.2; }
-        .story-text p { margin-bottom: 20px; font-weight: 300; }
+        .testimonial-row { 
+            display: flex; 
+            align-items: center; 
+            gap: 80px; 
+            margin-bottom: 150px; /* Space between rows */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: var(--transition);
+        }
+        
+        .testimonial-row.active { opacity: 1; transform: translateY(0); }
 
-        /* WIDE BANNER */
-        .wide-banner { width: 100%; height: 350px; background: #eee; margin: 40px 0; overflow: hidden; }
-        .wide-banner img { width: 100%; height: 100%; object-fit: cover; }
+        /* This creates the "One up, One down" effect */
+        .align-up { margin-top: -50px; }
+        .align-down { margin-top: 50px; }
+
+        .row-reverse { flex-direction: row-reverse; }
+
+        .test-image { 
+            flex: 1; 
+            aspect-ratio: 1 / 1; /* Forced 800x800 square */
+            background: #f0f0f0; 
+            overflow: hidden; 
+        }
+        .test-image img { width: 100%; height: 100%; object-fit: cover; image-rendering: -webkit-optimize-contrast; }
+
+        .test-content { flex: 1; }
+        .test-content h2 { font-size: 2.2rem; margin-bottom: 20px; line-height: 1.2; }
+        .test-content p { font-weight: 300; margin-bottom: 20px; font-size: 1.1rem; }
+        .testimonial-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; color: var(--stone-grey); border-left: 2px solid var(--beige); padding-left: 20px; margin-top: 30px; }
 
         /* TICKER */
         .ticker { background: var(--dark-grey); padding: 80px 0; overflow: hidden; white-space: nowrap; }
@@ -44,19 +63,15 @@
         .ticker-item { color: white; font-family: 'Playfair Display'; font-size: 1.8rem; font-style: italic; margin: 0 100px; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* QUOTE SECTION */
-        .quote-section { text-align: center; padding: 100px 15%; background: var(--beige); }
-        .quote-section h2 { font-size: 2.2rem; font-style: italic; color: var(--dark-grey); }
-
         footer { padding: 80px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--stone-grey); border-top: 1px solid #eee; }
         
         .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .story-split { grid-template-columns: 1fr; gap: 40px; }
-            .story-img { height: 400px; }
+        @media (max-width: 1024px) {
+            .testimonial-row, .row-reverse { flex-direction: column !important; text-align: center; gap: 40px; margin-bottom: 80px; }
+            .align-up, .align-down { margin-top: 0; }
+            .test-image { width: 100%; }
         }
     </style>
 </head>
@@ -80,45 +95,16 @@
     </nav>
 
     <section class="hero">
-        <h1 class="reveal">Running a business means constantly juggling priorities, but not everything needs your direct attention. That’s where we come in.</h1>
-        <p class="reveal">SOAR Virtual Assistants exists to take operational weight off your shoulders, so you can focus on decisions that actually move your business forward. We support founders, coaches, and growing teams with reliable, high-level assistance that blends seamlessly into your workflow. <br><br> We don’t believe in rigid systems or generic support. Everything we do is shaped around how you work, your pace, your priorities, and your goals.</p>
+        <h1 class="reveal">Running a business means constantly juggling priorities, but not everything needs your direct attention.</h1>
+        <p class="reveal">SOAR Executive Operations exists to take operational weight off your shoulders, so you can focus on decisions that actually move your business forward.</p>
     </section>
 
-    <section class="story-split">
-        <div class="story-img-container reveal">
-            <div class="story-img"><img src="founder.jpg" alt="Founder of SOAR"></div>
-            <p class="founder-name">Founder — CHRISTINE W.N</p>
-        </div>
-        <div class="story-text reveal">
-            <h2>Our Story & Vision</h2>
-            <p>I started SOAR after seeing how easily business owners get caught up in the day-to-day running of their work. I wanted to create support that doesn’t just take tasks off your plate, but actually helps you move forward with more clarity and focus.</p>
-            <p>SOAR reflects that vision, it’s about giving you the space to step back, stay organized, and rise into the parts of your business that truly matter.</p>
-            <p>I believe support should feel reliable, thoughtful, and easy to trust, so you can focus on growing your business, not managing everything behind it.</p>
-        </div>
-    </section>
-
-    <div class="wide-banner reveal"><img src="banner.jpg" alt="Collaborative Workspace"></div>
-
-    <div class="ticker">
-        <div class="ticker-track">
-            <div class="ticker-item">"Operations changed how I lead."</div>
-            <div class="ticker-item">"Precision, initiative, and discretion."</div>
-            <div class="ticker-item">"Scaling with zero friction."</div>
-            <div class="ticker-item">"Operations changed how I lead."</div>
-            <div class="ticker-item">"Precision, initiative, and discretion."</div>
-            <div class="ticker-item">"Scaling with zero friction."</div>
-        </div>
-    </div>
-
-    <section class="quote-section reveal">
-        <h2>“When the right support is in place, you don’t just free up time, you create room to grow.”</h2>
-    </section>
-
-    <footer>&copy; 2026 SOAR AGENCY | KES & INTERNATIONAL</footer>
-
-    <script>
-        const reveal = () => { document.querySelectorAll('.reveal').forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active'); }); };
-        window.addEventListener('scroll', reveal); reveal();
-    </script>
-</body>
-</html>
+    <section class="staggered-section">
+        
+        <div class="testimonial-row reveal align-up">
+            <div class="test-image">
+                <img src="about-left.webp" alt="Executive Strategy">
+            </div>
+            <div class="test-content">
+                <h2>Our Story & Vision</h2>
+                <p>I started SOAR after seeing how easily business
