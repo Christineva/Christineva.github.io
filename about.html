@@ -50,7 +50,6 @@
 
         .row-reverse { flex-direction: row-reverse; }
 
-        /* THE BEIGE CTA SECTION */
         .cta-container { padding: 40px 8% 80px; background: var(--white); }
         .footer-cta { 
             background: var(--beige); 
@@ -64,4 +63,29 @@
             border: 1px solid var(--stone-grey); 
         }
         .footer-cta h2 { font-size: clamp(28px, 4vw, 42px); line-height: 1.2; max-width: 700px; }
-        .footer-cta p { max-width: 800
+        .footer-cta p { max-width: 800px; font-weight: 300; font-size: 1.15rem; }
+
+        footer { padding: 40px 10%; text-align: center; font-size: 10px; letter-spacing: 3px; color: var(--stone-grey); text-transform: uppercase; font-weight: 700; }
+
+        @media (max-width: 1100px) {
+            .vertical-row, .row-reverse { flex-direction: column !important; text-align: center; gap: 50px; }
+            .founder-box { width: 100%; max-width: 500px; height: auto; aspect-ratio: 1/1; flex: none; }
+            .square-box { width: 100%; max-width: 500px; height: auto; aspect-ratio: 1/1; flex: none; }
+            .content-side { min-height: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit; letter-spacing:4px; font-weight:700;">SOAR</a></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>“Excellence in every detail.”</h1>
