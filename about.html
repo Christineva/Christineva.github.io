@@ -10,7 +10,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.8; }
         
-        /* BOLD TITLES & SERIF FONT */
+        /* BOLD TITLES */
         h1, h2, h3, .serif, .client-name, .label { font-family: 'Playfair Display', serif; font-weight: 700 !important; }
         .label, .client-name { font-family: 'Inter', sans-serif; }
 
@@ -23,20 +23,21 @@
         .hero h1 { font-size: clamp(24px, 3vw, 32px); max-width: 900px; margin-bottom: 30px; line-height: 1.5; font-style: italic; }
         .hero p { max-width: 800px; font-weight: 300; font-size: 1.1rem; line-height: 2; color: var(--dark-grey); }
 
-        .about-main { padding: 120px 8%; max-width: 1400px; margin: 0 auto; }
+        .about-main { padding: 80px 8% 40px; max-width: 1400px; margin: 0 auto; }
         
         /* CONTENT ROWS */
-        .vertical-row { display: flex; gap: 100px; margin-bottom: 150px; align-items: center; }
+        .vertical-row { display: flex; gap: 100px; margin-bottom: 100px; align-items: center; }
         .square-box { flex: 0 0 500px; height: 500px; background: #f4f4f4; overflow: hidden; }
         .square-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        .content-side { flex: 1; display: flex; flex-direction: column; justify-content: space-between; min-height: 450px; }
-        .label { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--stone-grey); margin-bottom: 20px; display: block; }
+        .content-side { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 450px; }
+        .label { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--stone-grey); margin-top: 20px; display: block; }
         
-        .section-title { text-align: center; margin-bottom: 80px; }
-        .section-title h2 { font-size: 11px; letter-spacing: 6px; text-transform: uppercase; color: var(--stone-grey); }
+        /* UPDATED TITLE STYLES */
+        .main-title { font-size: 2.5rem; margin-bottom: 30px; }
+        .section-title { text-align: center; margin: 40px 0 80px; }
 
-        /* TESTIMONIALS (Updated Text & Larger Font) */
+        /* TESTIMONIALS */
         .testimonial-pair { display: grid; grid-template-columns: 1fr; gap: 60px; }
         .test-card { border-bottom: 1px solid #f0f0f0; padding-bottom: 40px; }
         .stars { color: var(--gold); font-size: 12px; margin-bottom: 15px; }
@@ -50,8 +51,8 @@
 
         .row-reverse { flex-direction: row-reverse; }
 
-        /* FLOURISHING BUSINESS SECTION (Beige with grey boundary) */
-        .cta-container { padding: 80px 8%; background: var(--white); }
+        /* BEIGE SECTION (No extra top space) */
+        .cta-container { padding: 40px 8% 80px; background: var(--white); }
         .footer-cta { 
             background: var(--beige); 
             color: var(--dark-grey); 
@@ -61,7 +62,7 @@
             align-items: center; 
             text-align: center; 
             gap: 30px; 
-            border: 1px solid var(--stone-grey); /* Thin grey line boundary */
+            border: 1px solid var(--stone-grey); 
         }
         .footer-cta h2 { font-size: clamp(28px, 4vw, 42px); line-height: 1.2; max-width: 700px; }
         .footer-cta p { max-width: 800px; font-weight: 300; font-size: 1.15rem; }
@@ -95,22 +96,24 @@
     <main class="about-main">
         
         <div class="vertical-row">
-            <div class="square-box">
-                <img src="image_f186f4.png" alt="Founder Story">
+            <div>
+                <div class="square-box">
+                    <img src="image_f186f4.png" alt="Founder Story">
+                </div>
+                <span class="label">FOUNDER AND CEO</span>
             </div>
             <div class="content-side">
-                <div>
-                    <span class="label">Founder</span>
-                    <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Our Story & Vision</h2>
-                    <p>I started SOAR after seeing how easily business owners get caught up in the day, to, day running of their work. I wanted to create support that doesn’t just take tasks off your plate, but actually helps you move forward with more clarity and focus.</p>
-                </div>
+                <h2 class="main-title">Our Story & Vision</h2>
+                <p>I started SOAR after seeing how easily business owners get caught up in the day, to, day running of their work. I wanted to create support that doesn’t just take tasks off your plate, but actually helps you move forward with more clarity and focus.</p>
+                <br>
                 <p>SOAR reflects that vision, it’s about giving you the space to step back, stay organized, and rise into the parts of your business that truly matter.</p>
+                <br>
                 <p>I believe support should feel reliable, thoughtful, and easy to trust, so you can focus on growing your business, not managing everything behind it.</p>
             </div>
         </div>
 
         <div class="section-title">
-            <h2>WHAT OUR CLIENTS SAY</h2>
+            <h2 class="main-title">What Our Clients Say</h2>
         </div>
 
         <div class="vertical-row row-reverse">
