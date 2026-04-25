@@ -55,7 +55,6 @@
         .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
         .nav-links a:hover { color: var(--charcoal); }
 
-        /* Hide mobile button on Laptop */
         .nav-links li.mobile-only { display: none; }
         
         .nav-cta { 
@@ -68,6 +67,26 @@
             text-transform: uppercase; 
             cursor: pointer; 
             transition: 0.4s; 
+            text-decoration: none;
+        }
+
+        /* Hero Button Styles */
+        .hero-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 35px;
+            border: 1px solid var(--charcoal);
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: all 0.4s ease;
+        }
+        .hero-btn:hover {
+            background: var(--charcoal);
+            color: var(--white);
         }
 
         /* --- OUR VALUES SECTION --- */
@@ -124,7 +143,6 @@
             line-height: 1.6;
         }
 
-        /* Scroll Animation State */
         .animate-scroll {
             opacity: 0;
             transform: translateY(40px);
@@ -136,16 +154,13 @@
             transform: translateY(0);
         }
 
-        /* --- MOBILE OPTIMIZATION --- */
         @media (max-width: 1024px) {
             nav { padding: 10px 8%; justify-content: flex-start; gap: 20px; }
             .logo img { height: 45px; }
             .hamburger { display: block; order: 1; }
             .logo { order: 0; }
-
             .desktop-only { display: none; }
             .nav-links li.mobile-only { display: block; margin-top: 10px; }
-
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -159,24 +174,19 @@
                 text-align: center;
                 box-shadow: 0 5px 10px rgba(0,0,0,0.05);
             }
-
             #menu-toggle:checked ~ .nav-links { display: flex; }
-
             .grid { display: flex !important; flex-direction: column !important; gap: 30px; }
-
             .values-container { grid-template-columns: 1fr; gap: 50px; text-align: center; }
             .values-list li { padding-left: 0; }
             .values-list li::before { display: none; }
-
-            .hero { padding: 80px 6% !important; height: auto; }
+            .hero { padding: 80px 6% !important; height: auto; min-height: 80vh; }
             .hero h1 { font-size: 1.7rem !important; }
-            section { padding: 40px 6% !important; }
         }
 
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background-color: var(--beige); padding: 0 10%; }
-        .hero h1 { font-size: clamp(35px, 7vw, 75px); margin-bottom: 30px; line-height: 1.1; color: var(--charcoal); }
-        .hero .tagline { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.5rem; margin-bottom: 45px; color: var(--charcoal); }
-        .hero p { max-width: 900px; font-size: 14px; letter-spacing: 5px; text-transform: uppercase; color: var(--stone-grey); }
+        .hero h1 { font-size: clamp(35px, 7vw, 75px); margin-bottom: 20px; line-height: 1.1; color: var(--charcoal); }
+        .hero .tagline { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.5rem, 3vw, 2.5rem); margin-bottom: 20px; color: var(--charcoal); }
+        .hero p { max-width: 900px; font-size: 12px; letter-spacing: 5px; text-transform: uppercase; color: var(--stone-grey); margin-bottom: 30px; }
 
         .services-strip { background: var(--light-grey); padding: 80px 8%; text-align: center; }
         .frame-box { border: 1px solid var(--brand-brown); padding: 60px 30px; width: 100%; }
@@ -208,16 +218,17 @@
             <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li class="mobile-only"><button class="nav-cta" onclick="location.href='contact.html'">Inquire</button></li>
+            <li class="mobile-only"><a href="contact.html" class="nav-cta">Inquire</a></li>
         </ul>
         
-        <button class="nav-cta desktop-only" onclick="location.href='contact.html'">Inquire</button>
+        <a href="contact.html" class="nav-cta desktop-only">Inquire</a>
     </nav>
 
     <section class="hero">
         <h1>Doing it all is costing you <br>more than you think.</h1>
         <div class="tagline">Delegate and Soar.</div>
         <p>Strategic Executive Support for Visionary Leaders Worldwide</p>
+        <a href="about.html#testimonials" class="hero-btn">What Our Clients Say</a>
     </section>
 
     <section class="services-strip">
