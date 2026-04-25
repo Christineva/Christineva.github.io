@@ -22,6 +22,7 @@
         .hero p { max-width: 800px; font-weight: 300; font-size: 1.1rem; line-height: 2; color: var(--dark-grey); }
 
         .about-main { padding: 80px 8% 40px; max-width: 1400px; margin: 0 auto; }
+        
         .vertical-row { display: flex; gap: 100px; margin-bottom: 100px; align-items: center; }
 
         .founder-box { flex: 0 0 500px; width: 500px; height: 500px; background: #f4f4f4; overflow: hidden; }
@@ -35,6 +36,8 @@
         .label strong { color: #1a1a1a; font-size: 14px; letter-spacing: 1px; }
         
         .main-title { font-size: 2.5rem; margin-bottom: 30px; color: #1a1a1a; }
+        
+        /* I added scroll-margin-top here so the nav bar doesn't cover the title */
         .section-title { text-align: center; margin: 40px 0 80px; scroll-margin-top: 120px; }
 
         .testimonial-pair { display: grid; grid-template-columns: 1fr; gap: 60px; }
@@ -92,10 +95,11 @@
     </header>
 
     <main class="about-main">
+        
         <div class="vertical-row">
             <div>
                 <div class="founder-box">
-                    <img src="founder.webp" alt="Christine W.N.">
+                    <img src="founder.webp" alt="Founder Story">
                 </div>
                 <span class="label"><strong>Christine W.N.</strong><br>FOUNDER AND CEO</span>
             </div>
@@ -126,10 +130,60 @@
                             <span class="client-name">Sol Kennedy</span>
                         </div>
                     </div>
+                    <div class="test-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="test-text">
+                            <strong>Professional and insanely efficient.</strong>
+                            "I've worked with several VAs before, but none matched the precision of this team."
+                        </p>
+                        <div class="client-info">
+                            <div class="headshot"><img src="client-2.webp" alt="Louise L."></div>
+                            <span class="client-name">Louise L.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical-row">
+            <div class="square-box">
+                <img src="scale-and-balance.webp" alt="Scale and Balance">
+            </div>
+            <div class="content-side">
+                <div class="testimonial-pair">
+                    <div class="test-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="test-text">
+                            <strong>From burnout to balance.</strong>
+                            "Now I wake up to an organized inbox and peace of mind knowing things are handled."
+                        </p>
+                        <div class="client-info">
+                            <div class="headshot"><img src="client-3.webp" alt="Hamilton Conford"></div>
+                            <span class="client-name">Hamilton Conford</span>
+                        </div>
+                    </div>
+                    <div class="test-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="test-text">
+                            <strong>Proactive mindset.</strong>
+                            "My assistant didn't just wait for instructions; she brought ideas and optimized my workflows."
+                        </p>
+                        <div class="client-info">
+                            <div class="headshot"><img src="client-4.webp" alt="Michael Livingstone"></div>
+                            <span class="client-name">Michael Livingstone</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <div class="cta-container">
+        <section class="footer-cta">
+            <h2>Let us together build a flourishing business</h2>
+            <p>We have your back and put in our best to contribute to the growth of your entire team and organization.</p>
+        </section>
+    </div>
 
     <footer>
         &copy; 2026 SOAR AGENCY | SERVING VISIONARIES WORLDWIDE
