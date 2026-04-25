@@ -22,7 +22,6 @@
         .hero p { max-width: 800px; font-weight: 300; font-size: 1.1rem; line-height: 2; color: var(--dark-grey); }
 
         .about-main { padding: 80px 8% 40px; max-width: 1400px; margin: 0 auto; }
-        
         .vertical-row { display: flex; gap: 100px; margin-bottom: 100px; align-items: center; }
 
         .founder-box { flex: 0 0 500px; width: 500px; height: 500px; background: #f4f4f4; overflow: hidden; }
@@ -36,7 +35,7 @@
         .label strong { color: #1a1a1a; font-size: 14px; letter-spacing: 1px; }
         
         .main-title { font-size: 2.5rem; margin-bottom: 30px; color: #1a1a1a; }
-        .section-title { text-align: center; margin: 40px 0 80px; scroll-margin-top: 100px; }
+        .section-title { text-align: center; margin: 40px 0 80px; scroll-margin-top: 120px; }
 
         .testimonial-pair { display: grid; grid-template-columns: 1fr; gap: 60px; }
         .test-card { border-bottom: 1px solid #f0f0f0; padding-bottom: 40px; }
@@ -74,3 +73,67 @@
             .content-side { min-height: auto; }
         }
     </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit; letter-spacing:4px; font-weight:700;">SOAR</a></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>“Excellence in every detail.”</h1>
+        <p>At Soar Executive VA’s, we believe every successful business deserves behind-the-scenes support that’s just as dynamic as its front-facing operations.</p>
+    </header>
+
+    <main class="about-main">
+        <div class="vertical-row">
+            <div>
+                <div class="founder-box">
+                    <img src="founder.webp" alt="Christine W.N.">
+                </div>
+                <span class="label"><strong>Christine W.N.</strong><br>FOUNDER AND CEO</span>
+            </div>
+            <div class="content-side">
+                <h2 class="main-title">Our Story & Vision</h2>
+                <p>I started SOAR after seeing how easily business owners get caught up in the day-to-day running of their work. I wanted to create support that doesn’t just take tasks off your plate, but actually helps you move forward with more clarity and focus.</p>
+            </div>
+        </div>
+
+        <div id="testimonials" class="section-title">
+            <h2 class="main-title">What Our Clients Say</h2>
+        </div>
+
+        <div class="vertical-row row-reverse">
+            <div class="square-box">
+                <img src="client-operations.webp" alt="Client Operations">
+            </div>
+            <div class="content-side">
+                <div class="testimonial-pair">
+                    <div class="test-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="test-text">
+                            <strong>Strategic initiative and structure.</strong>
+                            "Working with my VA felt like adding a COO to my team. She anticipated what I needed before I did."
+                        </p>
+                        <div class="client-info">
+                            <div class="headshot"><img src="client-1.webp" alt="Sol Kennedy"></div>
+                            <span class="client-name">Sol Kennedy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 SOAR AGENCY | SERVING VISIONARIES WORLDWIDE
+    </footer>
+
+</body>
+</html>
