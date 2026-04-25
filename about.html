@@ -7,60 +7,57 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
         :root { --beige: #F5F2ED; --dark-grey: #4A4E51; --stone-grey: #A8A8A8; --white: #FFFFFF; --gold: #C5A059; }
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.8; overflow-x: hidden; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.8; }
         
-        /* BOLD TITLES */
-        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; font-weight: 700 !important; }
+        /* BOLD TITLES & SERIF FONT */
+        h1, h2, h3, .serif, .client-name, .label { font-family: 'Playfair Display', serif; font-weight: 700 !important; }
+        .label, .client-name { font-family: 'Inter', sans-serif; }
 
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; position: fixed; width: 100%; top: 0; background: rgba(255, 255, 255, 0.98); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; position: fixed; width: 100%; top: 0; background: white; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
         .nav-links { display: flex; gap: 30px; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
 
-        /* HERO & MISSION */
-        .hero { min-height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: var(--beige); padding: 160px 15% 80px; }
+        /* MISSION HEADER */
+        .hero { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: var(--beige); padding: 160px 15% 80px; }
         .hero h1 { font-size: clamp(24px, 3vw, 32px); max-width: 900px; margin-bottom: 30px; line-height: 1.5; font-style: italic; }
-        .hero p { max-width: 800px; font-weight: 300; font-size: 1.1rem; color: var(--dark-grey); line-height: 2; }
-
-        /* TEAM BANNER */
-        .team-banner { width: 100%; height: 450px; overflow: hidden; background: #eee; }
-        .team-banner img { width: 100%; height: 100%; object-fit: cover; }
+        .hero p { max-width: 800px; font-weight: 300; font-size: 1.1rem; line-height: 2; color: var(--dark-grey); }
 
         .about-main { padding: 120px 8%; max-width: 1400px; margin: 0 auto; }
         
-        /* VERTICAL ROWS */
+        /* CONTENT ROWS */
         .vertical-row { display: flex; gap: 100px; margin-bottom: 150px; align-items: center; }
         .square-box { flex: 0 0 500px; height: 500px; background: #f4f4f4; overflow: hidden; }
         .square-box img { width: 100%; height: 100%; object-fit: cover; }
 
         .content-side { flex: 1; display: flex; flex-direction: column; justify-content: space-between; min-height: 450px; }
-        .label { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--stone-grey); margin-bottom: 20px; display: block; font-weight: 700; }
+        .label { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--stone-grey); margin-bottom: 20px; display: block; }
         
         .section-title { text-align: center; margin-bottom: 80px; }
-        .section-title h2 { font-size: 11px; letter-spacing: 6px; text-transform: uppercase; color: var(--stone-grey); font-weight: 800; }
+        .section-title h2 { font-size: 11px; letter-spacing: 6px; text-transform: uppercase; color: var(--stone-grey); }
 
         /* TESTIMONIALS */
         .testimonial-pair { display: grid; grid-template-columns: 1fr; gap: 60px; }
         .test-card { border-bottom: 1px solid #f0f0f0; padding-bottom: 40px; }
-        .stars { color: var(--gold); font-size: 12px; margin-bottom: 15px; letter-spacing: 2px; }
+        .stars { color: var(--gold); font-size: 12px; margin-bottom: 15px; }
         .test-text { font-size: 0.95rem; font-weight: 300; line-height: 1.8; font-style: italic; }
         
         .client-info { display: flex; align-items: center; gap: 15px; }
         .headshot { width: 50px; height: 50px; border-radius: 50%; background: #eee; overflow: hidden; }
         .headshot img { width: 100%; height: 100%; object-fit: cover; }
-        .client-name { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+        .client-name { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; }
 
         .row-reverse { flex-direction: row-reverse; }
 
-        /* FOOTER CTA */
-        .footer-cta { background: var(--dark-grey); color: white; padding: 100px 10%; display: flex; justify-content: space-between; align-items: center; gap: 40px; }
-        .cta-left h2 { font-size: 2.8rem; line-height: 1.1; max-width: 500px; color: var(--white); font-weight: 700; }
-        .cta-right { max-width: 450px; font-weight: 200; font-size: 1rem; opacity: 0.9; }
+        /* FLOURISHING BUSINESS FOOTER */
+        .footer-cta { background: var(--dark-grey); color: white; padding: 100px 10%; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 30px; }
+        .footer-cta h2 { font-size: clamp(28px, 4vw, 42px); line-height: 1.2; max-width: 700px; color: var(--white); }
+        .footer-cta p { max-width: 800px; font-weight: 300; font-size: 1.1rem; opacity: 0.9; }
 
-        footer { padding: 40px 10%; text-align: center; font-size: 10px; letter-spacing: 3px; color: var(--stone-grey); text-transform: uppercase; font-weight: 700; }
+        footer { padding: 40px 10%; text-align: center; font-size: 10px; letter-spacing: 3px; color: var(--stone-grey); text-transform: uppercase; font-weight: 700; border-top: 1px solid #f4f4f4; }
 
         @media (max-width: 1100px) {
-            .vertical-row, .row-reverse, .footer-cta { flex-direction: column !important; text-align: center; gap: 50px; }
+            .vertical-row, .row-reverse { flex-direction: column !important; text-align: center; gap: 50px; }
             .square-box { width: 100%; max-width: 500px; height: auto; aspect-ratio: 1/1; flex: none; }
             .content-side { min-height: auto; }
         }
@@ -79,13 +76,9 @@
     </nav>
 
     <header class="hero">
-        <h1 class="serif">“Excellence in every detail.”</h1>
+        <h1>“Excellence in every detail.”</h1>
         <p>At Soar Executive VA’s, we believe every successful business deserves behind, the, scenes support that’s just as dynamic as its front, facing operations. We’re a premium virtual assistant services agency built for entrepreneurs, executives, and business owners who value precision, initiative, and discretion. Our services are thoughtfully tailored to meet the unique needs of every client.</p>
     </header>
-
-    <div class="team-banner">
-        <img src="image_fc5998.jpg" alt="Collaborative Executive Support">
-    </div>
 
     <main class="about-main">
         
@@ -109,3 +102,66 @@
         </div>
 
         <div class="vertical-row row-reverse">
+            <div class="square-box">
+                <img src="about-2.webp" alt="Client Operations">
+            </div>
+            <div class="content-side">
+                <div class="testimonial-pair">
+                    <div class="test-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="test-text">"They didn’t just handle tasks, they reshaped how my business functions. Working with my VA felt like bringing in an operations lead. I moved from being stuck in day, to, day admin to having the space to concentrate on growth."</p>
+                        <div class="client-info">
+                            <div class="headshot"><img src="client-1.webp" alt="Sol Kennedy"></div>
+                            <span class="client-name">Sol Kennedy</span>
+                        </div>
+                    </div>
+                    <div class="test-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="test-text">"Highly professional, dependable, and exceptionally efficient. Having worked with multiple VAs before, this team stood out for their accuracy. Onboarding was handled with a level of care that felt truly premium."</p>
+                        <div class="client-info">
+                            <div class="headshot"><img src="client-2.webp" alt="Louise L."></div>
+                            <span class="client-name">Louise L.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical-row">
+            <div class="square-box">
+                <img src="about-3.webp" alt="Scale and Balance">
+            </div>
+            <div class="content-side">
+                <div class="testimonial-pair">
+                    <div class="test-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="test-text">"I went from constant overwhelm to real balance in just one month. Letting go of control wasn’t easy, but my VA made the shift seamless. Now I have the confidence that everything is handled, even when I’m offline."</p>
+                        <div class="client-info">
+                            <div class="headshot"><img src="client-3.webp" alt="Hamilton Conford"></div>
+                            <span class="client-name">Hamilton Conford</span>
+                        </div>
+                    </div>
+                    <div class="test-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="test-text">"Strategic, not just supportive. What set her apart was her proactive approach. She didn’t wait for direction, she came with ideas, refined my workflows, and introduced tools that saved us hours every week."</p>
+                        <div class="client-info">
+                            <div class="headshot"><img src="client-4.webp" alt="Michael Livingstone"></div>
+                            <span class="client-name">Michael Livingstone</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="footer-cta">
+        <h2>Let us together build a flourishing business</h2>
+        <p>When connected with us, you aren’t growing your business alone. We have your back and put in our best to contribute to the growth of your entire team and organization. So, if you are looking for the right agency that’ll help you scale up your business and bring in more revenue, we are right here!</p>
+    </section>
+
+    <footer>
+        &copy; 2026 SOAR AGENCY | KES & INTERNATIONAL
+    </footer>
+
+</body>
+</html>
