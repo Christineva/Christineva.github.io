@@ -27,11 +27,17 @@
         
         /* CONTENT ROWS */
         .vertical-row { display: flex; gap: 100px; margin-bottom: 100px; align-items: center; }
-        .square-box { flex: 0 0 500px; height: 500px; background: #f4f4f4; overflow: hidden; }
+
+        /* UNLOCKED FOUNDER IMAGE BOX TO BE 500x500 */
+        .founder-box { flex: 0 0 500px; height: 500px; background: #f4f4f4; overflow: hidden; }
+        .founder-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Regular testimonial image boxes can stay at a default or a locked height */
+        .square-box { flex: 0 0 500px; height: auto; aspect-ratio: 1/1; background: #f4f4f4; overflow: hidden; }
         .square-box img { width: 100%; height: 100%; object-fit: cover; }
 
         .content-side { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 450px; }
-        .label { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--stone-grey); margin-top: 20px; display: block; }
+        .label { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--stone-grey); margin-top: 20px; display: block; text-align: center; }
         
         /* UPDATED TITLE STYLES */
         .main-title { font-size: 2.5rem; margin-bottom: 30px; }
@@ -71,6 +77,7 @@
 
         @media (max-width: 1100px) {
             .vertical-row, .row-reverse { flex-direction: column !important; text-align: center; gap: 50px; }
+            .founder-box { width: 100%; max-width: 500px; height: auto; aspect-ratio: 1/1; flex: none; }
             .square-box { width: 100%; max-width: 500px; height: auto; aspect-ratio: 1/1; flex: none; }
             .content-side { min-height: auto; }
         }
@@ -97,8 +104,8 @@
         
         <div class="vertical-row">
             <div>
-                <div class="square-box">
-                    <img src="image_f186f4.png" alt="Founder Story">
+                <div class="founder-box">
+                    <img src="founder.jpg" alt="Founder Story">
                 </div>
                 <span class="label">FOUNDER AND CEO</span>
             </div>
