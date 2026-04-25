@@ -10,7 +10,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.8; }
         
-        /* BOLD TITLES & SERIF FONT */
+        /* BOLD TITLES */
         h1, h2, h3, .serif, .client-name, .label { font-family: 'Playfair Display', serif; font-weight: 700 !important; }
         .label, .client-name { font-family: 'Inter', sans-serif; }
 
@@ -36,25 +36,37 @@
         .section-title { text-align: center; margin-bottom: 80px; }
         .section-title h2 { font-size: 11px; letter-spacing: 6px; text-transform: uppercase; color: var(--stone-grey); }
 
-        /* TESTIMONIALS */
+        /* TESTIMONIALS (Updated Text & Font Size) */
         .testimonial-pair { display: grid; grid-template-columns: 1fr; gap: 60px; }
         .test-card { border-bottom: 1px solid #f0f0f0; padding-bottom: 40px; }
         .stars { color: var(--gold); font-size: 12px; margin-bottom: 15px; }
-        .test-text { font-size: 0.95rem; font-weight: 300; line-height: 1.8; font-style: italic; }
+        .test-text { font-size: 1.1rem; font-weight: 300; line-height: 1.8; font-style: italic; }
+        .test-text strong { display: block; margin-bottom: 10px; font-style: normal; font-weight: 600; }
         
-        .client-info { display: flex; align-items: center; gap: 15px; }
+        .client-info { display: flex; align-items: center; gap: 15px; margin-top: 20px; }
         .headshot { width: 50px; height: 50px; border-radius: 50%; background: #eee; overflow: hidden; }
         .headshot img { width: 100%; height: 100%; object-fit: cover; }
         .client-name { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; }
 
         .row-reverse { flex-direction: row-reverse; }
 
-        /* FLOURISHING BUSINESS FOOTER */
-        .footer-cta { background: var(--dark-grey); color: white; padding: 100px 10%; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 30px; }
-        .footer-cta h2 { font-size: clamp(28px, 4vw, 42px); line-height: 1.2; max-width: 700px; color: var(--white); }
-        .footer-cta p { max-width: 800px; font-weight: 300; font-size: 1.1rem; opacity: 0.9; }
+        /* FLOURISHING SECTION (Framed Style) */
+        .footer-cta-container { padding: 80px 8%; background: var(--white); }
+        .footer-cta { 
+            background: var(--beige); 
+            color: var(--dark-grey); 
+            padding: 100px 10%; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            text-align: center; 
+            gap: 30px; 
+            border: 1px solid var(--stone-grey); /* Thin grey boundary */
+        }
+        .footer-cta h2 { font-size: clamp(28px, 4vw, 42px); line-height: 1.2; max-width: 700px; }
+        .footer-cta p { max-width: 800px; font-weight: 300; font-size: 1.15rem; }
 
-        footer { padding: 40px 10%; text-align: center; font-size: 10px; letter-spacing: 3px; color: var(--stone-grey); text-transform: uppercase; font-weight: 700; border-top: 1px solid #f4f4f4; }
+        footer { padding: 40px 10%; text-align: center; font-size: 10px; letter-spacing: 3px; color: var(--stone-grey); text-transform: uppercase; font-weight: 700; }
 
         @media (max-width: 1100px) {
             .vertical-row, .row-reverse { flex-direction: column !important; text-align: center; gap: 50px; }
@@ -84,84 +96,10 @@
         
         <div class="vertical-row">
             <div class="square-box">
-                <img src="image_f186f4.png" alt="Founder Story">
+                <img src="founder.jpg" alt="Founder Story">
             </div>
             <div class="content-side">
                 <div>
                     <span class="label">Founder</span>
                     <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Our Story & Vision</h2>
-                    <p>I started SOAR after seeing how easily business owners get caught up in the day, to, day running of their work. I wanted to create support that doesn’t just take tasks off your plate, but actually helps you move forward with more clarity and focus.</p>
-                </div>
-                <p>SOAR reflects that vision, it’s about giving you the space to step back, stay organized, and rise into the parts of your business that truly matter.</p>
-                <p>I believe support should feel reliable, thoughtful, and easy to trust, so you can focus on growing your business, not managing everything behind it.</p>
-            </div>
-        </div>
-
-        <div class="section-title">
-            <h2>WHAT OUR CLIENTS SAY</h2>
-        </div>
-
-        <div class="vertical-row row-reverse">
-            <div class="square-box">
-                <img src="about-2.webp" alt="Client Operations">
-            </div>
-            <div class="content-side">
-                <div class="testimonial-pair">
-                    <div class="test-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="test-text">"They didn’t just handle tasks, they reshaped how my business functions. Working with my VA felt like bringing in an operations lead. I moved from being stuck in day, to, day admin to having the space to concentrate on growth."</p>
-                        <div class="client-info">
-                            <div class="headshot"><img src="client-1.webp" alt="Sol Kennedy"></div>
-                            <span class="client-name">Sol Kennedy</span>
-                        </div>
-                    </div>
-                    <div class="test-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="test-text">"Highly professional, dependable, and exceptionally efficient. Having worked with multiple VAs before, this team stood out for their accuracy. Onboarding was handled with a level of care that felt truly premium."</p>
-                        <div class="client-info">
-                            <div class="headshot"><img src="client-2.webp" alt="Louise L."></div>
-                            <span class="client-name">Louise L.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="vertical-row">
-            <div class="square-box">
-                <img src="about-3.webp" alt="Scale and Balance">
-            </div>
-            <div class="content-side">
-                <div class="testimonial-pair">
-                    <div class="test-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="test-text">"I went from constant overwhelm to real balance in just one month. Letting go of control wasn’t easy, but my VA made the shift seamless. Now I have the confidence that everything is handled, even when I’m offline."</p>
-                        <div class="client-info">
-                            <div class="headshot"><img src="client-3.webp" alt="Hamilton Conford"></div>
-                            <span class="client-name">Hamilton Conford</span>
-                        </div>
-                    </div>
-                    <div class="test-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="test-text">"Strategic, not just supportive. What set her apart was her proactive approach. She didn’t wait for direction, she came with ideas, refined my workflows, and introduced tools that saved us hours every week."</p>
-                        <div class="client-info">
-                            <div class="headshot"><img src="client-4.webp" alt="Michael Livingstone"></div>
-                            <span class="client-name">Michael Livingstone</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <section class="footer-cta">
-        <h2>Let us together build a flourishing business</h2>
-        <p>When connected with us, you aren’t growing your business alone. We have your back and put in our best to contribute to the growth of your entire team and organization. So, if you are looking for the right agency that’ll help you scale up your business and bring in more revenue, we are right here!</p>
-    </section>
-
-    <footer>
-        &copy; 2026 SOAR AGENCY | KES & INTERNATIONAL
-    </footer>
-
-</body>
-</html>
+                    <p>I started SOAR after seeing how easily business owners get caught up in the day
