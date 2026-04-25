@@ -25,10 +25,10 @@
         
         .vertical-row { display: flex; gap: 100px; margin-bottom: 100px; align-items: center; }
 
-        .founder-box { flex: 0 0 500px; height: 500px; background: #f4f4f4; overflow: hidden; border-radius: 4px; }
+        .founder-box { flex: 0 0 500px; height: 500px; background: #f4f4f4; overflow: hidden; }
         .founder-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        .square-box { flex: 0 0 500px; height: auto; aspect-ratio: 1/1; background: #f4f4f4; overflow: hidden; border-radius: 4px; }
+        .square-box { flex: 0 0 500px; height: auto; aspect-ratio: 1/1; background: #f4f4f4; overflow: hidden; }
         .square-box img { width: 100%; height: 100%; object-fit: cover; }
 
         .content-side { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 450px; }
@@ -50,6 +50,7 @@
 
         .row-reverse { flex-direction: row-reverse; }
 
+        /* THE BEIGE CTA SECTION */
         .cta-container { padding: 40px 8% 80px; background: var(--white); }
         .footer-cta { 
             background: var(--beige); 
@@ -63,99 +64,4 @@
             border: 1px solid var(--stone-grey); 
         }
         .footer-cta h2 { font-size: clamp(28px, 4vw, 42px); line-height: 1.2; max-width: 700px; }
-        .footer-cta p { max-width: 800px; font-weight: 300; font-size: 1.15rem; }
-
-        footer { padding: 40px 10%; text-align: center; font-size: 10px; letter-spacing: 3px; color: var(--stone-grey); text-transform: uppercase; font-weight: 700; }
-
-        @media (max-width: 1100px) {
-            .vertical-row, .row-reverse { flex-direction: column !important; text-align: center; gap: 50px; }
-            .founder-box { width: 100%; max-width: 500px; height: auto; aspect-ratio: 1/1; flex: none; }
-            .square-box { width: 100%; max-width: 500px; height: auto; aspect-ratio: 1/1; flex: none; }
-            .content-side { min-height: auto; }
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit; letter-spacing:4px; font-weight:700;">SOAR</a></div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-
-    <header class="hero">
-        <h1>“Excellence in every detail.”</h1>
-        <p>At Soar Executive VA’s, we believe every successful business deserves behind-the-scenes support that’s just as dynamic as its front-facing operations. We’re a premium virtual assistant services agency built for entrepreneurs, executives, and business owners who value precision, initiative, and discretion.</p>
-    </header>
-
-    <main class="about-main">
-        
-        <div class="vertical-row">
-            <div>
-                <div class="founder-box">
-                    <img src="founder.jpg" alt="Founder Story">
-                </div>
-                <span class="label">FOUNDER AND CEO</span>
-            </div>
-            <div class="content-side">
-                <h2 class="main-title">Our Story & Vision</h2>
-                <p>I started SOAR after seeing how easily business owners get caught up in the day-to-day running of their work. I wanted to create support that doesn’t just take tasks off your plate, but actually helps you move forward with more clarity and focus.</p>
-                <br>
-                <p>SOAR reflects that vision—it’s about giving you the space to step back, stay organized, and rise into the parts of your business that truly matter.</p>
-            </div>
-        </div>
-
-        <div class="section-title">
-            <h2 class="main-title">What Our Clients Say</h2>
-        </div>
-
-        <div class="vertical-row row-reverse">
-            <div class="square-box">
-                <img src="client-operations.webp" alt="Client Operations">
-            </div>
-            <div class="content-side">
-                <div class="testimonial-pair">
-                    <div class="test-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="test-text">
-                            <strong>They didn't just lighten my workload, they transformed how I run my business.</strong>
-                            "Working with my VA felt like adding a COO to my team. She anticipated what I needed before I did, took initiative, and brought structure to my chaotic operations."
-                        </p>
-                        <div class="client-info">
-                            <div class="headshot"><img src="client-1.webp" alt="Beth McCarthy"></div>
-                            <span class="client-name">Beth McCarthy</span>
-                        </div>
-                    </div>
-                    <div class="test-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="test-text">
-                            <strong>Professional, reliable, and insanely efficient.</strong>
-                            "I've worked with several VAs before, but none matched the precision and thoughtfulness of this team."
-                        </p>
-                        <div class="client-info">
-                            <div class="headshot"><img src="client-2.webp" alt="Mark Hoffman"></div>
-                            <span class="client-name">Mark Hoffman</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="vertical-row">
-            <div class="square-box">
-                <img src="scale-and-balance.webp" alt="Scale and Balance">
-            </div>
-            <div class="content-side">
-                <div class="testimonial-pair">
-                    <div class="test-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="test-text">
-                            <strong>I went from burnout to balance in one month.</strong>
-                            "Delegating was tough at first, but my VA made the transition effortless. Now I wake up to an organized inbox and peace of mind."
-                        </p>
-                        <div class="client-info">
-                            <div class
+        .footer-cta p { max-width: 800
