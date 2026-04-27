@@ -19,7 +19,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; background-color: var(--light-grey); color: var(--charcoal); overflow-x: hidden; }
         
-        /* FIXED NAVIGATION */
+        /* NAVIGATION */
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 15px 8%; position: fixed; width: 100%; top: 0; 
@@ -31,25 +31,30 @@
         .menu-toggle { display: none; font-size: 24px; cursor: pointer; }
 
         /* HEADER TITLE */
-        .page-header { text-align: center; padding-top: 140px; background-color: var(--light-grey); }
+        .page-header { text-align: center; padding: 160px 0 40px; background-color: var(--light-grey); }
         .how-it-works-title { 
-            font-family: 'Playfair Display', serif; font-size: 3.5rem; 
+            font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4rem); 
             color: var(--charcoal); letter-spacing: 2px;
         }
 
-        .process-wrapper { position: relative; padding: 40px 0; }
+        .process-wrapper { position: relative; padding-bottom: 100px; }
 
-        /* STEP SECTIONS - REDUCED HEIGHT TO CUT EMPTY SPACE */
+        /* STEP SECTIONS */
         .step-section {
-            min-height: 80vh; display: flex; justify-content: center; align-items: center;
-            position: relative; z-index: 2; margin-bottom: -50px; /* Pulls circles closer */
+            min-height: 70vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            position: relative; 
+            z-index: 2;
+            margin: 40px 0;
         }
 
         .circle-card {
             width: 550px; height: 550px; background: var(--beige);
             border-radius: 50%; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
-            padding: 60px; border: 8px solid var(--white);
+            padding: 70px; border: 8px solid var(--white);
             box-shadow: 0 15px 40px rgba(0,0,0,0.05);
         }
 
@@ -60,16 +65,28 @@
         }
 
         h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 15px; line-height: 1.1; }
-        p { font-size: 1rem; line-height: 1.5; color: var(--charcoal); font-weight: 300; }
+        .centered-box { max-width: 90%; margin: 0 auto; text-align: center; }
+        p { font-size: 1rem; line-height: 1.6; color: var(--charcoal); font-weight: 300; }
 
-        .inner-box {
-            border-left: 2px solid var(--accent-gold);
-            padding-left: 15px; margin-top: 15px; text-align: left;
+        /* THE FLOATING BIRD */
+        .bird {
+            position: fixed; 
+            right: 10%; 
+            top: 50%; 
+            font-size: 2.5rem;
+            z-index: 10; 
+            transform: translateY(-50%);
+            pointer-events: none; 
+            animation: flyVertical 5s infinite ease-in-out;
         }
 
-        /* MOBILE */
+        @keyframes flyVertical {
+            0%, 100% { transform: translateY(-150px) rotate(-5deg); }
+            50% { transform: translateY(150px) rotate(5deg); }
+        }
+
+        /* MOBILE FIXES */
         @media (max-width: 1024px) {
-            .how-it-works-title { font-size: 2.5rem; }
             .menu-toggle { display: block; order: 2; }
             .logo { order: 1; }
             .nav-links {
@@ -78,10 +95,9 @@
                 padding: 20px; gap: 20px; border-bottom: 1px solid rgba(0,0,0,0.1);
             }
             .nav-links.active { display: flex; }
-            .circle-card { width: 90vw; height: 90vw; padding: 30px; }
-            h2 { font-size: 1.6rem; }
-            p { font-size: 0.85rem; }
-            .step-section { min-height: 60vh; margin-bottom: 0; }
+            .step-section { margin: 20px 0; min-height: auto; }
+            .circle-card { width: 90vw; height: 90vw; padding: 40px; }
+            .bird { right: 5%; font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -99,6 +115,8 @@
         </ul>
     </nav>
 
+    <div class="bird">🕊️</div>
+
     <div class="page-header">
         <h1 class="how-it-works-title">How It Works</h1>
     </div>
@@ -108,8 +126,10 @@
             <div class="circle-card">
                 <div class="step-id">1</div>
                 <h2>Discovery <br><i>Call</i></h2>
-                <p>We explore your business landscape to identify gaps and design a custom partnership that lets you focus on growth while we handle the complexity.</p>
-                <div style="font-size: 1.5rem; margin-top: 10px;">📞</div>
+                <div class="centered-box">
+                    <p>We explore your business landscape to identify gaps and design a custom partnership that lets you focus on growth while we handle the complexity.</p>
+                </div>
+                <div style="font-size: 1.5rem; margin-top: 15px;">📞</div>
             </div>
         </section>
 
@@ -118,8 +138,8 @@
                 <div class="step-id">2</div>
                 <div style="font-size: 1.5rem; margin-bottom: 10px;">🎯</div>
                 <h2>The Right <br><i>VA Match</i></h2>
-                <div class="inner-box">
-                    <p>We hand-select a dedicated professional based on your specific industry and technical needs. You'll receive a detailed profile ensuring a confident, seamless start with a communication style that complements yours.</p>
+                <div class="centered-box">
+                    <p>We hand-select a dedicated professional based on your specific industry and technical needs. You'll receive a detailed profile ensuring a confident start with a style that complements yours.</p>
                 </div>
             </div>
         </section>
@@ -128,14 +148,16 @@
             <div class="circle-card">
                 <div class="step-id">3</div>
                 <h2>Seamless <br><i>Onboarding</i></h2>
-                <p>We lead the integration, syncing with your tools to provide a white-glove handoff that feels effortless from day one.</p>
-                <div style="font-size: 1.5rem; margin-top: 10px;">🚀</div>
+                <div class="centered-box">
+                    <p>We lead the integration, syncing with your current tools to provide a high-touch, white-glove handoff that feels effortless from day one.</p>
+                </div>
+                <div style="font-size: 1.5rem; margin-top: 15px;">🚀</div>
             </div>
         </section>
     </div>
 
-    <div style="text-align: center; padding-bottom: 80px;">
-        <a href="contact.html" style="text-decoration: none; color: var(--charcoal); border-bottom: 2px solid var(--accent-gold); padding-bottom: 5px; text-transform: uppercase; letter-spacing: 3px; font-size: 12px;">Get Started</a>
+    <div style="text-align: center; padding: 40px 0 100px;">
+        <a href="contact.html" style="text-decoration: none; color: var(--charcoal); border-bottom: 2px solid var(--accent-gold); padding-bottom: 8px; text-transform: uppercase; letter-spacing: 4px; font-size: 12px; font-weight: 600;">Secure Your Success</a>
     </div>
 
     <script>
