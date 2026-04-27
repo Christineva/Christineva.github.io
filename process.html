@@ -6,6 +6,7 @@
     <title>Process | SOAR Executive Operations</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --beige: #F5F2ED;
@@ -18,15 +19,17 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; background-color: var(--light-grey); color: var(--charcoal); overflow-x: hidden; }
         
-        /* NAVIGATION - SYNCED WITH OTHER PAGES */
+        /* NAVIGATION - SYNCED WITH 3-LINE MENU */
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 25px 8%; position: fixed; width: 100%; top: 0; 
+            padding: 15px 8%; position: fixed; width: 100%; top: 0; 
             background: white; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); 
         }
         .logo a { text-decoration: none; color: var(--charcoal); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; }
-        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--charcoal); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+        
+        .menu-toggle { display: none; font-size: 24px; cursor: pointer; color: var(--charcoal); }
 
         /* SCROLL LINE */
         .scroll-line {
@@ -37,7 +40,7 @@
 
         .process-wrapper { position: relative; padding: 150px 0 100px; }
 
-        /* CIRCLE SECTIONS */
+        /* STEP SECTIONS */
         .step-section {
             height: 100vh; display: flex; justify-content: center; align-items: center;
             position: relative; z-index: 2;
@@ -52,6 +55,13 @@
             position: relative;
         }
 
+        /* HEADER TEXT IN FIRST CIRCLE */
+        .how-it-works {
+            font-family: 'Playfair Display', serif;
+            font-size: 14px; letter-spacing: 5px; text-transform: uppercase;
+            color: var(--accent-gold); margin-bottom: 10px; font-weight: 600;
+        }
+
         .step-id {
             background: var(--accent-gold); color: white; width: 50px; height: 50px;
             border-radius: 50%; display: flex; justify-content: center; align-items: center;
@@ -61,10 +71,16 @@
         h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 20px; line-height: 1.1; }
         p { font-size: 1.1rem; line-height: 1.6; color: var(--charcoal); font-weight: 300; }
 
-        /* BIRD ANIMATION - RIGHTMOST CORNER */
+        /* IMAGE TEXT BOX STYLE (Matching Step 2) */
+        .inner-box {
+            border-left: 2px solid var(--accent-gold);
+            padding-left: 20px; margin-top: 20px; text-align: left;
+        }
+
+        /* BIRD ANIMATION */
         .bird {
             position: fixed; 
-            right: calc(50% - 330px); /* Positioned just outside the 600px circle */
+            right: calc(50% - 330px); 
             top: 50%; font-size: 2.5rem;
             z-index: 10; transform: translateY(-50%);
             pointer-events: none; 
@@ -76,22 +92,30 @@
             50% { transform: translateY(180px) rotate(5deg); }
         }
 
-        /* FOOTER / CONTINUE LINK */
-        .continue-container {
-            text-align: center; padding: 100px 0; background: var(--light-grey);
-        }
+        .continue-container { text-align: center; padding: 100px 0; background: var(--light-grey); }
         .continue-link {
-            font-family: 'Inter', sans-serif;
-            font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
-            color: var(--charcoal); text-decoration: none;
-            border-bottom: 2px solid var(--accent-gold);
+            font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--charcoal); text-decoration: none; border-bottom: 2px solid var(--accent-gold);
             padding-bottom: 10px; transition: 0.3s;
         }
-        .continue-link:hover { letter-spacing: 6px; }
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
+        /* MOBILE STYLES */
+        @media (max-width: 1024px) {
+            nav { position: fixed; top: 0; width: 100%; padding: 15px 5%; background: white; z-index: 1001; }
+            .menu-toggle { display: block; order: 2; }
+            .logo { order: 1; }
+            .nav-links {
+                display: none; flex-direction: column; position: absolute;
+                top: 100%; left: 0; width: 100%; background: white;
+                padding: 20px; gap: 20px; text-align: center;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+            }
+            .nav-links.active { display: flex; }
+            body { padding-top: 80px; }
+
             .circle-card { width: 90vw; height: 90vw; padding: 40px; }
+            h2 { font-size: 2rem; }
+            p { font-size: 0.95rem; }
             .bird { right: 10px; font-size: 1.5rem; }
             .scroll-line { display: none; }
         }
@@ -101,7 +125,10 @@
 
     <nav>
         <div class="logo"><a href="index.html">SOAR</a></div>
-        <ul class="nav-links">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="process.html">Process</a></li>
@@ -117,19 +144,32 @@
 
         <section class="step-section">
             <div class="circle-card">
+                <div class="how-it-works">How It Works</div>
                 <div class="step-id">1</div>
                 <h2>Discovery <br><i>Call</i></h2>
-                <p>This session is dedicated to <strong>your</strong> needs. We explore your business landscape together to identify operational gaps and design a custom partnership that ensures you can focus on growth while we handle the complexity.</p>
-                <div style="font-size: 2rem; margin-top: 20px; opacity: 0.6;">📞</div>
+                <p>This session is dedicated to <strong>your</strong> needs. We explore your business landscape together to identify operational gaps and design a custom partnership that ensures you can focus on growth.</p>
+                <div style="font-size: 1.5rem; margin-top: 15px; opacity: 0.6;">📞</div>
             </div>
         </section>
 
         <section class="step-section">
             <div class="circle-card">
                 <div class="step-id">2</div>
+                <div style="font-size: 1.8rem; margin-bottom: 10px;">🎯</div>
+                <h2>Get Matched <br><i>with the Right VA</i></h2>
+                <p style="font-weight: 600; margin-bottom: 10px;">Precision Matching for Maximum Impact</p>
+                <div class="inner-box">
+                    <p style="font-size: 0.95rem;">Based on your unique business needs, we thoughtfully assign a dedicated virtual assistant with relevant industry experience, technical proficiency, and a communication style that complements yours. You'll receive a detailed profile outlining their expertise, ensuring a seamless and confident start.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="step-section">
+            <div class="circle-card">
+                <div class="step-id">3</div>
                 <h2>Seamless <br><i>Onboarding</i></h2>
                 <p>Your transition to freedom starts here. We lead the integration process, syncing with your current tools and communication style to provide a high-touch, white-glove handoff that feels effortless from day one.</p>
-                <div style="font-size: 2rem; margin-top: 20px; opacity: 0.6;">🚀</div>
+                <div style="font-size: 1.5rem; margin-top: 15px; opacity: 0.6;">🚀</div>
             </div>
         </section>
     </div>
@@ -141,6 +181,13 @@
     <footer style="padding: 40px; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--charcoal); opacity: 0.5;">
         &copy; 2026 SOAR EXECUTIVE OPERATIONS
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
 
 </body>
 </html>
