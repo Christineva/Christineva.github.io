@@ -19,7 +19,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; background-color: var(--light-grey); color: var(--charcoal); overflow-x: hidden; }
         
-        /* NAVIGATION - SYNCED WITH 3-LINE MENU */
+        /* FIXED NAVIGATION */
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 15px 8%; position: fixed; width: 100%; top: 0; 
@@ -28,96 +28,60 @@
         .logo a { text-decoration: none; color: var(--charcoal); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; }
         .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--charcoal); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
-        
-        .menu-toggle { display: none; font-size: 24px; cursor: pointer; color: var(--charcoal); }
+        .menu-toggle { display: none; font-size: 24px; cursor: pointer; }
 
-        /* SCROLL LINE */
-        .scroll-line {
-            position: absolute; left: 50%; top: 0; width: 2px;
-            height: 100%; background: linear-gradient(to bottom, transparent, var(--accent-gold), transparent);
-            transform: translateX(-50%); z-index: 1;
+        /* HEADER TITLE */
+        .page-header { text-align: center; padding-top: 140px; background-color: var(--light-grey); }
+        .how-it-works-title { 
+            font-family: 'Playfair Display', serif; font-size: 3.5rem; 
+            color: var(--charcoal); letter-spacing: 2px;
         }
 
-        .process-wrapper { position: relative; padding: 150px 0 100px; }
+        .process-wrapper { position: relative; padding: 40px 0; }
 
-        /* STEP SECTIONS */
+        /* STEP SECTIONS - REDUCED HEIGHT TO CUT EMPTY SPACE */
         .step-section {
-            height: 100vh; display: flex; justify-content: center; align-items: center;
-            position: relative; z-index: 2;
+            min-height: 80vh; display: flex; justify-content: center; align-items: center;
+            position: relative; z-index: 2; margin-bottom: -50px; /* Pulls circles closer */
         }
 
         .circle-card {
-            width: 600px; height: 600px; background: var(--beige);
+            width: 550px; height: 550px; background: var(--beige);
             border-radius: 50%; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
-            padding: 80px; border: 8px solid var(--white);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
-            position: relative;
-        }
-
-        /* HEADER TEXT IN FIRST CIRCLE */
-        .how-it-works {
-            font-family: 'Playfair Display', serif;
-            font-size: 14px; letter-spacing: 5px; text-transform: uppercase;
-            color: var(--accent-gold); margin-bottom: 10px; font-weight: 600;
+            padding: 60px; border: 8px solid var(--white);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
         }
 
         .step-id {
-            background: var(--accent-gold); color: white; width: 50px; height: 50px;
+            background: var(--accent-gold); color: white; width: 45px; height: 45px;
             border-radius: 50%; display: flex; justify-content: center; align-items: center;
-            font-weight: 600; margin-bottom: 20px; font-size: 1.2rem;
+            font-weight: 600; margin-bottom: 15px;
         }
 
-        h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 20px; line-height: 1.1; }
-        p { font-size: 1.1rem; line-height: 1.6; color: var(--charcoal); font-weight: 300; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 15px; line-height: 1.1; }
+        p { font-size: 1rem; line-height: 1.5; color: var(--charcoal); font-weight: 300; }
 
-        /* IMAGE TEXT BOX STYLE (Matching Step 2) */
         .inner-box {
             border-left: 2px solid var(--accent-gold);
-            padding-left: 20px; margin-top: 20px; text-align: left;
+            padding-left: 15px; margin-top: 15px; text-align: left;
         }
 
-        /* BIRD ANIMATION */
-        .bird {
-            position: fixed; 
-            right: calc(50% - 330px); 
-            top: 50%; font-size: 2.5rem;
-            z-index: 10; transform: translateY(-50%);
-            pointer-events: none; 
-            animation: flyVertical 5s infinite ease-in-out;
-        }
-
-        @keyframes flyVertical {
-            0%, 100% { transform: translateY(-180px) rotate(-5deg); }
-            50% { transform: translateY(180px) rotate(5deg); }
-        }
-
-        .continue-container { text-align: center; padding: 100px 0; background: var(--light-grey); }
-        .continue-link {
-            font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
-            color: var(--charcoal); text-decoration: none; border-bottom: 2px solid var(--accent-gold);
-            padding-bottom: 10px; transition: 0.3s;
-        }
-
-        /* MOBILE STYLES */
+        /* MOBILE */
         @media (max-width: 1024px) {
-            nav { position: fixed; top: 0; width: 100%; padding: 15px 5%; background: white; z-index: 1001; }
+            .how-it-works-title { font-size: 2.5rem; }
             .menu-toggle { display: block; order: 2; }
             .logo { order: 1; }
             .nav-links {
                 display: none; flex-direction: column; position: absolute;
                 top: 100%; left: 0; width: 100%; background: white;
-                padding: 20px; gap: 20px; text-align: center;
-                border-bottom: 1px solid rgba(0,0,0,0.1);
+                padding: 20px; gap: 20px; border-bottom: 1px solid rgba(0,0,0,0.1);
             }
             .nav-links.active { display: flex; }
-            body { padding-top: 80px; }
-
-            .circle-card { width: 90vw; height: 90vw; padding: 40px; }
-            h2 { font-size: 2rem; }
-            p { font-size: 0.95rem; }
-            .bird { right: 10px; font-size: 1.5rem; }
-            .scroll-line { display: none; }
+            .circle-card { width: 90vw; height: 90vw; padding: 30px; }
+            h2 { font-size: 1.6rem; }
+            p { font-size: 0.85rem; }
+            .step-section { min-height: 60vh; margin-bottom: 0; }
         }
     </style>
 </head>
@@ -125,9 +89,7 @@
 
     <nav>
         <div class="logo"><a href="index.html">SOAR</a></div>
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </div>
+        <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
@@ -137,29 +99,27 @@
         </ul>
     </nav>
 
-    <div class="bird">🕊️</div>
+    <div class="page-header">
+        <h1 class="how-it-works-title">How It Works</h1>
+    </div>
 
     <div class="process-wrapper">
-        <div class="scroll-line"></div>
-
         <section class="step-section">
             <div class="circle-card">
-                <div class="how-it-works">How It Works</div>
                 <div class="step-id">1</div>
                 <h2>Discovery <br><i>Call</i></h2>
-                <p>This session is dedicated to <strong>your</strong> needs. We explore your business landscape together to identify operational gaps and design a custom partnership that ensures you can focus on growth.</p>
-                <div style="font-size: 1.5rem; margin-top: 15px; opacity: 0.6;">📞</div>
+                <p>We explore your business landscape to identify gaps and design a custom partnership that lets you focus on growth while we handle the complexity.</p>
+                <div style="font-size: 1.5rem; margin-top: 10px;">📞</div>
             </div>
         </section>
 
         <section class="step-section">
             <div class="circle-card">
                 <div class="step-id">2</div>
-                <div style="font-size: 1.8rem; margin-bottom: 10px;">🎯</div>
-                <h2>Get Matched <br><i>with the Right VA</i></h2>
-                <p style="font-weight: 600; margin-bottom: 10px;">Precision Matching for Maximum Impact</p>
+                <div style="font-size: 1.5rem; margin-bottom: 10px;">🎯</div>
+                <h2>The Right <br><i>VA Match</i></h2>
                 <div class="inner-box">
-                    <p style="font-size: 0.95rem;">Based on your unique business needs, we thoughtfully assign a dedicated virtual assistant with relevant industry experience, technical proficiency, and a communication style that complements yours. You'll receive a detailed profile outlining their expertise, ensuring a seamless and confident start.</p>
+                    <p>We hand-select a dedicated professional based on your specific industry and technical needs. You'll receive a detailed profile ensuring a confident, seamless start with a communication style that complements yours.</p>
                 </div>
             </div>
         </section>
@@ -168,26 +128,20 @@
             <div class="circle-card">
                 <div class="step-id">3</div>
                 <h2>Seamless <br><i>Onboarding</i></h2>
-                <p>Your transition to freedom starts here. We lead the integration process, syncing with your current tools and communication style to provide a high-touch, white-glove handoff that feels effortless from day one.</p>
-                <div style="font-size: 1.5rem; margin-top: 15px; opacity: 0.6;">🚀</div>
+                <p>We lead the integration, syncing with your tools to provide a white-glove handoff that feels effortless from day one.</p>
+                <div style="font-size: 1.5rem; margin-top: 10px;">🚀</div>
             </div>
         </section>
     </div>
 
-    <div class="continue-container">
-        <a href="contact.html" class="continue-link">Continue</a>
+    <div style="text-align: center; padding-bottom: 80px;">
+        <a href="contact.html" style="text-decoration: none; color: var(--charcoal); border-bottom: 2px solid var(--accent-gold); padding-bottom: 5px; text-transform: uppercase; letter-spacing: 3px; font-size: 12px;">Get Started</a>
     </div>
-
-    <footer style="padding: 40px; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--charcoal); opacity: 0.5;">
-        &copy; 2026 SOAR EXECUTIVE OPERATIONS
-    </footer>
 
     <script>
         function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
         }
     </script>
-
 </body>
 </html>
