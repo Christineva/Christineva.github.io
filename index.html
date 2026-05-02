@@ -35,7 +35,6 @@
         .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
         .nav-cta { background: var(--charcoal); color: white; padding: 12px 25px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
         
-        /* Hamburger Menu Icon */
         .menu-toggle { display: none; font-size: 24px; cursor: pointer; color: var(--charcoal); }
 
         /* HERO SECTION */
@@ -57,7 +56,7 @@
         .value-item::before { content: "—"; position: absolute; left: 0; color: var(--brand-brown); }
         .value-item p { font-size: 20px; font-weight: 300; }
 
-        /* WHY CHOOSE US - Rebuilt to Match Image */
+        /* WHY CHOOSE US */
         .conversion-strip { background-color: var(--charcoal); padding: 100px 8%; text-align: center; }
         .conversion-title h2 { color: var(--white); font-size: 24px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 60px; }
         .conversion-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
@@ -76,9 +75,25 @@
         .c-text h4 { color: #000000; font-family: 'Inter', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; margin-bottom: 15px; }
         .c-text p { color: #333333; font-size: 14px; line-height: 1.5; font-weight: 400; }
 
-        /* FOOTER */
+        /* FOOTER & SOCIALS */
         footer { padding: 60px 10%; text-align: center; color: var(--stone-grey); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; }
-        .social-link { font-size: 24px; color: var(--charcoal); display: block; margin-bottom: 20px; text-decoration: none; }
+        
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+        .social-link { 
+            font-size: 26px; 
+            color: var(--charcoal); 
+            text-decoration: none; 
+            transition: 0.3s ease;
+        }
+        .social-link:hover {
+            color: var(--brand-brown);
+            transform: translateY(-3px);
+        }
 
         /* MOBILE ADJUSTMENTS */
         @media (max-width: 1024px) {
@@ -92,7 +107,6 @@
                 border-bottom: 1px solid rgba(0,0,0,0.1);
             }
             .nav-links.active { display: flex; }
-            
             .grid, .values-grid, .conversion-grid { grid-template-columns: 1fr; }
             .hero { padding-top: 120px; height: auto; padding-bottom: 80px; }
             .hero h1 { font-size: 38px; }
@@ -177,7 +191,14 @@
     </section>
 
     <footer>
-        <a href="https://www.linkedin.com/in/wanjiruchristine" target="_blank" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+        <div class="social-container">
+            <!-- LinkedIn Icon -->
+            <a href="https://www.linkedin.com/in/wanjiruchristine" target="_blank" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+            <!-- Facebook Icon -->
+            <a href="https://www.facebook.com/profile.php?id=61588860519267" target="_blank" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+            <!-- WhatsApp Icon -->
+            <a href="https://wa.me/254783619609" target="_blank" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
         <p>&copy; 2026 SOAR | SERVING LEADERS WORLDWIDE</p>
     </footer>
 
