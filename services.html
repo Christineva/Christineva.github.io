@@ -3,36 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | SOAR Executive Operations</title>
-    <link rel="icon" type="image/png" href="favicon.png?v=2">
+    <title>SOAR | Executive Operations</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --beige: #F5F2ED;
+            --charcoal: #333638;
             --light-grey: #F9F9F9;
             --dark-grey: #4A4E51;
             --stone-grey: #A8A8A8;
             --white: #FFFFFF;
+            --brand-brown: #8B735B;
             --border: #E8E4E0;
             --transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.8; font-size: 18px; overflow-x: hidden; padding-top: 100px; }
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; font-weight: 400; }
 
-        /* Navigation */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 25px 8%; position: fixed; width: 100%; top: 0;
-            background: rgba(255, 255, 255, 0.98); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
+        /* NAVIGATION - Fixed and Responsive */
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px 8%; position: fixed; width: 100%; top: 0; left: 0;
+            background: rgba(255, 255, 255, 0.98); z-index: 1000; 
+            border-bottom: 1px solid rgba(0,0,0,0.05); 
         }
-        .logo a { text-decoration: none; color: var(--dark-grey); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; display: flex; align-items: center; }
-        .nav-links { display: flex; gap: 35px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
-        .nav-cta { background: var(--dark-grey); color: white; border: none; padding: 12px 28px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; }
+        .logo img { height: 70px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 45px; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
+        .nav-cta { background: var(--charcoal); color: white; padding: 12px 25px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; }
+        
+        .menu-toggle { display: none; font-size: 24px; cursor: pointer; color: var(--charcoal); }
 
-        /* Hero Section */
+        /* HERO SECTION */
+        .hero { height: calc(100vh - 100px); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background-color: var(--beige); padding: 0 10%; }
+        .hero h1 { font-size: clamp(35px, 7vw, 75px); margin-bottom: 20px; line-height: 1.1; color: var(--charcoal); }
+        .hero .tagline { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.5rem, 3vw, 2.5rem); margin-bottom: 20px; }
+        .hero-btn { display: inline-block; padding: 15px 35px; border: 1px solid var(--charcoal); color: var(--charcoal); text-decoration: none; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; }
+
+        /* SERVICES STRIP */
+        .services-strip { background: var(--light-grey); padding: 80px 8%; text-align: center; }
+        .frame-box { border: 1px solid var(--brand-brown); padding: 60px 30px; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .item h3 { margin-bottom: 10px; font-size: 1.8rem; }
+
+        /* VALUES SECTION */
+        .values-section { background-color: var(--white); padding: 80px 8%; }
+        .values-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px 80px; }
+        .value-item { position: relative; padding-left: 30px; }
+        .value-item::before { content: "—"; position: absolute; left: 0; color: var(--brand-brown); }
+        .value-item p { font-size: 20px; font-weight: 300; }
+
+        /* WHY CHOOSE US */
+        .conversion-strip { background-color: var(--charcoal); padding: 100px 8%; text-align: center; }
+        .conversion-title h2 { color: var(--white); font-size: 24px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 60px; }
+        .conversion-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        .c-icon-box { 
+            background: var(--beige); 
+            border: 2px solid var(--white); 
+            padding: 40px 25px; 
+            border-radius: 4px; 
+            display: flex; flex-direction: column; align-items: center; 
+        }
+        .beige-circle { 
+            width: 60px; height: 60px; border-radius: 50%; 
+            background: var(--charcoal); color: var(--white); 
+            display: flex; justify-content: center; align-items: center; margin-bottom: 20px; 
+        }
+        .c-text h4 { color: #000000; font-family: 'Inter', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; margin-bottom: 15px; }
+        .c-text p { color: #333333; font-size: 14px; line-height: 1.5; font-weight: 400; }
+
+        /* SERVICES PAGE COMPONENT STYLING */
         .services-hero {
             height: 60vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
@@ -40,194 +85,258 @@
         }
         .services-hero h1 { font-size: clamp(30px, 5vw, 55px); line-height: 1.2; margin-bottom: 20px; }
         .services-hero p { max-width: 700px; font-size: 16px; font-weight: 300; color: var(--dark-grey); line-height: 1.8; }
-
-        /* Service Grid Section */
         .services-container { padding: 80px 8% 40px; background: var(--white); }
-        .services-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 30px;
-        }
-
-        .service-column { background: var(--light-grey); padding: 60px 40px; border-radius: 2px; display: block; }
-
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .service-column { background: var(--light-grey); padding: 60px 40px; border-radius: 2px; display: block; text-align: left; }
         .col-header { text-align: center; margin-bottom: 40px; }
         .col-header h2 { 
-            font-size: 1.4rem; 
-            margin-bottom: 10px; 
-            color: var(--dark-grey); 
-            min-height: 4.5rem; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            text-transform: uppercase; 
-            letter-spacing: 1px;
-            font-weight: 700;
+            font-size: 1.4rem; margin-bottom: 10px; color: var(--dark-grey); min-height: 4.5rem; 
+            display: flex; align-items: center; justify-content: center; 
+            text-transform: uppercase; letter-spacing: 1px; font-weight: 700;
         }
         .divider { width: 30px; height: 1px; background: var(--stone-grey); margin: 20px auto; }
-
         .service-list { list-style: none; }
         .service-list li { 
-            font-size: 14px; 
-            color: var(--dark-grey); 
-            margin-bottom: 14px; 
-            padding-left: 20px; 
-            position: relative; 
-            font-weight: 400; 
-            letter-spacing: 0.1px;
+            font-size: 14px; color: var(--dark-grey); margin-bottom: 14px; padding-left: 20px; 
+            position: relative; font-weight: 400; letter-spacing: 0.1px; line-height: 1.6;
         }
-        .service-list li::before { 
-            content: "—"; 
-            position: absolute; 
-            left: 0; 
-            color: var(--stone-grey); 
-        }
-
-        /* 3-Image Split Section */
-        .split-image-section {
-            padding: 0 8%;
-            margin-top: 40px;
-        }
-        .split-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 4px; 
-            background-color: var(--white);
-        }
-        .split-box {
-            aspect-ratio: 1 / 1; 
-            overflow: hidden;
-            background: var(--light-grey);
-        }
-        .split-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            image-rendering: -webkit-optimize-contrast;
-            transition: transform 0.8s ease;
-        }
-        .split-box:hover img {
-            transform: scale(1.05);
-        }
-
-        /* CTA Section */
+        .service-list li::before { content: "—"; position: absolute; left: 0; color: var(--stone-grey); }
+        .split-image-section { padding: 0 8%; margin-top: 40px; }
+        .split-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; background-color: var(--white); }
+        .split-box { aspect-ratio: 1 / 1; overflow: hidden; background: var(--light-grey); }
+        .split-box img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s ease; }
+        .split-box:hover img { transform: scale(1.05); }
         .services-cta { text-align: center; padding: 100px 10%; background: var(--white); }
         .btn { background: var(--dark-grey); color: white; padding: 22px 60px; border: none; text-transform: uppercase; letter-spacing: 3px; font-size: 10px; cursor: pointer; transition: 0.3s; }
 
-        footer { padding: 60px 10%; text-align: center; font-size: 10px; letter-spacing: 2px; color: var(--stone-grey); border-top: 1px solid var(--border); }
-
-        /* Scroll Animation */
+        /* REVEAL ON SCROLL ANIMATION */
         .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
+        /* WRAPPER FOR OTHER DYNAMIC SECTIONS */
+        .scrolled-page-content { padding: 100px 8%; text-align: center; }
+
+        /* MOBILE ADJUSTMENTS */
         @media (max-width: 1024px) {
-            .services-grid, .split-container { grid-template-columns: 1fr; gap: 20px; }
+            body { padding-top: 90px; }
+            .menu-toggle { display: block; order: 2; }
+            .logo { order: 1; }
+            .nav-cta { display: none; }
+            .nav-links {
+                display: none; flex-direction: column; position: absolute;
+                top: 100%; left: 0; width: 100%; background: white;
+                padding: 30px; gap: 25px; text-align: center;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+            }
+            .nav-links.active { display: flex; }
+            .grid, .values-grid, .conversion-grid, .services-grid, .split-container { grid-template-columns: 1fr; }
+            .hero { padding-top: 60px; height: auto; padding-bottom: 80px; }
+            .hero h1 { font-size: 38px; }
+            .frame-box { padding: 40px 20px; }
             .services-hero { height: auto; padding: 120px 10% 60px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- NAVIGATION -->
     <nav>
-        <div class="logo">
-            <a href="index.html">SOAR</a>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="process.html">Process</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
+        <div class="logo"><a href="#home"><img src="logo.png" alt="SOAR"></a></div>
+        <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+            <li><a href="#services" onclick="toggleMenu()">Services</a></li>
+            <li><a href="#process" onclick="toggleMenu()">Process</a></li>
+            <li><a href="#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </ul>
-        <button class="nav-cta" onclick="location.href='contact.html'">Inquire</button>
+        <a href="#contact" class="nav-cta">Inquire</a>
     </nav>
 
-    <section class="services-hero">
-        <h1 class="reveal">Have a Project in mind?</h1>
-        <p class="reveal">We can help you bring your ideas to life. Let’s talk about what we can <span class="serif" style="font-style: italic;">build and raise together.</span></p>
-    </section>
+    <!-- HOME SECTION -->
+    <div id="home">
+        <section class="hero">
+            <h1>Doing it all is costing you <br>more than you think.</h1>
+            <div class="tagline">Delegate and Soar.</div>
+            <p>Strategic Executive Support for Visionary Leaders Worldwide</p>
+            <a href="#about" class="hero-btn">What Our Clients Say</a>
+        </section>
 
-    <section class="services-container">
-        <div class="services-grid">
-            
-            <div class="service-column reveal">
-                <div class="col-header">
-                    <h2>Executive & Administrative Support</h2>
-                    <div class="divider"></div>
+        <section class="services-strip">
+            <div class="frame-box">
+                <h2>Hire Us For</h2>
+                <div class="grid">
+                    <div class="item"><h3>Efficiency</h3><p>High-level inbox and complex travel management.</p></div>
+                    <div class="item"><h3>Operations</h3><p>Workflow optimization and system architecture.</p></div>
+                    <div class="item"><h3>Client Care</h3><p>White-glove relationship management.</p></div>
                 </div>
-                <ul class="service-list">
-                    <li>Inbox and calendar management</li>
-                    <li>Scheduling and appointment coordination</li>
-                    <li>Travel planning and itinerary management</li>
-                    <li>Executive reporting and meeting summary</li>
-                    <li>Document preparation and formatting</li>
-                    <li>CRM data entry and upkeep</li>
-                    <li>Workflow and SOP documentation</li>
-                    <li>Research and data compilation</li>
-                </ul>
             </div>
+        </section>
 
-            <div class="service-column reveal">
-                <div class="col-header">
-                    <h2>Business Operations & Client Services</h2>
-                    <div class="divider"></div>
+        <section class="values-section">
+            <div class="values-grid">
+                <div class="value-item"><strong>Excellence</strong><p>Unwavering commitment to superior results.</p></div>
+                <div class="value-item"><strong>Integrity</strong><p>Total transparency in all interactions.</p></div>
+                <div class="value-item"><strong>Partnership</strong><p>Dedicated to your business objectives.</p></div>
+                <div class="value-item"><strong>Agility</strong><p>Evolving with modern efficient solutions.</p></div>
+            </div>
+        </section>
+
+        <section class="conversion-strip">
+            <div class="conversion-title"><h2>Why Choose Us</h2></div>
+            <div class="conversion-grid">
+                <div class="c-icon-box">
+                    <div class="beige-circle"><i class="fas fa-clock"></i></div>
+                    <div class="c-text">
+                        <h4>24/7 Availability</h4>
+                        <p>Execute seamless operations across all time zones, maximizing productivity.</p>
+                    </div>
                 </div>
-                <ul class="service-list">
-                    <li>Client onboarding and offboarding</li>
-                    <li>CRM management and pipeline tracking</li>
-                    <li>Proposal and contract creation</li>
-                    <li>Payment and invoicing coordination</li>
-                    <li>Customer support (email/live chat)</li>
-                    <li>SOP implementation & improvement</li>
-                    <li>Internal project management (ClickUp, Asana)</li>
-                    <li>Vendor and supplier coordination</li>
-                </ul>
-            </div>
-
-            <div class="service-column reveal">
-                <div class="col-header">
-                    <h2>Marketing & Digital Presence Management</h2>
-                    <div class="divider"></div>
+                <div class="c-icon-box">
+                    <div class="beige-circle"><i class="fas fa-users"></i></div>
+                    <div class="c-text">
+                        <h4>Vetted Talent</h4>
+                        <p>Access carefully selected professionals with specialized operational skill sets.</p>
+                    </div>
                 </div>
-                <ul class="service-list">
-                    <li>Social media management</li>
-                    <li>Content repurposing and copy editing</li>
-                    <li>Newsletter setup and distribution</li>
-                    <li>Blog publishing & SEO optimization</li>
-                    <li>Graphic design (Canva, branded templates)</li>
-                    <li>Video editing for reels/stories</li>
-                    <li>Community management (Facebook, LinkedIn)</li>
-                    <li>Website content updates</li>
-                </ul>
+                <div class="c-icon-box">
+                    <div class="beige-circle"><i class="fas fa-bolt"></i></div>
+                    <div class="c-text">
+                        <h4>Immediate ROI</h4>
+                        <p>Leverage immediate results with our streamlined onboarding process.</p>
+                    </div>
+                </div>
+                <div class="c-icon-box">
+                    <div class="beige-circle"><i class="fas fa-check-shield"></i></div>
+                    <div class="c-text">
+                        <h4>Guaranteed</h4>
+                        <p>Experience premium service architecture backed by our excellence commitment.</p>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
+    </div>
+
+    <!-- SERVICES SECTION (Fully Integrated) -->
+    <div id="services">
+        <section class="services-hero">
+            <h1 class="reveal">Have a Project in mind?</h1>
+            <p class="reveal">We can help you bring your ideas to life. Let’s talk about what we can <span class="serif" style="font-style: italic;">build and raise together.</span></p>
+        </section>
+
+        <section class="services-container">
+            <div class="services-grid">
+                <div class="service-column reveal">
+                    <div class="col-header">
+                        <h2>Executive & Administrative Support</h2>
+                        <div class="divider"></div>
+                    </div>
+                    <ul class="service-list">
+                        <li>Inbox and calendar management</li>
+                        <li>Scheduling and appointment coordination</li>
+                        <li>Travel planning and itinerary management</li>
+                        <li>Executive reporting and meeting summary</li>
+                        <li>Document preparation and formatting</li>
+                        <li>CRM data entry and upkeep</li>
+                        <li>Workflow and SOP documentation</li>
+                        <li>Research and data compilation</li>
+                    </ul>
+                </div>
+
+                <div class="service-column reveal">
+                    <div class="col-header">
+                        <h2>Business Operations & Client Services</h2>
+                        <div class="divider"></div>
+                    </div>
+                    <ul class="service-list">
+                        <li>Client onboarding and offboarding</li>
+                        <li>CRM management and pipeline tracking</li>
+                        <li>Proposal and contract creation</li>
+                        <li>Payment and invoicing coordination</li>
+                        <li>Customer support (email/live chat)</li>
+                        <li>SOP implementation & improvement</li>
+                        <li>Internal project management (ClickUp, Asana)</li>
+                        <li>Vendor and supplier coordination</li>
+                    </ul>
+                </div>
+
+                <div class="service-column reveal">
+                    <div class="col-header">
+                        <h2>Marketing & Digital Presence Management</h2>
+                        <div class="divider"></div>
+                    </div>
+                    <ul class="service-list">
+                        <li>Social media management</li>
+                        <li>Content repurposing and copy editing</li>
+                        <li>Newsletter setup and distribution</li>
+                        <li>Blog publishing & SEO optimization</li>
+                        <li>Graphic design (Canva, branded templates)</li>
+                        <li>Video editing for reels/stories</li>
+                        <li>Community management (Facebook, LinkedIn)</li>
+                        <li>Website content updates</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="split-image-section reveal">
+            <div class="split-container">
+                <div class="split-box">
+                    <img src="service-1.webp" alt="Executive Strategy">
+                </div>
+                <div class="split-box">
+                    <img src="service-2.webp" alt="Operational Excellence">
+                </div>
+                <div class="split-box">
+                    <img src="service-3.webp" alt="Digital Management">
+                </div>
+            </div>
+        </section>
+
+        <section class="services-cta">
+            <h2 class="reveal" style="margin-bottom: 40px;">Ready to reclaim your <i class="serif">mental space?</i></h2>
+            <a href="#contact" class="btn reveal" style="text-decoration: none; display: inline-block;">Begin Partnership</a>
+        </section>
+    </div>
+
+    <!-- PROCESS SECTION -->
+    <section id="process" class="scrolled-page-content" style="background-color: var(--light-grey);">
+        <h2>Our Process</h2>
+        <!-- Send me process.html code next to replace this line -->
     </section>
 
-    <section class="split-image-section reveal">
-        <div class="split-container">
-            <div class="split-box">
-                <img src="service-1.webp" alt="Executive Strategy">
-            </div>
-            <div class="split-box">
-                <img src="service-2.webp" alt="Operational Excellence">
-            </div>
-            <div class="split-box">
-                <img src="service-3.webp" alt="Digital Management">
-            </div>
-        </div>
+    <!-- ABOUT SECTION -->
+    <section id="about" class="scrolled-page-content">
+        <h2>About SOAR</h2>
+        <!-- Send me about.html code to replace this line -->
     </section>
 
-    <section class="services-cta">
-        <h2 class="reveal" style="margin-bottom: 40px;">Ready to reclaim your <i class="serif">mental space?</i></h2>
-        <button class="btn reveal" onclick="location.href='contact.html'">Begin Partnership</button>
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="scrolled-page-content" style="background-color: var(--beige);">
+        <h2>Contact Us</h2>
+        <!-- Send me contact.html code to replace this line -->
     </section>
 
+    <!-- FOOTER (Preserved exactly as requested) -->
     <footer>
-        &copy; 2026 SOAR AGENCY | SERVING VISIONARIES WORLDWIDE
+        <div class="social-container">
+            <a href="https://www.linkedin.com/in/wanjiruchristine" target="_blank" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61588860519267" target="_blank" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/saoar.virtual.assistants/?hl=en" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/254783619609" target="_blank" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2026 SOAR | SERVING LEADERS WORLDWIDE</p>
     </footer>
 
+    <!-- INTERACTION & REVEAL SCRIPTS -->
     <script>
+        function toggleMenu() {
+            var nav = document.getElementById('navLinks');
+            if(window.innerWidth <= 1024) {
+                nav.classList.toggle('active');
+            }
+        }
+
         const reveal = () => {
             document.querySelectorAll('.reveal').forEach(el => {
                 const rect = el.getBoundingClientRect();
@@ -240,9 +349,6 @@
         window.addEventListener('load', reveal);
         reveal();
     </script>
-
-    <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script>
     <script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siq367740f3a0887b857834c2422a914562" defer></script>
-
 </body>
 </html>
