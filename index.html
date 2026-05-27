@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOAR | Executive Operations</title>
     <link rel="icon" type="image/png" href="favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;400;500;600;700&family=Playfair+Display:ital,wght=0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -120,6 +120,24 @@
             max-width: 800px;
             margin: 0 auto;
             line-height: 1.8;
+        }
+
+        /* RIGHT FIT SECTION */
+        .fit-section {
+            padding: 100px 8%; 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fcfbf9; 
+            text-align: center;
+        }
+        .fit-container {
+            max-width: 1200px; 
+            margin: 0 auto;
+        }
+        .fit-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 30px; 
+            text-align: left;
         }
 
         /* ACCORDION FAQ SECTION */
@@ -284,43 +302,54 @@
         .services-cta { text-align: center; padding: 100px 10%; background: var(--white); }
         .btn { background: var(--dark-grey); color: white; padding: 22px 60px; border: none; text-transform: uppercase; letter-spacing: 3px; font-size: 10px; cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-block; }
 
-        /* PROCESS SECTION STYLING */
-        .page-header { text-align: center; padding: 100px 0 40px; background-color: var(--light-grey); }
+        /* HORIZONTAL SCROLLABLE PROCESS SECTION */
+        .page-header { text-align: center; padding: 100px 0 20px; background-color: var(--light-grey); }
         .how-it-works-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4rem); color: var(--charcoal); letter-spacing: 2px; }
         
         .process-wrapper { 
             background-color: var(--light-grey); 
-            padding: 40px 8% 100px;
+            padding: 20px 0 100px 0;
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Hide standard scrollbar for clean aesthetic */
+        }
+        .process-wrapper::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome/Safari */
+        }
+        .process-inner {
             display: flex;
-            flex-direction: column;
-            gap: 60px;
-            align-items: center;
+            gap: 40px;
+            padding: 20px 8%;
+            width: max-content; /* Force single line horizontal scaling */
+            margin: 0 auto;
         }
         .step-section { 
-            width: 100%;
-            max-width: 1200px;
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
+            flex-shrink: 0;
         }
         .circle-card { 
-            width: 550px; 
-            height: 550px; 
-            background: var(--beige); 
+            width: 480px; 
+            height: 480px; 
+            background: var(--white); 
             border-radius: 50%; 
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
             align-items: center; 
             text-align: center; 
-            padding: 70px; 
-            border: 8px solid var(--white); 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.05); 
+            padding: 60px; 
+            border: 1px solid var(--border);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.02); 
+            transition: transform 0.3s ease;
         }
-        .step-id { background: var(--accent-gold); color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: 600; margin-bottom: 15px; }
-        .step-section h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 15px; line-height: 1.1; font-weight: 400; }
+        .circle-card:hover {
+            transform: translateY(-5px);
+        }
+        .step-id { background: var(--charcoal); color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: 600; margin-bottom: 20px; font-family: 'Inter', sans-serif; font-size: 15px; }
+        .step-section h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px; line-height: 1.2; font-weight: 700; color: var(--charcoal); }
         .centered-box { max-width: 90%; margin: 0 auto; text-align: center; }
-        .step-section p { font-size: 1rem; line-height: 1.6; color: var(--charcoal); font-weight: 300; }
+        .step-section p { font-size: 15px; line-height: 1.6; color: #555555; font-weight: 400; font-family: 'Inter', sans-serif; }
 
         /* CONTACT SECTION */
         .contact-hero { background-color: var(--beige); padding: 80px 10% 60px; text-align: center; }
@@ -351,24 +380,35 @@
             .nav-cta { display: none; }
             .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: white; padding: 30px; gap: 25px; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.1); }
             .nav-links.active { display: flex; }
-            .grid, .values-grid, .conversion-grid, .services-grid, .split-container, .contact-container, .life-grid { grid-template-columns: 1fr; gap: 30px; }
+            .grid, .values-grid, .conversion-grid, .services-grid, .split-container, .contact-container, .life-grid, .fit-grid { grid-template-columns: 1fr; gap: 30px; }
             .hero { padding-top: 60px; height: auto; padding-bottom: 80px; }
             .hero h1 { font-size: 38px; }
             .vertical-row, .row-reverse { flex-direction: column !important; text-align: center; gap: 50px; }
             .founder-box, .square-box { width: 100%; max-width: 500px; height: auto; aspect-ratio: 1/1; flex: none; margin: 0 auto; }
             .content-side { min-height: auto; }
-            .step-section { min-height: auto; }
-            .circle-card { width: 90vw; height: 90vw; padding: 40px; }
             .contact-info { text-align: center; }
             .social-row { justify-content: center; }
             .missing-section { padding: 0 5% 60px; }
             .missing-card { padding: 40px 25px; }
+            
+            /* Responsive adjustments for horizontal track padding */
+            .process-inner {
+                padding: 20px 5%;
+                margin: 0;
+            }
+            .circle-card {
+                width: 85vw;
+                height: 85vw;
+                max-width: 440px;
+                max-height: 440px;
+                padding: 40px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- SYNCHRONIZED NAVIGATION -->
+    <!-- NAVIGATION -->
     <nav>
         <div class="logo">
             <a href="#home"><img src="logo.png" alt="SOAR Logo"></a>
@@ -440,16 +480,16 @@
             </div>
         </section>
 
-        <!-- RIGHT FIT / FILTER SECTION (image_69afa0.png) -->
-        <section style="padding: 100px 8%; font-family: 'Inter', sans-serif; background-color: #fcfbf9; text-align: center;">
-            <div style="max-width: 1200px; margin: 0 auto;">
+        <!-- RIGHT FIT / FILTER SECTION -->
+        <section class="fit-section">
+            <div class="fit-container">
                 
                 <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 13px; color: #8c857b; font-weight: 600; margin-bottom: 10px;">Curious about our operational partnership?</p>
                 <h2 style="font-size: clamp(2rem, 4vw, 3rem); color: #222222; font-family: 'Playfair Display', serif; margin-top: 0; margin-bottom: 15px; font-weight: 700;">Let’s make sure this is the right fit.</h2>
                 <p style="font-size: 16px; color: #555555; max-width: 700px; margin: 0 auto 50px auto; line-height: 1.6;">This work requires trust, complete ownership, and a genuine willingness to scale. Here’s how to know whether this is the next right step for your business.</p>
 
                 <!-- Grid Container -->
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; text-align: left;">
+                <div class="fit-grid">
                     
                     <!-- Perfect For You Column -->
                     <div style="background: #ffffff; border-radius: 24px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-top: 4px solid #d4af37; display: flex; flex-direction: column; justify-content: space-between;">
@@ -747,49 +787,40 @@
         </header>
 
         <div class="process-wrapper">
-            <!-- STEP 1 -->
-            <section class="step-section">
-                <div class="circle-card">
-                    <div class="step-id">1</div>
-                    <h2>Discovery Call</h2>
-                    <div class="centered-box">
-                        <p>We begin with a strategic deep dive to map your operational bottlenecks, system weak points, and growth expectations.</p>
+            <div class="process-inner">
+                <!-- STEP 1 -->
+                <section class="step-section">
+                    <div class="circle-card">
+                        <div class="step-id">1</div>
+                        <h2>Discovery Call</h2>
+                        <div class="centered-box">
+                            <p>We begin with a strategic deep dive to map your operational bottlenecks, system weak points, and growth expectations.</p>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- STEP 2 -->
-            <section class="step-section">
-                <div class="circle-card">
-                    <div class="step-id">2</div>
-                    <h2>Custom Strategy & Proposal</h2>
-                    <div class="centered-box">
-                        <p>We outline a tailored support roadmap detailing specialized resource allocation, tech configurations, and target outcomes.</p>
+                <!-- STEP 2 -->
+                <section class="step-section">
+                    <div class="circle-card">
+                        <div class="step-id">2</div>
+                        <h2>Custom Strategy & Proposal</h2>
+                        <div class="centered-box">
+                            <p>We outline a tailored support roadmap detailing specialized resource allocation, tech configurations, and target outcomes.</p>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- STEP 3 -->
-            <section class="step-section">
-                <div class="circle-card">
-                    <div class="step-id">3</div>
-                    <h2>Seamless Onboarding</h2>
-                    <div class="centered-box">
-                        <p>Our quick integration protocol establishes workspace variables, secure access transfers, and workflows without stopping production.</p>
+                <!-- STEP 3 -->
+                <section class="step-section">
+                    <div class="circle-card">
+                        <div class="step-id">3</div>
+                        <h2>Seamless Onboarding</h2>
+                        <div class="centered-box">
+                            <p>Our quick integration protocol establishes workspace variables, secure access transfers, and workflows without stopping production.</p>
+                        </div>
                     </div>
-                </div>
-            </section>
-
-            <!-- STEP 4 -->
-            <section class="step-section">
-                <div class="circle-card">
-                    <div class="step-id">4</div>
-                    <h2>Continuous Optimization</h2>
-                    <div class="centered-box">
-                        <p>We execute your daily workflows, build dynamic tracking infrastructure, and actively optimize your business operations.</p>
-                    </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
     </div>
 
