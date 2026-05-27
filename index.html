@@ -1,85 +1,902 @@
-<!-- SOAR SECTION -->
-<section id="soar" style="padding: 100px 8%; background-color: var(--white);">
-    <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; color: var(--charcoal); margin-bottom: 30px;">SOAR</h2>
-        <p style="font-size: 1.25rem; color: var(--dark-grey); line-height: 1.8;">Strategizing, Operations, Automation, and Results. This is the framework we use to regain your time and scale your business.</p>
-    </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOAR | Executive Operations</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;400;500;600;700&family=Playfair+Display:ital,wght=0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --beige: #F5F2ED;
+            --charcoal: #333638;
+            --light-grey: #F9F9F9;
+            --dark-grey: #4A4E51;
+            --stone-grey: #A8A8A8;
+            --white: #FFFFFF;
+            --brand-brown: #8B735B;
+            --accent-gold: #D4AF37;
+            --gold: #C5A059;
+            --border: #E8E4E0;
+        }
+        
+        html { scroll-behavior: smooth; scroll-margin-top: 90px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.8; font-size: 18px; overflow-x: hidden; padding-top: 100px; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; font-weight: 400; }
+        h1 strong, h2 strong, h3 strong, .bold-serif { font-weight: 700; }
 
-<!-- DELEGATE SECTION -->
-<section id="delegate" style="padding: 100px 8%; background-color: var(--beige);">
-    <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; color: var(--charcoal); margin-bottom: 30px;">Delegate to Scale</h2>
-        <p style="font-size: 1.25rem; color: var(--dark-grey); line-height: 1.8;">Stop managing tasks and start leading your vision. We take over the operational heavy lifting so you can focus on high-impact growth.</p>
-    </div>
-</section>
+        /* NAVIGATION */
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px 8%; position: fixed; width: 100%; top: 0; left: 0;
+            background: rgba(255, 255, 255, 0.98); z-index: 1000; 
+            border-bottom: 1px solid rgba(0,0,0,0.05); 
+        }
+        .logo img { height: 50px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 45px; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; font-weight: 700; }
+        .nav-cta { background: var(--charcoal); color: white; padding: 12px 25px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; }
+        .menu-toggle { display: none; font-size: 24px; cursor: pointer; color: var(--charcoal); }
 
-<!-- PROCESS SECTION -->
-<div id="process" style="padding: 100px 8%; background-color: var(--white);">
-    <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; text-align: center; margin-bottom: 60px;">How We Work</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-        <div style="text-align: center;">
-            <div style="background: var(--charcoal); color: white; width: 50px; height: 50px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</div>
-            <h3>Discovery & Alignment</h3>
-            <p>We start by understanding your business and identifying your bottlenecks.</p>
+        /* HERO SECTION */
+        .hero { height: calc(100vh - 100px); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background-color: var(--beige); padding: 0 10%; }
+        .hero h1 { font-size: clamp(35px, 7vw, 75px); margin-bottom: 20px; line-height: 1.1; color: var(--charcoal); }
+        .hero .tagline { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.5rem, 3vw, 2.5rem); margin-bottom: 20px; }
+        .hero-btn { display: inline-block; padding: 15px 35px; border: 1px solid var(--charcoal); color: var(--charcoal); text-decoration: none; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; }
+
+        /* BOTTLENECK BUSINESS GRID */
+        .life-showing-section { 
+            background: linear-gradient(rgba(51, 54, 56, 0.85), rgba(51, 54, 56, 0.92)), url('operational-bg.jpg') no-repeat center center/cover; 
+            padding: 100px 8% 60px; 
+            text-align: center; 
+        }
+        .life-showing-title { 
+            color: var(--white); 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(2rem, 4vw, 3rem); 
+            font-weight: 700; 
+            margin-bottom: 60px; 
+        }
+        .life-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+        }
+        .life-card { 
+            background: var(--white); 
+            border-radius: 24px; 
+            padding: 40px 35px; 
+            text-align: left; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .life-card h3 { 
+            font-family: 'Inter', sans-serif; 
+            font-size: 18px; 
+            font-weight: 700; 
+            color: #1a1a1a; 
+            line-height: 1.4;
+        }
+        .life-card p { 
+            font-family: 'Inter', sans-serif; 
+            font-size: 15px; 
+            font-weight: 400; 
+            color: #555555; 
+            line-height: 1.6;
+        }
+
+        /* HERE'S WHAT'S MISSING SECTION */
+        .missing-section {
+            background: linear-gradient(rgba(51, 54, 56, 0.92), rgba(51, 54, 56, 0.85)), url('operational-bg.jpg') no-repeat center center/cover;
+            padding: 0 8% 100px;
+            text-align: center;
+        }
+        .missing-card {
+            background: var(--white);
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 24px;
+            padding: 60px 50px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .missing-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 25px;
+        }
+        .missing-card p {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #555555;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* RIGHT FIT SECTION */
+        .fit-section {
+            padding: 100px 8%; 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fcfbf9; 
+            text-align: center;
+        }
+        .fit-container {
+            max-width: 1200px; 
+            margin: 0 auto;
+        }
+        .fit-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 30px; 
+            text-align: left;
+        }
+
+        /* ACCORDION FAQ SECTION - RESTYLED WITH USER CONTENT */
+        .faq-section {
+            background-color: var(--white);
+            padding: 100px 8%;
+            text-align: center;
+        }
+        .faq-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--brand-brown);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .faq-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+        }
+        .faq-subtitle {
+            max-width: 750px;
+            margin: 0 auto 60px;
+            font-size: 16px;
+            color: var(--dark-grey);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+        .faq-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .faq-item {
+            background-color: var(--beige);
+            border-radius: 18px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            overflow: hidden;
+            text-align: left;
+            transition: 0.3s ease;
+        }
+        .faq-trigger {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 28px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            text-align: left;
+            outline: none;
+        }
+        .faq-trigger h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--charcoal);
+            line-height: 1.4;
+            padding-right: 20px;
+        }
+        .faq-icon {
+            font-size: 18px;
+            color: var(--charcoal);
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+        }
+        .faq-content-inner {
+            padding: 0 35px 30px 35px;
+        }
+        .faq-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #555555;
+            line-height: 1.7;
+        }
+        .faq-item.active .faq-content {
+            max-height: 1000px;
+            transition: max-height 0.4s cubic-bezier(1, 0, 1, 0);
+        }
+
+        /* ABOUT SECTION */
+        .about-hero { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: var(--beige); padding: 120px 15% 80px; }
+        .about-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 3vw, 32px); font-weight: 700; max-width: 900px; margin-bottom: 30px; line-height: 1.5; font-style: italic; color: #1a1a1a; }
+        .about-hero p { max-width: 800px; font-weight: 300; font-size: 1.1rem; line-height: 2; color: var(--dark-grey); }
+        .about-main { padding: 80px 8% 40px; max-width: 1400px; margin: 0 auto; }
+        .vertical-row { display: flex; gap: 100px; margin-bottom: 100px; align-items: center; }
+        .founder-box { flex: 0 0 300px; width: 300px; height: 300px; background: #f4f4f4; overflow: hidden; }
+        .founder-box img { width: 100%; height: 100%; object-fit: cover; }
+        .square-box { flex: 0 0 500px; height: auto; aspect-ratio: 1/1; background: #f4f4f4; overflow: hidden; }
+        .square-box img { width: 100%; height: 100%; object-fit: cover; }
+        .content-side { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 450px; }
+        .label { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--stone-grey); margin-top: 20px; display: block; text-align: center; line-height: 1.6; }
+        .label strong { color: #1a1a1a; font-size: 14px; letter-spacing: 1px; }
+        .main-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2.5rem; margin-bottom: 30px; color: #1a1a1a; text-align: center; }
+        .section-title { text-align: center; margin: 40px 0 80px; }
+        .testimonial-pair { display: grid; grid-template-columns: 1fr; gap: 60px; text-align: left; }
+        .test-card { border-bottom: 1px solid #f0f0f0; padding-bottom: 40px; }
+        .stars { color: var(--gold); font-size: 12px; margin-bottom: 15px; }
+        .test-text { font-size: 1.1rem; font-weight: 300; line-height: 1.8; font-style: italic; }
+        .test-text strong { display: block; margin-bottom: 10px; font-style: normal; font-weight: 700; color: #1a1a1a; }
+        .client-info { display: flex; align-items: center; gap: 15px; margin-top: 20px; }
+        .headshot { width: 45px; height: 45px; border-radius: 50%; background: #eee; overflow: hidden; border: 2px solid var(--beige); }
+        .headshot img { width: 100%; height: 100%; object-fit: cover; }
+        .client-name { font-family: 'Inter', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
+        .row-reverse { flex-direction: row-reverse; }
+        .cta-container { padding: 40px 8% 80px; background: var(--white); }
+        .footer-cta { background: var(--beige); color: var(--dark-grey); padding: 100px 10%; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 30px; border: 1px solid var(--stone-grey); }
+        .footer-cta h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(28px, 4vw, 42px); line-height: 1.2; max-width: 700px; color: #1a1a1a; }
+        .footer-cta p { max-width: 800px; font-weight: 300; font-size: 1.15rem; }
+
+        /* SERVICES COMPONENTS */
+        .services-hero { height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background-color: var(--beige); padding: 0 15%; }
+        .services-hero h1 { font-size: clamp(30px, 5vw, 55px); line-height: 1.2; margin-bottom: 20px; color: var(--charcoal); }
+        .services-hero p { max-width: 700px; font-size: 16px; font-weight: 300; color: var(--dark-grey); line-height: 1.8; }
+        
+        .services-container { padding: 60px 8% 40px; background: var(--white); text-align: center; }
+        .services-section-heading { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 400; color: var(--charcoal); margin-bottom: 60px; letter-spacing: 1px; text-transform: capitalize; }
+        
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .service-column { background: var(--light-grey); padding: 60px 40px; border-radius: 2px; text-align: left; }
+        .col-header { text-align: center; margin-bottom: 40px; }
+        .col-header h2 { font-size: 1.4rem; margin-bottom: 10px; color: var(--dark-grey); min-height: 4.5rem; display: flex; align-items: center; justify-content: center; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; font-family: 'Playfair Display', serif; }
+        .divider { width: 30px; height: 1px; background: var(--stone-grey); margin: 20px auto; }
+        .service-list { list-style: none; }
+        .service-list li { font-size: 14px; color: var(--dark-grey); margin-bottom: 14px; padding-left: 20px; position: relative; font-weight: 400; letter-spacing: 0.1px; line-height: 1.6; }
+        .service-list li::before { content: "—"; position: absolute; left: 0; color: var(--stone-grey); }
+        
+        /* IMAGE BLOCK FIXES */
+        .split-image-section { padding: 0 8%; margin-top: 40px; }
+        .split-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; background-color: var(--white); }
+        .split-box { aspect-ratio: 1 / 1; overflow: hidden; background: var(--light-grey); }
+        .split-box img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s ease; }
+        .split-box:hover img { transform: scale(1.05); }
+        .services-cta { text-align: center; padding: 100px 10%; background: var(--white); }
+        .btn { background: var(--dark-grey); color: white; padding: 22px 60px; border: none; text-transform: uppercase; letter-spacing: 3px; font-size: 10px; cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-block; }
+
+        /* THEMED AND RESIZED PROCESS SECTION FIX */
+        .page-header { text-align: center; padding: 100px 0 20px; background-color: var(--beige); }
+        .how-it-works-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); color: var(--charcoal); letter-spacing: 2px; }
+        
+        .process-wrapper { 
+            background-color: var(--beige); 
+            padding: 20px 8% 100px 8%;
+            width: 100%;
+        }
+        .process-inner {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .step-section { 
+            display: flex;
+            justify-content: center;
+        }
+        .circle-card { 
+            width: 340px; 
+            height: 340px; 
+            background: var(--white); 
+            border-radius: 50%; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            padding: 40px; 
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.02); 
+            transition: transform 0.3s ease;
+        }
+        .circle-card:hover {
+            transform: translateY(-5px);
+        }
+        .step-id { background: var(--charcoal); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: 600; margin-bottom: 15px; font-family: 'Inter', sans-serif; font-size: 14px; }
+        .step-section h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 12px; line-height: 1.2; font-weight: 700; color: var(--charcoal); }
+        .centered-box { max-width: 95%; margin: 0 auto; text-align: center; }
+        .step-section p { font-size: 14px; line-height: 1.5; color: #555555; font-weight: 400; font-family: 'Inter', sans-serif; }
+
+        /* CONTACT SECTION */
+        .contact-hero { background-color: var(--beige); padding: 80px 10% 60px; text-align: center; }
+        .contact-hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; padding: 60px 10% 100px; max-width: 1400px; margin: 0 auto; background: var(--white); text-align: left; }
+        .contact-info h2 { font-size: 2rem; margin-bottom: 30px; font-family: 'Playfair Display', serif; }
+        .contact-info p { margin-bottom: 20px; font-weight: 300; font-size: 1.1rem; }
+        .social-row { display: flex; gap: 25px; margin-top: 25px; align-items: center; }
+        .social-row a { font-size: 24px; color: var(--charcoal); text-decoration: none; transition: 0.3s; }
+        .social-row a:hover { color: var(--brand-brown); transform: translateY(-2px); }
+        .email-link { display: block; font-size: 1.5rem; color: var(--dark-grey); text-decoration: none; margin-top: 40px; border-bottom: 1px solid var(--stone-grey); width: fit-content; }
+        .contact-form { display: flex; flex-direction: column; gap: 25px; }
+        .contact-form input, .contact-form textarea { padding: 15px 0; border: none; border-bottom: 1px solid #ccc; font-family: 'Inter', sans-serif; outline: none; font-size: 1rem; background: transparent; }
+        .submit-btn { background: var(--dark-grey); color: white; padding: 20px; border: none; text-transform: uppercase; letter-spacing: 2px; font-size: 10px; cursor: pointer; margin-top: 20px; transition: 0.3s; }
+        .submit-btn:hover { background: var(--charcoal); }
+
+        /* GLOBAL FOOTER STYLING */
+        footer { background: var(--white); padding: 60px 10%; text-align: center; font-size: 10px; letter-spacing: 3px; color: var(--stone-grey); text-transform: uppercase; font-weight: 700; border-top: 1px solid #eee; }
+        .social-container { display: flex; justify-content: center; gap: 25px; margin-bottom: 20px; }
+        .social-container a { color: var(--charcoal); font-size: 20px; transition: 0.3s; text-decoration: none; }
+        .social-container a:hover { color: var(--brand-brown); }
+
+        /* MOBILE ADJUSTMENTS */
+        @media (max-width: 1024px) {
+            body { padding-top: 90px; }
+            .menu-toggle { display: block; order: 2; }
+            .logo { order: 1; }
+            .nav-cta { display: none; }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: white; padding: 30px; gap: 25px; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.1); }
+            .nav-links.active { display: flex; }
+            .grid, .values-grid, .services-grid, .split-container, .contact-container, .life-grid, .fit-grid { grid-template-columns: 1fr; gap: 30px; }
+            .hero { padding-top: 60px; height: auto; padding-bottom: 80px; }
+            .hero h1 { font-size: 38px; }
+            .vertical-row, .row-reverse { flex-direction: column !important; text-align: center; gap: 50px; }
+            .founder-box, .square-box { width: 100%; max-width: 500px; height: auto; aspect-ratio: 1/1; flex: none; margin: 0 auto; }
+            .content-side { min-height: auto; }
+            .contact-info { text-align: center; }
+            .social-row { justify-content: center; }
+            .missing-section { padding: 0 5% 60px; }
+            .missing-card { padding: 40px 25px; }
+            
+            .process-inner {
+                grid-template-columns: 1fr;
+                padding: 10px 0;
+            }
+            .circle-card {
+                width: 290px;
+                height: 290px;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">
+            <a href="#home"><img src="logo.png" alt="SOAR Logo"></a>
         </div>
-        <div style="text-align: center;">
-            <div style="background: var(--charcoal); color: white; width: 50px; height: 50px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</div>
-            <h3>Right VA Matching</h3>
-            <p>We match you with the right VA tailored to your specific operational needs.</p>
-        </div>
-        <div style="text-align: center;">
-            <div style="background: var(--charcoal); color: white; width: 50px; height: 50px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</div>
-            <h3>Seamless Onboarding</h3>
-            <p>We complete a smooth onboarding process to transfer systems and begin execution.</p>
+        <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+            <li><a href="#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="#services" onclick="toggleMenu()">Services</a></li>
+            <li><a href="#process" onclick="toggleMenu()">Process</a></li>
+            <li><a href="#faq" onclick="toggleMenu()">FAQs</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">Inquire</a>
+    </nav>
+
+    <!-- HOME HERO SECTION -->
+    <div id="home">
+        <section class="hero">
+            <h1>Doing it all is costing you <br>more than you think.</h1>
+            <div class="tagline">Delegate and Soar.</div>
+            <p>Strategic Executive Support for Visionary Leaders Worldwide</p>
+            <a href="#about" class="hero-btn">What Our Clients Say</a>
+        </section>
+
+        <!-- BUSINESS BOTTLENECK GRID SECTION -->
+        <section class="life-showing-section">
+            <h2 class="life-showing-title">How This Is Showing Up In Your Business</h2>
+            <div class="life-grid">
+                
+                <div class="life-card">
+                    <h3>1. You are the bottleneck to growth</h3>
+                    <p>Strategic decisions are clear, but execution slows down because too many approvals, clarifications, and follow-ups still route through you.</p>
+                </div>
+
+                <div class="life-card">
+                    <h3>2. Your capacity is stretched beyond your role</h3>
+                    <p>You’re operating across strategy, coordination, and execution—leaving limited bandwidth for actual growth-focused leadership.</p>
+                </div>
+
+                <div class="life-card">
+                    <h3>3. You are carrying operational overwhelm at the top level</h3>
+                    <p>Even with support in place, you’re still managing fragmented tasks, updates, and priorities that should be systemized and distributed.</p>
+                </div>
+
+                <div class="life-card">
+                    <h3>4. Your business lacks consistent operational structure</h3>
+                    <p>Work gets done, but not through a stable system meaning quality, speed, and flow depend heavily on your involvement.</p>
+                </div>
+
+                <div class="life-card">
+                    <h3>5. Execution lacks consistency across the business</h3>
+                    <p>Even when priorities are clear, delivery varies across tasks, people, and timelines so outcomes feel dependent on who is involved rather than a reliable operating system.</p>
+                </div>
+
+                <div class="life-card">
+                    <h3>6. You’re constantly context-switching instead of operating at altitude</h3>
+                    <p>Your attention is pulled into operational details throughout the day, preventing sustained focus on high-level decisions that actually drive growth.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- HERE'S WHAT'S MISSING SECTION -->
+        <section class="missing-section">
+            <div class="missing-card">
+                <h2>Here's What's Missing</h2>
+                <p>You don't need another task-taker or a basic assistant to manage your calendar. You need an operational partner who steps into the gaps, builds the infrastructure your business lacks, and actively keeps execution running seamlessly behind the scenes. Our strategic support architecture balances operations, tech optimization, and high-level project management—giving you the leverage required to scale without tracking down updates.</p>
+            </div>
+        </section>
+
+        <!-- RIGHT FIT / FILTER SECTION -->
+        <section class="fit-section">
+            <div class="fit-container">
+                
+                <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 13px; color: #8c857b; font-weight: 600; margin-bottom: 10px;">Curious about our operational partnership?</p>
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem); color: #222222; font-family: 'Playfair Display', serif; margin-top: 0; margin-bottom: 15px; font-weight: 700;">Let’s make sure this is the right fit.</h2>
+                <p style="font-size: 16px; color: #555555; max-width: 700px; margin: 0 auto 50px auto; line-height: 1.6;">This work requires trust, complete ownership, and a genuine willingness to scale. Here’s how to know whether this is the next right step for your business.</p>
+
+                <!-- Grid Container -->
+                <div class="fit-grid">
+                    
+                    <!-- Perfect For You Column -->
+                    <div style="background: #ffffff; border-radius: 24px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-top: 4px solid #d4af37; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <h3 style="font-size: 22px; color: #1a2e3b; margin-top: 0; margin-bottom: 25px; font-family: 'Playfair Display', serif; font-weight: 700;">This is perfect for you if:</h3>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #444444; line-height: 1.6;">
+                                    <span style="position: absolute; left: 0; top: 2px; color: #4c8c74; font-weight: bold; font-size: 18px;">✓</span>
+                                    You are looking for a strategic partner to empower you to scale your business, so you can focus entirely on high-level vision and growth.
+                                </li>
+                                <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #444444; line-height: 1.6;">
+                                    <span style="position: absolute; left: 0; top: 2px; color: #4c8c74; font-weight: bold; font-size: 18px;">✓</span>
+                                    You’ve tried hiring general virtual assistants or task-takers before, and it didn't stick.
+                                </li>
+                                <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #444444; line-height: 1.6;">
+                                    <span style="position: absolute; left: 0; top: 2px; color: #4c8c74; font-weight: bold; font-size: 18px;">✓</span>
+                                    You and your leadership team want the same scalable growth, but you're not sure how to build the workflows to get there.
+                                </li>
+                                <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #444444; line-height: 1.6;">
+                                    <span style="position: absolute; left: 0; top: 2px; color: #4c8c74; font-weight: bold; font-size: 18px;">✓</span>
+                                    You want an operational partner who owns outcomes and proactively keeps your business engine running on track.
+                                </li>
+                                <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #444444; line-height: 1.6;">
+                                    <span style="position: absolute; left: 0; top: 2px; color: #4c8c74; font-weight: bold; font-size: 18px;">✓</span>
+                                    You are ready to be challenged on how you think and feel about delegation, operational bottlenecks, and what now serves your business.
+                                </li>
+                                <li style="position: relative; padding-left: 35px; margin-bottom: 0; font-size: 15px; color: #444444; line-height: 1.6;">
+                                    <span style="position: absolute; left: 0; top: 2px; color: #4c8c74; font-weight: bold; font-size: 18px;">✓</span>
+                                    You are ready to break the cycle of day-to-day operational chaos and do what it takes to regain your time.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- NOT For You Column -->
+                    <div style="background: #ffffff; border-radius: 24px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-top: 4px solid #e0dbd5; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <h3 style="font-size: 22px; color: #1a2e3b; margin-top: 0; margin-bottom: 25px; font-family: 'Playfair Display', serif; font-weight: 700;">This is NOT for you if:</h3>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #666666; line-height: 1.6;">
+                                    <span style="position: absolute; left: 0; top: 2px; color: #b85c5c; font-weight: bold; font-size: 18px;">✕</span>
+                                    You are looking for a "savior" to single-handedly build a business for you without your vision, or a basic order-taker who needs micro-management.
+                                </li>
+                                <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #666666; line-height: 1.6;">
+                                    <span style="position: absolute; left: 0; top: 2px; color: #b85c5c; font-weight: bold; font-size: 18px;">✕</span>
+                                    You think you want to scale your business operations, but staying buried in the day-to-day granular tasks feels safer.
+                                </li>
+                                <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #666666; line-height: 1.6;">
+                                    <span style="position: absolute; left: 0; top: 2px; color: #b85c5c; font-weight: bold; font-size: 18px;">✕</span>
+                                    You are not open to exploring new systems, software automation, or modern ways to run your agency backend.
+                                </li>
+                                <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #666666; line-height: 1.6;">
+                                    <span style="position: absolute; left: 0; top: 2px; color: #b85c5c; font-weight: bold; font-size: 18px;">✕</span>
+                                    You’re unwilling to learn a new, structured way to delegate, manage projects, and communicate asynchronously.
+                                </li>
+                                <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #666666; line-height: 1.6;">
+                                    <span style="position: absolute; left: 0; top: 2px; color: #b85c5c; font-weight: bold; font-size: 18px;">✕</span>
+                                    You’re looking for a quick and cheap, short-term fix to deep-rooted operational bottlenecks.
+                                </li>
+                                <li style="position: relative; padding-left: 35px; margin-bottom: 0; font-size: 15px; color: #666666; line-height: 1.6;">
+                                    <span style="position: absolute; left: 0; top: 2px; color: #b85c5c; font-weight: bold; font-size: 18px;">✕</span>
+                                    You don't want to be challenged to grow as an executive leader.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <div id="about">
+        <header class="about-hero">
+            <h1>“Excellence in every detail.”</h1>
+            <p>At Soar Executive VA’s, we believe every successful business deserves behind-the-scenes support that’s just as dynamic as its front-facing operations.</p>
+        </header>
+
+        <main class="about-main">
+            <div class="vertical-row">
+                <div>
+                    <div class="founder-box">
+                        <img src="founder.webp" alt="Founder Story">
+                    </div>
+                    <span class="label"><strong>Christine W.N.</strong><br>FOUNDER AND CEO</span>
+                </div>
+                <div class="content-side">
+                    <h2 class="bold-serif" style="font-size: 2.5rem; margin-bottom: 30px; color: #1a1a1a;">Our Story & Vision</h2>
+                    <p>I started SOAR after seeing how easily business owners get caught up in the day-to-day running of their work. I wanted to create support that doesn’t just take tasks off your plate, but actually helps you move forward with more clarity and focus.</p>
+                </div>
+            </div>
+
+            <div id="testimonials" class="section-title">
+                <h2 class="main-title">What Our Clients Say</h2>
+            </div>
+
+            <div class="vertical-row row-reverse">
+                <div class="square-box">
+                    <img src="client-operations.webp" alt="Client Operations">
+                </div>
+                <div class="content-side">
+                    <div class="testimonial-pair">
+                        <div class="test-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="test-text">
+                                <strong>Strategic initiative and structure.</strong>
+                                "Working with my VA felt like adding a COO to my team. She anticipated what I needed before I did."
+                            </p>
+                            <div class="client-info">
+                                <div class="headshot"><img src="client-1.webp" alt="Sol Kennedy"></div>
+                                <span class="client-name">Sol Kennedy</span>
+                            </div>
+                        </div>
+                        <div class="test-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="test-text">
+                                <strong>Professional and insanely efficient.</strong>
+                                "I've worked with several VAs before, but none matched the precision of this team."
+                            </p>
+                            <div class="client-info">
+                                <div class="headshot"><img src="client-2.webp" alt="Louise L."></div>
+                                <span class="client-name">Louise L.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vertical-row">
+                <div class="square-box">
+                    <img src="scale-and-balance.webp" alt="Scale and Balance">
+                </div>
+                <div class="content-side">
+                    <div class="testimonial-pair">
+                        <div class="test-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="test-text">
+                                <strong>From burnout to balance.</strong>
+                                "Now I wake up to an organized inbox and peace of mind knowing things are handled."
+                            </p>
+                            <div class="client-info">
+                                <div class="headshot"><img src="client-3.webp" alt="Dr. Haylee"></div>
+                                <span class="client-name">Dr. Haylee</span>
+                            </div>
+                        </div>
+                        <div class="test-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="test-text">
+                                <strong>Proactive mindset.</strong>
+                                "My assistant didn't just wait for instructions; she brought ideas and optimized my workflows."
+                            </p>
+                            <div class="client-info">
+                                <div class="headshot"><img src="client-4.webp" alt="Lauren"></div>
+                                <span class="client-name">Lauren</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="cta-container">
+            <section class="footer-cta">
+                <h2>Let us together build a flourishing business</h2>
+                <p>We have your back and put in our best to contribute to the growth of your entire team and organization.</p>
+            </section>
         </div>
     </div>
-</div>
 
-<!-- FAQS SECTION -->
-<div id="faq" style="background-color: var(--white); padding: 100px 8%; text-align: center;">
-    <span style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 3px; color: var(--brand-brown); text-transform: uppercase; margin-bottom: 15px; display: block;">Still Not Sure?</span>
-    <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--charcoal); margin-bottom: 60px;">Frequently Asked Questions</h2>
-    <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px;">
-        <div style="background-color: var(--beige); border-radius: 18px; padding: 28px 35px; text-align: left;">
-            <h3 style="font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--charcoal);">How does onboarding work?</h3>
-            <p style="margin-top: 10px; font-size: 15px; color: #555;">We start by understanding your current workflows, priorities, and operational gaps. From there, we map out how tasks move through your business and set up a simple structure for communication, execution, and follow-ups.</p>
-        </div>
-        <div style="background-color: var(--beige); border-radius: 18px; padding: 28px 35px; text-align: left;">
-            <h3 style="font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--charcoal);">How much training or handholding do you need at the start?</h3>
-            <p style="margin-top: 10px; font-size: 15px; color: #555;">Minimal. We don’t rely on heavy training cycles. Instead, we quickly learn your systems and standardize how tasks are handled so you don’t have to repeatedly explain the same processes.</p>
+    <!-- SERVICES SECTION -->
+    <div id="services">
+        <section class="services-hero">
+            <h1>Have a Project in mind?</h1>
+            <p>We can help you bring your ideas to life. Let’s talk about what we can <span class="serif" style="font-style: italic;">build and raise together.</span></p>
+        </section>
+
+        <section class="services-container">
+            <h2 class="services-section-heading">Our Services</h2>
+            
+            <div class="services-grid">
+                <div class="service-column">
+                    <div class="col-header">
+                        <h2>Executive & Administrative Support</h2>
+                        <div class="divider"></div>
+                    </div>
+                    <ul class="service-list">
+                        <li>Inbox and calendar management</li>
+                        <li>Scheduling and appointment coordination</li>
+                        <li>Travel planning and itinerary management</li>
+                        <li>Executive reporting and meeting summary</li>
+                        <li>Document preparation and formatting</li>
+                        <li>CRM data entry and upkeep</li>
+                        <li>Workflow and SOP documentation</li>
+                        <li>Research and data compilation</li>
+                    </ul>
+                </div>
+
+                <div class="service-column">
+                    <div class="col-header">
+                        <h2>Business Operations & Client Services</h2>
+                        <div class="divider"></div>
+                    </div>
+                    <ul class="service-list">
+                        <li>Invoicing and basic book-keeping</li>
+                        <li>Expense tracking and reporting</li>
+                        <li>Project tracking and timeline updates</li>
+                        <li>Client onboarding support</li>
+                        <li>Responding to client inquiries</li>
+                        <li>Feedback collection and documentation</li>
+                        <li>File management and structure</li>
+                        <li>Team communication coordination</li>
+                    </ul>
+                </div>
+
+                <div class="service-column">
+                    <div class="col-header">
+                        <h2>Specialized Operations & Lead Gen</h2>
+                        <div class="divider"></div>
+                    </div>
+                    <ul class="service-list">
+                        <li>Cold email sequence setup (Lemlist)</li>
+                        <li>Lead list building and cleanup (Apollo)</li>
+                        <li>CRM updates and pipeline tracking</li>
+                        <li>Property listing entry and upkeep</li>
+                        <li>Basic social media updates</li>
+                        <li>Newsletter layout and scheduling</li>
+                        <li>Basic template updates (Canva)</li>
+                        <li>SOP refinement and documentation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMAGES UNDER SERVICES -->
+        <section class="split-image-section">
+            <div class="split-container">
+                <div class="split-box"><img src="gallery-1.jpg" alt="Operations Asset 1"></div>
+                <div class="split-box"><img src="gallery-2.jpg" alt="Operations Asset 2"></div>
+                <div class="split-box"><img src="gallery-3.jpg" alt="Operations Asset 3"></div>
+            </div>
+        </section>
+
+        <div class="services-cta">
+            <a href="#contact" class="btn">Get Started</a>
         </div>
     </div>
-</div>
 
-<!-- RIGHT FIT SECTION -->
-<section id="fit" style="padding: 100px 8%; font-family: 'Inter', sans-serif; background-color: #fcfbf9; text-align: center;">
-    <p style="font-size: 13px; font-weight: 700; letter-spacing: 3px; color: var(--brand-brown); text-transform: uppercase; margin-bottom: 15px;">Curious about our operational partnership?</p>
-    <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--charcoal); margin-bottom: 20px;">Let’s make sure this is the right fit.</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; text-align: left; max-width: 1000px; margin: 60px auto 0;">
-        <div style="background: var(--white); border-radius: 18px; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
-            <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">This is perfect for you if:</h3>
-            <ul>
-                <li>You are looking for a strategic partner to empower you to scale.</li>
-                <li>You’ve tried hiring general virtual assistants before and it didn't stick.</li>
-                <li>You want an operational partner who owns outcomes.</li>
-            </ul>
-        </div>
-        <div style="background: var(--white); border-radius: 18px; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
-            <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">This is NOT for you if:</h3>
-            <ul>
-                <li>You are looking for a "savior" without your vision.</li>
-                <li>You are not open to exploring new systems or automation.</li>
-                <li>You're looking for a quick and cheap, short-term fix.</li>
-            </ul>
+    <!-- PROCESS SECTION -->
+    <div id="process">
+        <header class="page-header">
+            <h1 class="how-it-works-title">How It Works</h1>
+        </header>
+
+        <div class="process-wrapper">
+            <div class="process-inner">
+                <!-- STEP 1 -->
+                <section class="step-section">
+                    <div class="circle-card">
+                        <div class="step-id">1</div>
+                        <h2>Discovery Call</h2>
+                        <div class="centered-box">
+                            <p>We start with a discovery call where we deep dive into your business and identify your bottlenecks.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- STEP 2 -->
+                <section class="step-section">
+                    <div class="circle-card">
+                        <div class="step-id">2</div>
+                        <h2>Custom Strategy & Proposal</h2>
+                        <div class="centered-box">
+                            <p>We create a tailored proposal and plan outlining exactly how we can support you.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- STEP 3 -->
+                <section class="step-section">
+                    <div class="circle-card">
+                        <div class="step-id">3</div>
+                        <h2>Seamless Onboarding</h2>
+                        <div class="centered-box">
+                            <p>We complete a smooth onboarding process to transfer systems and begin execution efficiently.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
-</section>
 
-<!-- FINAL CTA -->
-<div style="padding: 40px 8% 80px; background: var(--white);">
-    <section style="background: var(--beige); padding: 100px 10%; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 30px; border: 1px solid var(--stone-grey);">
-        <h2 style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 3rem;">Let us together build a flourishing business</h2>
-        <p style="max-width: 800px;">We have your back and put in our best to contribute to the growth of your entire team and organization.</p>
-    </section>
-</div>
+    <!-- ACCORDION FAQ SECTION - UPDATED TO SPECIFIC REQUESTED TEXT -->
+    <div id="faq" class="faq-section">
+        <span class="faq-label">Still Not Sure?</span>
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+        <p class="faq-subtitle">These answers are designed to give you clarity on how onboarding works and what day-to-day collaboration looks like.</p>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-trigger">
+                    <h3>How does onboarding work?</h3>
+                    <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">
+                        <p>We start by understanding your current workflows, priorities, and operational gaps. From there, we map out how tasks move through your business and set up a simple structure for communication, execution, and follow-ups.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-trigger">
+                    <h3>How much training or handholding do you need at the start?</h3>
+                    <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">
+                        <p>Minimal. We don’t rely on heavy training cycles. Instead, we quickly learn your systems and standardize how tasks are handled so you don’t have to repeatedly explain the same processes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-trigger">
+                    <h3>What types of tasks do you typically handle?</h3>
+                    <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">
+                        <p>We support operational execution such as inbox management, scheduling, task coordination, follow-ups, and keeping workflows moving smoothly across your tools and systems.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-trigger">
+                    <h3>How do you communicate progress or updates?</h3>
+                    <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">
+                        <p>We align with your preferred tools and cadence whether that’s email, Slack, or task management platforms so you always have visibility without needing to constantly check in.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-trigger">
+                    <h3>How quickly can we get started?</h3>
+                    <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">
+                        <p>Once we’ve had an initial alignment conversation, onboarding can begin shortly after. The goal is to move from discussion to structured execution as efficiently as possible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <div id="contact">
+        <section class="contact-hero">
+            <h1>Let's Connect</h1>
+            <p>Partner with a strategic ally who values execution as much as you do.</p>
+        </section>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Start Your Optimization Journey</h2>
+                <p>Ready to reclaim your altitude and scale operations with flawless execution? Drop us a line or use our live chat to schedule a direct consult.</p>
+                <a href="mailto:operations@soaragency.com" class="email-link">operations@soaragency.com</a>
+                <div class="social-row">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <form class="contact-form" action="#" method="POST">
+                <input type="text" placeholder="YOUR NAME" required>
+                <input type="email" placeholder="YOUR EMAIL ADDRESS" required>
+                <input type="text" placeholder="YOUR COMPANY / AGENCY" required>
+                <textarea placeholder="HOW CAN WE STRATEGICALLY SUPPORT YOU?" rows="5" required></textarea>
+                <button type="submit" class="submit-btn">Send Inquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- GLOBAL FOOTER -->
+    <footer>
+        <div class="social-container">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2026 SOAR Executive Operations. All Rights Reserved.</p>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            if (window.innerWidth <= 1024) {
+                navLinks.classList.toggle('active');
+            }
+        }
+
+        // Accordion script
+        document.querySelectorAll('.faq-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const item = trigger.parentElement;
+                const icon = trigger.querySelector('.faq-icon i');
+                
+                item.classList.toggle('active');
+                
+                if (item.classList.contains('active')) {
+                    icon.className = 'fas fa-minus';
+                } else {
+                    icon.className = 'fas fa-plus';
+                }
+            });
+        });
+    </script>
+
+    <!-- ZOHO SALESIQ LIVE CHAT WIDGET -->
+    <script type="text/javascript">
+        var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode:"siq367740f3a0887b857834c2422a914562", values:{},ready:function(){}};
+        var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;
+        s.src="https://salesiq.zohopublic.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);
+    </script>
+</body>
+</html>
