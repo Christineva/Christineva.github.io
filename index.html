@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOAR | Executive Operations</title>
     <link rel="icon" type="image/png" href="favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -16,15 +16,18 @@
             --stone-grey: #A8A8A8;
             --white: #FFFFFF;
             --brand-brown: #8B735B;
+            --accent-gold: #D4AF37;
+            --gold: #C5A059;
             --border: #E8E4E0;
         }
         
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; scroll-margin-top: 90px; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; color: var(--dark-grey); background: var(--white); line-height: 1.8; font-size: 18px; overflow-x: hidden; padding-top: 100px; }
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; font-weight: 400; }
+        h1 strong, h2 strong, h3 strong, .bold-serif { font-weight: 700; }
 
-        /* NAVIGATION - Fixed and Responsive */
+        /* NAVIGATION */
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 15px 8%; position: fixed; width: 100%; top: 0; left: 0;
@@ -32,10 +35,10 @@
             border-bottom: 1px solid rgba(0,0,0,0.05); 
         }
         .logo img { height: 70px; width: auto; display: block; }
+        .logo a { text-decoration: none; color: var(--charcoal); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; }
         .nav-links { display: flex; gap: 45px; list-style: none; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; font-weight: 700; }
         .nav-cta { background: var(--charcoal); color: white; padding: 12px 25px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; }
-        
         .menu-toggle { display: none; font-size: 24px; cursor: pointer; color: var(--charcoal); }
 
         /* HERO SECTION */
@@ -61,60 +64,95 @@
         .conversion-strip { background-color: var(--charcoal); padding: 100px 8%; text-align: center; }
         .conversion-title h2 { color: var(--white); font-size: 24px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 60px; }
         .conversion-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
-        .c-icon-box { 
-            background: var(--beige); 
-            border: 2px solid var(--white); 
-            padding: 40px 25px; 
-            border-radius: 4px; 
-            display: flex; flex-direction: column; align-items: center; 
-        }
-        .beige-circle { 
-            width: 60px; height: 60px; border-radius: 50%; 
-            background: var(--charcoal); color: var(--white); 
-            display: flex; justify-content: center; align-items: center; margin-bottom: 20px; 
-        }
+        .c-icon-box { background: var(--beige); border: 2px solid var(--white); padding: 40px 25px; border-radius: 4px; display: flex; flex-direction: column; align-items: center; }
+        .beige-circle { width: 60px; height: 60px; border-radius: 50%; background: var(--charcoal); color: var(--white); display: flex; justify-content: center; align-items: center; margin-bottom: 20px; }
         .c-text h4 { color: #000000; font-family: 'Inter', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; margin-bottom: 15px; }
         .c-text p { color: #333333; font-size: 14px; line-height: 1.5; font-weight: 400; }
 
-        /* SERVICES PAGE EXPANDED ELEMENTS */
-        .services-hero {
-            height: 50vh; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center;
-            background-color: var(--beige); padding: 0 15%;
-        }
+        /* ABOUT SECTION */
+        .about-hero { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: var(--beige); padding: 120px 15% 80px; }
+        .about-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 3vw, 32px); font-weight: 700; max-width: 900px; margin-bottom: 30px; line-height: 1.5; font-style: italic; color: #1a1a1a; }
+        .about-hero p { max-width: 800px; font-weight: 300; font-size: 1.1rem; line-height: 2; color: var(--dark-grey); }
+        .about-main { padding: 80px 8% 40px; max-width: 1400px; margin: 0 auto; }
+        .vertical-row { display: flex; gap: 100px; margin-bottom: 100px; align-items: center; }
+        .founder-box { flex: 0 0 300px; width: 300px; height: 300px; background: #f4f4f4; overflow: hidden; }
+        .founder-box img { width: 100%; height: 100%; object-fit: cover; }
+        .square-box { flex: 0 0 500px; height: auto; aspect-ratio: 1/1; background: #f4f4f4; overflow: hidden; }
+        .square-box img { width: 100%; height: 100%; object-fit: cover; }
+        .content-side { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 450px; }
+        .label { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--stone-grey); margin-top: 20px; display: block; text-align: center; line-height: 1.6; }
+        .label strong { color: #1a1a1a; font-size: 14px; letter-spacing: 1px; }
+        .main-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2.5rem; margin-bottom: 30px; color: #1a1a1a; text-align: center; }
+        .section-title { text-align: center; margin: 40px 0 80px; }
+        .testimonial-pair { display: grid; grid-template-columns: 1fr; gap: 60px; text-align: left; }
+        .test-card { border-bottom: 1px solid #f0f0f0; padding-bottom: 40px; }
+        .stars { color: var(--gold); font-size: 12px; margin-bottom: 15px; }
+        .test-text { font-size: 1.1rem; font-weight: 300; line-height: 1.8; font-style: italic; }
+        .test-text strong { display: block; margin-bottom: 10px; font-style: normal; font-weight: 700; color: #1a1a1a; }
+        .client-info { display: flex; align-items: center; gap: 15px; margin-top: 20px; }
+        .headshot { width: 45px; height: 45px; border-radius: 50%; background: #eee; overflow: hidden; border: 2px solid var(--beige); }
+        .headshot img { width: 100%; height: 100%; object-fit: cover; }
+        .client-name { font-family: 'Inter', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
+        .row-reverse { flex-direction: row-reverse; }
+        .cta-container { padding: 40px 8% 80px; background: var(--white); }
+        .footer-cta { background: var(--beige); color: var(--dark-grey); padding: 100px 10%; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 30px; border: 1px solid var(--stone-grey); }
+        .footer-cta h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(28px, 4vw, 42px); line-height: 1.2; max-width: 700px; color: #1a1a1a; }
+        .footer-cta p { max-width: 800px; font-weight: 300; font-size: 1.15rem; }
+
+        /* SERVICES COMPONENTS */
+        .services-hero { height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background-color: var(--beige); padding: 0 15%; }
         .services-hero h1 { font-size: clamp(30px, 5vw, 55px); line-height: 1.2; margin-bottom: 20px; color: var(--charcoal); }
         .services-hero p { max-width: 700px; font-size: 16px; font-weight: 300; color: var(--dark-grey); line-height: 1.8; }
-        
         .services-container { padding: 80px 8% 40px; background: var(--white); }
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .service-column { background: var(--light-grey); padding: 60px 40px; border-radius: 2px; text-align: left; }
-        
         .col-header { text-align: center; margin-bottom: 40px; }
-        .col-header h2 { 
-            font-size: 1.4rem; margin-bottom: 10px; color: var(--dark-grey); min-height: 4.5rem; 
-            display: flex; align-items: center; justify-content: center; 
-            text-transform: uppercase; letter-spacing: 1px; font-weight: 700;
-        }
+        .col-header h2 { font-size: 1.4rem; margin-bottom: 10px; color: var(--dark-grey); min-height: 4.5rem; display: flex; align-items: center; justify-content: center; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; font-family: 'Playfair Display', serif; }
         .divider { width: 30px; height: 1px; background: var(--stone-grey); margin: 20px auto; }
-        
         .service-list { list-style: none; }
-        .service-list li { 
-            font-size: 14px; color: var(--dark-grey); margin-bottom: 14px; padding-left: 20px; 
-            position: relative; font-weight: 400; letter-spacing: 0.1px; line-height: 1.6;
-        }
+        .service-list li { font-size: 14px; color: var(--dark-grey); margin-bottom: 14px; padding-left: 20px; position: relative; font-weight: 400; letter-spacing: 0.1px; line-height: 1.6; }
         .service-list li::before { content: "—"; position: absolute; left: 0; color: var(--stone-grey); }
-        
         .split-image-section { padding: 0 8%; margin-top: 40px; }
         .split-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; background-color: var(--white); }
         .split-box { aspect-ratio: 1 / 1; overflow: hidden; background: var(--light-grey); }
         .split-box img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s ease; }
         .split-box:hover img { transform: scale(1.05); }
-        
         .services-cta { text-align: center; padding: 100px 10%; background: var(--white); }
         .btn { background: var(--dark-grey); color: white; padding: 22px 60px; border: none; text-transform: uppercase; letter-spacing: 3px; font-size: 10px; cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-block; }
 
-        /* FALLBACK SECTIONS HOLDER */
-        .scrolled-page-content { padding: 100px 8%; text-align: center; }
+        /* PROCESS SECTION Elements */
+        .page-header { text-align: center; padding: 100px 0 40px; background-color: var(--light-grey); }
+        .how-it-works-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4rem); color: var(--charcoal); letter-spacing: 2px; }
+        .process-wrapper { position: relative; padding-bottom: 100px; background-color: var(--light-grey); }
+        .step-section { min-height: 60vh; display: flex; justify-content: center; align-items: center; position: relative; z-index: 2; margin: 20px 0; }
+        .circle-card { width: 550px; height: 550px; background: var(--beige); border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 70px; border: 8px solid var(--white); box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
+        .step-id { background: var(--accent-gold); color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: 600; margin-bottom: 15px; }
+        .step-section h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 15px; line-height: 1.1; font-weight: 400; }
+        .centered-box { max-width: 90%; margin: 0 auto; text-align: center; }
+        .step-section p { font-size: 1rem; line-height: 1.6; color: var(--charcoal); font-weight: 300; }
+        .bird { position: absolute; right: 12%; top: 40%; font-size: 2.5rem; z-index: 10; pointer-events: none; animation: flyVertical 6s infinite ease-in-out; }
+        @keyframes flyVertical { 0%, 100% { transform: translateY(-80px) rotate(-5deg); } 50% { transform: translateY(80px) rotate(5deg); } }
+
+        /* CONTACT SECTION Elements */
+        .contact-hero { background-color: var(--beige); padding: 80px 10% 60px; text-align: center; }
+        .contact-hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; padding: 60px 10% 100px; max-width: 1400px; margin: 0 auto; background: var(--white); text-align: left; }
+        .contact-info h2 { font-size: 2rem; margin-bottom: 30px; font-family: 'Playfair Display', serif; }
+        .contact-info p { margin-bottom: 20px; font-weight: 300; font-size: 1.1rem; }
+        .social-row { display: flex; gap: 25px; margin-top: 25px; align-items: center; }
+        .social-row a { font-size: 24px; color: var(--charcoal); text-decoration: none; transition: 0.3s; }
+        .social-row a:hover { color: var(--brand-brown); transform: translateY(-2px); }
+        .email-link { display: block; font-size: 1.5rem; color: var(--dark-grey); text-decoration: none; margin-top: 40px; border-bottom: 1px solid var(--stone-grey); width: fit-content; }
+        .contact-form { display: flex; flex-direction: column; gap: 25px; }
+        .contact-form input, .contact-form textarea { padding: 15px 0; border: none; border-bottom: 1px solid #ccc; font-family: 'Inter', sans-serif; outline: none; font-size: 1rem; background: transparent; }
+        .submit-btn { background: var(--dark-grey); color: white; padding: 20px; border: none; text-transform: uppercase; letter-spacing: 2px; font-size: 10px; cursor: pointer; margin-top: 20px; transition: 0.3s; }
+        .submit-btn:hover { background: var(--charcoal); }
+
+        /* GLOBAL FOOTER STYLING */
+        footer { background: var(--white); padding: 60px 10%; text-align: center; font-size: 10px; letter-spacing: 3px; color: var(--stone-grey); text-transform: uppercase; font-weight: 700; border-top: 1px solid #eee; }
+        .social-container { display: flex; justify-content: center; gap: 25px; margin-bottom: 20px; }
+        .social-container a { color: var(--charcoal); font-size: 20px; transition: 0.3s; text-decoration: none; }
+        .social-container a:hover { color: var(--brand-brown); }
 
         /* MOBILE ADJUSTMENTS */
         @media (max-width: 1024px) {
@@ -122,38 +160,40 @@
             .menu-toggle { display: block; order: 2; }
             .logo { order: 1; }
             .nav-cta { display: none; }
-            .nav-links {
-                display: none; flex-direction: column; position: absolute;
-                top: 100%; left: 0; width: 100%; background: white;
-                padding: 30px; gap: 25px; text-align: center;
-                border-bottom: 1px solid rgba(0,0,0,0.1);
-            }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: white; padding: 30px; gap: 25px; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.1); }
             .nav-links.active { display: flex; }
-            .grid, .values-grid, .conversion-grid, .services-grid, .split-container { grid-template-columns: 1fr; }
+            .grid, .values-grid, .conversion-grid, .services-grid, .split-container, .contact-container { grid-template-columns: 1fr; gap: 40px; }
             .hero { padding-top: 60px; height: auto; padding-bottom: 80px; }
             .hero h1 { font-size: 38px; }
             .frame-box { padding: 40px 20px; }
-            .services-hero { height: auto; padding: 120px 10% 60px; }
+            .vertical-row, .row-reverse { flex-direction: column !important; text-align: center; gap: 50px; }
+            .founder-box, .square-box { width: 100%; max-width: 500px; height: auto; aspect-ratio: 1/1; flex: none; margin: 0 auto; }
+            .content-side { min-height: auto; }
+            .step-section { min-height: auto; }
+            .circle-card { width: 90vw; height: 90vw; padding: 40px; }
+            .bird { position: fixed; right: 5%; top: 50%; font-size: 1.5rem; }
+            .contact-info { text-align: center; }
+            .social-row { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVIGATION -->
+    <!-- SYNCHRONIZED NAVIGATION -->
     <nav>
-        <div class="logo"><a href="#home"><img src="logo.png" alt="SOAR"></a></div>
+        <div class="logo"><a href="#home">SOAR</a></div>
         <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+            <li><a href="#about" onclick="toggleMenu()">About</a></li>
             <li><a href="#services" onclick="toggleMenu()">Services</a></li>
             <li><a href="#process" onclick="toggleMenu()">Process</a></li>
-            <li><a href="#about" onclick="toggleMenu()">About</a></li>
             <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </ul>
         <a href="#contact" class="nav-cta">Inquire</a>
     </nav>
 
-    <!-- MAIN HOME WRAPPER -->
+    <!-- HOME HERO SECTION -->
     <div id="home">
         <section class="hero">
             <h1>Doing it all is costing you <br>more than you think.</h1>
@@ -217,7 +257,105 @@
         </section>
     </div>
 
-    <!-- SERVICES PAGE SECTION -->
+    <!-- ABOUT SECTION (Placed Before Services) -->
+    <div id="about">
+        <header class="about-hero">
+            <h1>“Excellence in every detail.”</h1>
+            <p>At Soar Executive VA’s, we believe every successful business deserves behind-the-scenes support that’s just as dynamic as its front-facing operations.</p>
+        </header>
+
+        <main class="about-main">
+            <div class="vertical-row">
+                <div>
+                    <div class="founder-box">
+                        <img src="founder.webp" alt="Founder Story">
+                    </div>
+                    <span class="label"><strong>Christine W.N.</strong><br>FOUNDER AND CEO</span>
+                </div>
+                <div class="content-side">
+                    <h2 class="bold-serif" style="font-size: 2.5rem; margin-bottom: 30px; color: #1a1a1a;">Our Story & Vision</h2>
+                    <p>I started SOAR after seeing how easily business owners get caught up in the day-to-day running of their work. I wanted to create support that doesn’t just take tasks off your plate, but actually helps you move forward with more clarity and focus.</p>
+                </div>
+            </div>
+
+            <div id="testimonials" class="section-title">
+                <h2 class="main-title">What Our Clients Say</h2>
+            </div>
+
+            <div class="vertical-row row-reverse">
+                <div class="square-box">
+                    <img src="client-operations.webp" alt="Client Operations">
+                </div>
+                <div class="content-side">
+                    <div class="testimonial-pair">
+                        <div class="test-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="test-text">
+                                <strong>Strategic initiative and structure.</strong>
+                                "Working with my VA felt like adding a COO to my team. She anticipated what I needed before I did."
+                            </p>
+                            <div class="client-info">
+                                <div class="headshot"><img src="client-1.webp" alt="Sol Kennedy"></div>
+                                <span class="client-name">Sol Kennedy</span>
+                            </div>
+                        </div>
+                        <div class="test-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="test-text">
+                                <strong>Professional and insanely efficient.</strong>
+                                "I've worked with several VAs before, but none matched the precision of this team."
+                            </p>
+                            <div class="client-info">
+                                <div class="headshot"><img src="client-2.webp" alt="Louise L."></div>
+                                <span class="client-name">Louise L.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vertical-row">
+                <div class="square-box">
+                    <img src="scale-and-balance.webp" alt="Scale and Balance">
+                </div>
+                <div class="content-side">
+                    <div class="testimonial-pair">
+                        <div class="test-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="test-text">
+                                <strong>From burnout to balance.</strong>
+                                "Now I wake up to an organized inbox and peace of mind knowing things are handled."
+                            </p>
+                            <div class="client-info">
+                                <div class="headshot"><img src="client-3.webp" alt="Dr. Haylee"></div>
+                                <span class="client-name">Dr. Haylee</span>
+                            </div>
+                        </div>
+                        <div class="test-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="test-text">
+                                <strong>Proactive mindset.</strong>
+                                "My assistant didn't just wait for instructions; she brought ideas and optimized my workflows."
+                            </p>
+                            <div class="client-info">
+                                <div class="headshot"><img src="client-4.webp" alt="Lauren"></div>
+                                <span class="client-name">Lauren</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="cta-container">
+            <section class="footer-cta">
+                <h2>Let us together build a flourishing business</h2>
+                <p>We have your back and put in our best to contribute to the growth of your entire team and organization.</p>
+            </section>
+        </div>
+    </div>
+
+    <!-- SERVICES SECTION -->
     <div id="services">
         <section class="services-hero">
             <h1>Have a Project in mind?</h1>
@@ -226,8 +364,6 @@
 
         <section class="services-container">
             <div class="services-grid">
-                
-                <!-- Box 1 -->
                 <div class="service-column">
                     <div class="col-header">
                         <h2>Executive & Administrative Support</h2>
@@ -245,7 +381,6 @@
                     </ul>
                 </div>
 
-                <!-- Box 2 -->
                 <div class="service-column">
                     <div class="col-header">
                         <h2>Business Operations & Client Services</h2>
@@ -263,7 +398,6 @@
                     </ul>
                 </div>
 
-                <!-- Box 3 -->
                 <div class="service-column">
                     <div class="col-header">
                         <h2>Marketing & Digital Presence Management</h2>
@@ -280,7 +414,6 @@
                         <li>Website content updates</li>
                     </ul>
                 </div>
-
             </div>
         </section>
 
@@ -304,31 +437,93 @@
         </section>
     </div>
 
-    <!-- PROCESS SECTION -->
-    <section id="process" class="scrolled-page-content" style="background-color: var(--light-grey);">
-        <h2>Our Process</h2>
-        <!-- Send me process.html code next to replace this line -->
-    </section>
+    <!-- PROCESS SECTION (How It Works) -->
+    <div id="process" style="background-color: var(--light-grey); position: relative;">
+        <div class="bird">🕊️</div>
+        
+        <div class="page-header">
+            <h1 class="how-it-works-title">How It Works</h1>
+        </div>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="scrolled-page-content">
-        <h2>About SOAR</h2>
-        <!-- Send me about.html code to replace this line -->
-    </section>
+        <div class="process-wrapper">
+            <section class="step-section">
+                <div class="circle-card">
+                    <div class="step-id">1</div>
+                    <h2>Discovery <br><i>Call</i></h2>
+                    <div class="centered-box">
+                        <p>We explore your business landscape to identify gaps and design a custom partnership that lets you focus on growth while we handle the complexity.</p>
+                    </div>
+                    <div style="font-size: 1.5rem; margin-top: 15px;">📞</div>
+                </div>
+            </section>
+
+            <section class="step-section">
+                <div class="circle-card">
+                    <div class="step-id">2</div>
+                    <div style="font-size: 1.5rem; margin-bottom: 10px;">🎯</div>
+                    <h2>The Right <br><i>VA Match</i></h2>
+                    <div class="centered-box">
+                        <p>We hand-select a dedicated professional based on your specific industry and technical needs. You'll receive a detailed profile ensuring a confident start with a style that complements yours.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="step-section">
+                <div class="circle-card">
+                    <div class="step-id">3</div>
+                    <h2>Seamless <br><i>Onboarding</i></h2>
+                    <div class="centered-box">
+                        <p>We lead the integration, syncing with your current tools to provide a high-touch, white-glove handoff that feels effortless from day one.</p>
+                    </div>
+                    <div style="font-size: 1.5rem; margin-top: 15px;">🚀</div>
+                </div>
+            </section>
+        </div>
+
+        <div style="text-align: center; padding: 0 0 100px;">
+            <a href="#contact" style="text-decoration: none; color: var(--charcoal); border-bottom: 2px solid var(--accent-gold); padding-bottom: 8px; text-transform: uppercase; letter-spacing: 4px; font-size: 12px; font-weight: 600;">Secure Your Success</a>
+        </div>
+    </div>
 
     <!-- CONTACT SECTION -->
-    <section id="contact" class="scrolled-page-content" style="background-color: var(--beige);">
-        <h2>Contact Us</h2>
-        <!-- Send me contact.html code to replace this line -->
-    </section>
+    <div id="contact">
+        <section class="contact-hero">
+            <h1>Let's Connect</h1>
+            <p style="letter-spacing: 2px; text-transform: uppercase; font-size: 10px; color: var(--stone-grey);">Direct Email</p>
+            <a href="mailto:vassistant.christine@gmail.com" class="email-link" style="margin: 20px auto;">vassistant.christine@gmail.com</a>
+        </section>
 
-    <!-- FOOTER -->
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Ready to offload the operational noise?</h2>
+                <p>We are currently accepting new client inquiries for modern global partnerships. Please complete the form, and our team will respond within 24 business hours.</p>
+                <p style="margin-top: 40px; font-weight: 500;">Based in Nairobi, Kenya</p>
+                <p style="color: var(--stone-grey);">Supporting Visionaries Worldwide</p>
+                
+                <div class="social-row">
+                    <a href="https://www.linkedin.com/in/wanjiruchristine" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61588860519267" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://wa.me/254783619609" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <form action="https://formspree.io/f/mnjgkjne" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="text" name="business" placeholder="Business Name / Website">
+                <textarea name="message" placeholder="How can we support you?" rows="5" required></textarea>
+                <button type="submit" class="submit-btn">Send Inquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- UNIFIED GLOBAL FOOTER -->
     <footer>
         <div class="social-container">
-            <a href="https://www.linkedin.com/in/wanjiruchristine" target="_blank" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61588860519267" target="_blank" class="social-link"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.instagram.com/saoar.virtual.assistants/?hl=en" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://wa.me/254783619609" target="_blank" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/in/wanjiruchristine" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61588860519267" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/saoar.virtual.assistants/?hl=en" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/254783619609" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
         <p>&copy; 2026 SOAR | SERVING LEADERS WORLDWIDE</p>
     </footer>
