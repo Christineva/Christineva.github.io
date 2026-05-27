@@ -34,8 +34,7 @@
             background: rgba(255, 255, 255, 0.98); z-index: 1000; 
             border-bottom: 1px solid rgba(0,0,0,0.05); 
         }
-        .logo img { height: 70px; width: auto; display: block; }
-        .logo a { text-decoration: none; color: var(--charcoal); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; font-size: 1.1rem; }
+        .logo img { height: 50px; width: auto; display: block; }
         .nav-links { display: flex; gap: 45px; list-style: none; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--dark-grey); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; font-weight: 700; }
         .nav-cta { background: var(--charcoal); color: white; padding: 12px 25px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; }
@@ -47,11 +46,50 @@
         .hero .tagline { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.5rem, 3vw, 2.5rem); margin-bottom: 20px; }
         .hero-btn { display: inline-block; padding: 15px 35px; border: 1px solid var(--charcoal); color: var(--charcoal); text-decoration: none; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; }
 
-        /* SERVICES STRIP */
-        .services-strip { background: var(--light-grey); padding: 80px 8%; text-align: center; }
-        .frame-box { border: 1px solid var(--brand-brown); padding: 60px 30px; }
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-        .item h3 { margin-bottom: 10px; font-size: 1.8rem; }
+        /* NEW BOTTLENECK LIFE GRID (Replaces "Hire Us For" block) */
+        .life-showing-section { 
+            background: linear-gradient(rgba(51, 54, 56, 0.85), rgba(51, 54, 56, 0.92)), url('operational-bg.jpg') no-repeat center center/cover; 
+            padding: 100px 8%; 
+            text-align: center; 
+        }
+        .life-showing-title { 
+            color: var(--white); 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(2rem, 4vw, 3rem); 
+            font-weight: 700; 
+            margin-bottom: 60px; 
+        }
+        .life-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+        }
+        .life-card { 
+            background: var(--white); 
+            border-radius: 24px; 
+            padding: 40px 35px; 
+            text-align: left; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .life-card h3 { 
+            font-family: 'Inter', sans-serif; 
+            font-size: 18px; 
+            font-weight: 700; 
+            color: #1a1a1a; 
+            line-height: 1.4;
+        }
+        .life-card p { 
+            font-family: 'Inter', sans-serif; 
+            font-size: 15px; 
+            font-weight: 400; 
+            color: #555555; 
+            line-height: 1.6;
+        }
 
         /* VALUES SECTION */
         .values-section { background-color: var(--white); padding: 80px 8%; }
@@ -103,7 +141,11 @@
         .services-hero { height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background-color: var(--beige); padding: 0 15%; }
         .services-hero h1 { font-size: clamp(30px, 5vw, 55px); line-height: 1.2; margin-bottom: 20px; color: var(--charcoal); }
         .services-hero p { max-width: 700px; font-size: 16px; font-weight: 300; color: var(--dark-grey); line-height: 1.8; }
-        .services-container { padding: 80px 8% 40px; background: var(--white); }
+        
+        /* White Space Header Fix */
+        .services-container { padding: 60px 8% 40px; background: var(--white); text-align: center; }
+        .services-section-heading { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 400; color: var(--charcoal); margin-bottom: 60px; letter-spacing: 1px; text-transform: capitalize; }
+        
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .service-column { background: var(--light-grey); padding: 60px 40px; border-radius: 2px; text-align: left; }
         .col-header { text-align: center; margin-bottom: 40px; }
@@ -130,8 +172,6 @@
         .step-section h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 15px; line-height: 1.1; font-weight: 400; }
         .centered-box { max-width: 90%; margin: 0 auto; text-align: center; }
         .step-section p { font-size: 1rem; line-height: 1.6; color: var(--charcoal); font-weight: 300; }
-        .bird { position: absolute; right: 12%; top: 40%; font-size: 2.5rem; z-index: 10; pointer-events: none; animation: flyVertical 6s infinite ease-in-out; }
-        @keyframes flyVertical { 0%, 100% { transform: translateY(-80px) rotate(-5deg); } 50% { transform: translateY(80px) rotate(5deg); } }
 
         /* CONTACT SECTION Elements */
         .contact-hero { background-color: var(--beige); padding: 80px 10% 60px; text-align: center; }
@@ -162,16 +202,14 @@
             .nav-cta { display: none; }
             .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: white; padding: 30px; gap: 25px; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.1); }
             .nav-links.active { display: flex; }
-            .grid, .values-grid, .conversion-grid, .services-grid, .split-container, .contact-container { grid-template-columns: 1fr; gap: 40px; }
+            .grid, .values-grid, .conversion-grid, .services-grid, .split-container, .contact-container, .life-grid { grid-template-columns: 1fr; gap: 30px; }
             .hero { padding-top: 60px; height: auto; padding-bottom: 80px; }
             .hero h1 { font-size: 38px; }
-            .frame-box { padding: 40px 20px; }
             .vertical-row, .row-reverse { flex-direction: column !important; text-align: center; gap: 50px; }
             .founder-box, .square-box { width: 100%; max-width: 500px; height: auto; aspect-ratio: 1/1; flex: none; margin: 0 auto; }
             .content-side { min-height: auto; }
             .step-section { min-height: auto; }
             .circle-card { width: 90vw; height: 90vw; padding: 40px; }
-            .bird { position: fixed; right: 5%; top: 50%; font-size: 1.5rem; }
             .contact-info { text-align: center; }
             .social-row { justify-content: center; }
         }
@@ -179,9 +217,10 @@
 </head>
 <body>
 
-    <!-- SYNCHRONIZED NAVIGATION -->
     <nav>
-        <div class="logo"><a href="#home">SOAR</a></div>
+        <div class="logo">
+            <a href="#home"><img src="logo.png" alt="SOAR Logo"></a>
+        </div>
         <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#home" onclick="toggleMenu()">Home</a></li>
@@ -193,7 +232,6 @@
         <a href="#contact" class="nav-cta">Inquire</a>
     </nav>
 
-    <!-- HOME HERO SECTION -->
     <div id="home">
         <section class="hero">
             <h1>Doing it all is costing you <br>more than you think.</h1>
@@ -202,14 +240,40 @@
             <a href="#about" class="hero-btn">What Our Clients Say</a>
         </section>
 
-        <section class="services-strip">
-            <div class="frame-box">
-                <h2>Hire Us For</h2>
-                <div class="grid">
-                    <div class="item"><h3>Efficiency</h3><p>High-level inbox and complex travel management.</p></div>
-                    <div class="item"><h3>Operations</h3><p>Workflow optimization and system architecture.</p></div>
-                    <div class="item"><h3>Client Care</h3><p>White-glove relationship management.</p></div>
+        <section class="life-showing-section">
+            <h2 class="life-showing-title">How This Is Showing Up In Your Life</h2>
+            <div class="life-grid">
+                
+                <div class="life-card">
+                    <h3>1. You are the bottleneck to growth</h3>
+                    <p>Strategic decisions are clear, but execution slows down because too many approvals, clarifications, and follow-ups still route through you.</p>
                 </div>
+
+                <div class="life-card">
+                    <h3>2. Your capacity is stretched beyond your role</h3>
+                    <p>You’re operating across strategy, coordination, and execution—leaving limited bandwidth for actual growth-focused leadership.</p>
+                </div>
+
+                <div class="life-card">
+                    <h3>3. You are carrying operational overwhelm at the top level</h3>
+                    <p>Even with support in place, you’re still managing fragmented tasks, updates, and priorities that should be systemized and distributed.</p>
+                </div>
+
+                <div class="life-card">
+                    <h3>4. Your business lacks consistent operational structure</h3>
+                    <p>Work gets done, but not through a stable system meaning quality, speed, and flow depend heavily on your involvement.</p>
+                </div>
+
+                <div class="life-card">
+                    <h3>5. Execution lacks consistency across the business</h3>
+                    <p>Even when priorities are clear, delivery varies across tasks, people, and timelines so outcomes feel dependent on who is involved rather than a reliable operating system.</p>
+                </div>
+
+                <div class="life-card">
+                    <h3>6. You’re constantly context-switching instead of operating at altitude</h3>
+                    <p>Your attention is pulled into operational details throughout the day, preventing sustained focus on high-level decisions that actually drive growth.</p>
+                </div>
+
             </div>
         </section>
 
@@ -257,7 +321,6 @@
         </section>
     </div>
 
-    <!-- ABOUT SECTION (Placed Before Services) -->
     <div id="about">
         <header class="about-hero">
             <h1>“Excellence in every detail.”</h1>
@@ -355,7 +418,6 @@
         </div>
     </div>
 
-    <!-- SERVICES SECTION -->
     <div id="services">
         <section class="services-hero">
             <h1>Have a Project in mind?</h1>
@@ -363,6 +425,8 @@
         </section>
 
         <section class="services-container">
+            <h2 class="services-section-heading">Our Services</h2>
+            
             <div class="services-grid">
                 <div class="service-column">
                     <div class="col-header">
@@ -437,9 +501,7 @@
         </section>
     </div>
 
-    <!-- PROCESS SECTION (How It Works) -->
     <div id="process" style="background-color: var(--light-grey); position: relative;">
-        <div class="bird">🕊️</div>
         
         <div class="page-header">
             <h1 class="how-it-works-title">How It Works</h1>
@@ -485,7 +547,6 @@
         </div>
     </div>
 
-    <!-- CONTACT SECTION -->
     <div id="contact">
         <section class="contact-hero">
             <h1>Let's Connect</h1>
@@ -517,7 +578,6 @@
         </div>
     </div>
 
-    <!-- UNIFIED GLOBAL FOOTER -->
     <footer>
         <div class="social-container">
             <a href="https://www.linkedin.com/in/wanjiruchristine" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
@@ -528,7 +588,6 @@
         <p>&copy; 2026 SOAR | SERVING LEADERS WORLDWIDE</p>
     </footer>
 
-    <!-- INTERACTION SCRIPTS -->
     <script>
         function toggleMenu() {
             var nav = document.getElementById('navLinks');
