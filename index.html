@@ -1,581 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Executive Operations Agency</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-cream: #fcfbf9;
-            --card-beige: #f7f4ef;
-            --charcoal: #2b2b2a;
-            --text-dark: #222222;
-            --text-muted: #666666;
-            --border-beige: #dfd5c6;
-            --accent-gold: #d4af37;
-        }
+<!-- START OF RIGHT FIT / FILTER SECTION -->
+<section style="padding: 60px 20px; font-family: 'Inter', sans-serif; background-color: #fcfbf9; text-align: center;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+        
+        <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 13px; color: #8c857b; font-weight: 600; margin-bottom: 10px;">Curious about our operational partnership?</p>
+        <h2 style="font-size: 36px; color: #222222; font-family: 'Playfair Display', serif; margin-top: 0; margin-bottom: 15px; font-weight: 700;">Let’s make sure this is the right fit.</h2>
+        <p style="font-size: 16px; color: #555555; max-width: 700px; margin: 0 auto 50px auto; line-height: 1.6;">This work requires trust, complete ownership, and a genuine willingness to scale. Here’s how to know whether this is the next right step for your business.</p>
 
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-cream);
-            color: var(--text-dark);
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            padding: 100px 20px 80px 20px;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-        .hero p {
-            font-size: 18px;
-            color: var(--text-muted);
-            line-height: 1.6;
-            max-width: 650px;
-            margin: 0 auto 35px auto;
-        }
-
-        /* --- BUTTONS --- */
-        .btn-primary {
-            background-color: var(--charcoal);
-            color: #ffffff;
-            padding: 16px 36px;
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: background 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #444443;
-        }
-
-        /* --- BOTTLENECKS SECTION --- */
-        .bottlenecks {
-            padding: 80px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .section-tag {
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 13px;
-            color: #8c857b;
-            font-weight: 600;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-        .section-title {
-            font-size: 36px;
-            color: var(--text-dark);
-            font-family: 'Playfair Display', serif;
-            margin-top: 0;
-            margin-bottom: 50px;
-            font-weight: 700;
-            text-align: center;
-        }
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .bottleneck-card {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.015);
-        }
-        .bottleneck-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-        .bottleneck-card p {
-            font-size: 15px;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* --- ABOUT SECTION --- */
-        .about-section {
-            background-color: var(--card-beige);
-            padding: 90px 20px;
-        }
-        .about-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 50px;
-            align-items: center;
-        }
-        .about-text h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-        .about-text p {
-            font-size: 16px;
-            color: #444444;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        /* --- SERVICES SECTION --- */
-        .services-section {
-            padding: 90px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        /* --- STREAMLINED LEFT-TO-RIGHT PROCESS CIRCLES --- */
-        .process-section {
-            padding: 90px 20px;
-            background-color: #ffffff;
-            text-align: center;
-        }
-        .process-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            position: relative;
-            gap: 20px;
-        }
-        /* Connection Line behind steps */
-        .process-container::before {
-            content: "";
-            position: absolute;
-            top: 35px;
-            left: 50px;
-            right: 50px;
-            height: 1px;
-            background-color: var(--border-beige);
-            z-index: 1;
-        }
-        .process-step {
-            position: relative;
-            z-index: 2;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 0 10px;
-        }
-        /* Reduced Size Compact Circles */
-        .circle-num {
-            width: 70px;
-            height: 70px;
-            background-color: var(--card-beige);
-            border: 1px solid var(--border-beige);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-        .process-step:hover .circle-num {
-            background-color: var(--charcoal);
-            color: #ffffff;
-            border-color: var(--charcoal);
-        }
-        .process-step h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            margin: 0 0 10px 0;
-            color: var(--text-dark);
-        }
-        .process-step p {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        /* --- ACCORDION FAQ SECTION --- */
-        .faq-section {
-            padding: 90px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .faq-container {
-            margin-top: 40px;
-            text-align: left;
-        }
-        .faq-item {
-            border-bottom: 1px solid #e5e0d8;
-            padding: 24px 0;
-        }
-        .faq-trigger {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            width: 100%;
-            background: none;
-            border: none;
-            text-align: left;
-            padding: 0;
-        }
-        .faq-trigger h4 {
-            font-size: 18px;
-            color: var(--text-dark);
-            margin: 0;
-            font-weight: 500;
-        }
-        .faq-icon {
-            font-size: 22px;
-            color: #8c857b;
-            transition: transform 0.3s ease;
-            user-select: none;
-        }
-        .faq-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-        .faq-content p {
-            margin: 16px 0 0 0;
-            font-size: 15px;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        /* Responsive Design overrides */
-        @media (max-width: 768px) {
-            .process-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 40px;
-            }
-            .process-container::before {
-                display: none;
-            }
-            .process-step {
-                width: 100%;
-            }
-            .circle-num {
-                margin-bottom: 12px;
-            }
-            .hero h1 { font-size: 36px; }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <h1>Regain Your Creative & Strategic Freedom</h1>
-        <p>We partner with visionary founders, CEOs, and Master Certified Coaches to eliminate operational noise, optimize back-end infrastructure, and scale outcomes seamlessly.</p>
-        <a href="#contact" class="btn-primary">Initiate Partnership</a>
-    </section>
-
-    <!-- BOTTLENECKS SECTION -->
-    <section class="bottlenecks">
-        <p class="section-tag">The Reality of Scaling</p>
-        <h2 class="section-title">Are you running your business, or is your business running you?</h2>
-        <div class="grid-3">
-            <div class="bottleneck-card">
-                <h3>The Inbox & Calendar Loop</h3>
-                <p>Spreading yourself thin across endless scheduling chains and operational updates instead of driving the primary vision forward.</p>
-            </div>
-            <div class="bottleneck-card">
-                <h3>Fragmented Systems</h3>
-                <p>Relying on tech and setups that feel disconnected, messy, or require manual inputs to get regular data flowing smoothly.</p>
-            </div>
-            <div class="bottleneck-card">
-                <h3>Task-Management Friction</h3>
-                <p>Spending excessive energy managing administrative task-runners instead of working alongside an autonomous partner who owns outcomes.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <section class="about-section">
-        <div class="about-container">
-            <div class="about-text">
-                <p class="section-tag" style="text-align:left;">Operational Partner</p>
-                <h2>Behind every visionary leader is an elite operational engine.</h2>
-                <p>We specialize in stepping directly into high-level business mechanics, converting structural bottlenecks into clean, automated processes using industry-standard platforms.</p>
-                <p>Our focus shifts entirely away from simple task execution toward absolute outcome ownership, freeing up essential mental capacity for scaling growth.</p>
-            </div>
-            <div style="background-color: #eaddcd; height: 380px; border-radius: 16px; display:flex; align-items:center; justify-content:center; color:#777;">
-                <!-- Placeholder for high-end workspace graphic or branding asset -->
-                <span>[ Integrated Branding Space ]</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES SECTION -->
-    <section class="services-section">
-        <p class="section-tag">Core Capabilities</p>
-        <h2 class="section-title">Strategic Operations Architecture</h2>
-        <div class="grid-3">
-            <div class="bottleneck-card" style="border-top: 3px solid var(--charcoal);">
-                <h3>CRM & Pipeline Management</h3>
-                <p>Full implementation and integration loops across platforms like Apollo, Zoho, and Lemlist to ensure seamless outbound lead handling.</p>
-            </div>
-            <div class="bottleneck-card" style="border-top: 3px solid var(--charcoal);">
-                <h3>Workflow Automation</h3>
-                <p>Structuring modular workspaces in Notion, Trello, and advanced platforms to systematically remove manual friction points.</p>
-            </div>
-            <div class="bottleneck-card" style="border-top: 3px solid var(--charcoal);">
-                <h3>Executive Administration</h3>
-                <p>White-glove calendar defense, communications oversight, and high-level client management tailored for coaching and advisory practices.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- REDUCED-SIZE LEFT-TO-RIGHT PROCESS CIRCLES SECTION -->
-    <section class="process-section">
-        <div style="max-width: 1100px; margin: 0 auto;">
-            <p class="section-tag">The Engagement Roadmap</p>
-            <h2 class="section-title">A Seamless Transition of Ownership</h2>
+        <!-- Grid Container -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; text-align: left;">
             
-            <div class="process-container">
-                <!-- Step 1 -->
-                <div class="process-step">
-                    <div class="circle-num">I</div>
-                    <h4>Discovery & Alignment</h4>
-                    <p>A comprehensive audit of your current systems, pipeline setups, and critical operational bottlenecks.</p>
-                </div>
-                <!-- Step 2 -->
-                <div class="process-step">
-                    <div class="circle-num">II</div>
-                    <h4>Infrastructure Clean-up</h4>
-                    <p>We systematically map out, connect, and automate your target tools into streamlined workflows.</p>
-                </div>
-                <!-- Step 3 -->
-                <div class="process-step">
-                    <div class="circle-num">III</div>
-                    <h4>Ownership Hand-off</h4>
-                    <p>Daily administrative protocols and system maintenance transfer completely to our execution layer.</p>
-                </div>
-                <!-- Step 4 -->
-                <div class="process-step">
-                    <div class="circle-num">IV</div>
-                    <h4>Continuous Scale</h4>
-                    <p>Ongoing optimization loops, strategic performance syncs, and dedicated project expansion.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DYNAMIC ACCORDION FAQ SECTION -->
-    <section class="faq-section">
-        <p class="section-tag">Frequently Answered</p>
-        <h2 class="section-title" style="margin-bottom: 20px;">Operational Details</h2>
-        <div class="faq-container">
-            <div class="faq-item">
-                <button class="faq-trigger">
-                    <h4>How does onboarding work?</h4>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-content">
-                    <p>Onboarding is smooth and hands-off. We start with a 60-minute deep-dive diagnostic call to map your current processes, tools, and immediate pressure points. Within 48 hours, we establish a secure, shared workspace, initiate credential transfers via LastPass or 1Password, and deploy your customized integration plan without disrupting your daily business workflows.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-trigger">
-                    <h4>I find it hard to delegate. Will this still work for me?</h4>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-content">
-                    <p>Yes, perfectly. We don't ask you to instantly surrender control of your business. We build trust incrementally by taking over highly repetitive, time-draining tasks first. By utilizing transparent, centralized dashboards (such as Notion or Trello), you retain high-level visibility over every project, decision, and communication thread without needing to manage the ground-level details.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-trigger">
-                    <h4>Do I need to spend a lot of time training you?</h4>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-content">
-                    <p>Minimal to none. Unlike hiring general virtual assistants who require step-by-step instructions, we enter your business as trained operational strategists. We document your existing workflows, build our own SOPs, and troubleshoot technical bottlenecks autonomously. Your only job is to share your desired operational outcomes and let us build the paths to hit them.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-trigger">
-                    <h4>What if my business tools and systems are messy right now?</h4>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-content">
-                    <p>That is precisely why we step in. We are highly proficient in navigating, reorganizing, and streamlining complex software suites—including Apollo, Zoho CRM, Lemlist, and various project boards. We consolidate your data, eliminate duplicate or unused tools, and build clear, automated pipelines so your back-end operational engine runs seamlessly.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-trigger">
-                    <h4>How quickly can we get started?</h4>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-content">
-                    <p>We can initiate our discovery process within 3 to 5 business days of contract finalization. Because we limit our active client roster to preserve high-touch execution quality, slots are scheduled on a strict first-come, first-served basis to guarantee your systems receive absolute focus during integration.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MIRRORED RIGHT FIT / FILTER SECTION -->
-    <section style="padding: 90px 20px; font-family: 'Inter', sans-serif; background-color: var(--bg-cream); text-align: center; border-top: 1px solid var(--border-beige);">
-        <div style="max-width: 1100px; margin: 0 auto;">
-            
-            <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 13px; color: #8c857b; font-weight: 600; margin-bottom: 12px;">Curious about our operational partnership?</p>
-            <h2 style="font-size: 38px; color: var(--text-dark); font-family: 'Playfair Display', serif; margin-top: 0; margin-bottom: 15px; font-weight: 700; letter-spacing: -0.5px;">Let’s make sure this is the right fit.</h2>
-            <p style="font-size: 16px; color: var(--text-muted); max-width: 700px; margin: 0 auto 55px auto; line-height: 1.6;">This work requires trust, complete ownership, and a genuine willingness to scale. Here’s how to know whether this is the next right step for your business.</p>
-
-            <!-- Grid Container mirroring image_68b7dd.png layout exactly -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; text-align: left; align-items: stretch;">
-                
-                <!-- Perfect For You Column (Beige Theme) -->
-                <div style="background: var(--card-beige); border-radius: 24px; padding: 45px 40px; box-shadow: 0 10px 35px rgba(0,0,0,0.02); border-top: 5px solid var(--border-beige); display: flex; flex-direction: column;">
-                    <h3 style="font-size: 23px; color: var(--text-dark); margin-top: 0; margin-bottom: 30px; font-family: 'Playfair Display', serif; font-weight: 700;">This is perfect for you if:</h3>
-                    <ul style="list-style: none; padding: 0; margin: 0; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #333333; line-height: 1.6; min-height: 48px;">
-                            <span style="position: absolute; left: 0; top: 0; color: #4c8c74; font-weight: bold; font-size: 19px;">✓</span>
+            <!-- Perfect For You Column -->
+            <div style="background: #ffffff; border-radius: 24px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-top: 4px solid #d4af37; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <h3 style="font-size: 22px; color: #1a2e3b; margin-top: 0; margin-bottom: 25px; font-family: 'Playfair Display', serif;">This is perfect for you if:</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #444444; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; top: 2px; color: #4c8c74; font-weight: bold; font-size: 18px;">✓</span>
                             You are looking for a strategic partner to empower you to scale your business, so you can focus entirely on high-level vision and growth.
                         </li>
-                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #333333; line-height: 1.6; min-height: 48px;">
-                            <span style="position: absolute; left: 0; top: 0; color: #4c8c74; font-weight: bold; font-size: 19px;">✓</span>
+                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #444444; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; top: 2px; color: #4c8c74; font-weight: bold; font-size: 18px;">✓</span>
                             You’ve tried hiring general virtual assistants or task-takers before, and it didn't stick.
                         </li>
-                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #333333; line-height: 1.6; min-height: 48px;">
-                            <span style="position: absolute; left: 0; top: 0; color: #4c8c74; font-weight: bold; font-size: 19px;">✓</span>
+                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #444444; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; top: 2px; color: #4c8c74; font-weight: bold; font-size: 18px;">✓</span>
                             You and your leadership team want the same scalable growth, but you're not sure how to build the workflows to get there.
                         </li>
-                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #333333; line-height: 1.6; min-height: 48px;">
-                            <span style="position: absolute; left: 0; top: 0; color: #4c8c74; font-weight: bold; font-size: 19px;">✓</span>
+                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #444444; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; top: 2px; color: #4c8c74; font-weight: bold; font-size: 18px;">✓</span>
                             You want an operational partner who owns outcomes and proactively keeps your business engine running on track.
                         </li>
-                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #333333; line-height: 1.6; min-height: 48px;">
-                            <span style="position: absolute; left: 0; top: 0; color: #4c8c74; font-weight: bold; font-size: 19px;">✓</span>
+                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #444444; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; top: 2px; color: #4c8c74; font-weight: bold; font-size: 18px;">✓</span>
                             You are ready to be challenged on how you think and feel about delegation, operational bottlenecks, and what now serves your business.
                         </li>
-                        <li style="position: relative; padding-left: 35px; margin-bottom: 0; font-size: 15px; color: #333333; line-height: 1.6; min-height: 48px;">
-                            <span style="position: absolute; left: 0; top: 0; color: #4c8c74; font-weight: bold; font-size: 19px;">✓</span>
+                        <li style="position: relative; padding-left: 35px; margin-bottom: 0; font-size: 15px; color: #444444; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; top: 2px; color: #4c8c74; font-weight: bold; font-size: 18px;">✓</span>
                             You are ready to break the cycle of day-to-day operational chaos and do what it takes to regain your time.
                         </li>
                     </ul>
                 </div>
+            </div>
 
-                <!-- NOT For You Column (Charcoal/Grey Theme) -->
-                <div style="background: var(--charcoal); border-radius: 24px; padding: 45px 40px; box-shadow: 0 10px 35px rgba(0,0,0,0.05); border-top: 5px solid #444443; display: flex; flex-direction: column;">
-                    <h3 style="font-size: 23px; color: #ffffff; margin-top: 0; margin-bottom: 30px; font-family: 'Playfair Display', serif; font-weight: 700;">This is NOT for you if:</h3>
-                    <ul style="list-style: none; padding: 0; margin: 0; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #e5e5e5; line-height: 1.6; min-height: 48px;">
-                            <span style="position: absolute; left: 0; top: 0; color: #e07b7b; font-weight: bold; font-size: 19px;">✕</span>
+            <!-- NOT For You Column -->
+            <div style="background: #ffffff; border-radius: 24px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-top: 4px solid #e0dbd5; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <h3 style="font-size: 22px; color: #1a2e3b; margin-top: 0; margin-bottom: 25px; font-family: 'Playfair Display', serif;">This is NOT for you if:</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #666666; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; top: 2px; color: #b85c5c; font-weight: bold; font-size: 18px;">✕</span>
                             You are looking for a "savior" to single-handedly build a business for you without your vision, or a basic order-taker who needs micro-management.
                         </li>
-                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #e5e5e5; line-height: 1.6; min-height: 48px;">
-                            <span style="position: absolute; left: 0; top: 0; color: #e07b7b; font-weight: bold; font-size: 19px;">✕</span>
+                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #666666; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; top: 2px; color: #b85c5c; font-weight: bold; font-size: 18px;">✕</span>
                             You think you want to scale your business operations, but staying buried in the day-to-day granular tasks feels safer.
                         </li>
-                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #e5e5e5; line-height: 1.6; min-height: 48px;">
-                            <span style="position: absolute; left: 0; top: 0; color: #e07b7b; font-weight: bold; font-size: 19px;">✕</span>
+                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #666666; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; top: 2px; color: #b85c5c; font-weight: bold; font-size: 18px;">✕</span>
                             You are not open to exploring new systems, software automation, or modern ways to run your agency backend.
                         </li>
-                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #e5e5e5; line-height: 1.6; min-height: 48px;">
-                            <span style="position: absolute; left: 0; top: 0; color: #e07b7b; font-weight: bold; font-size: 19px;">✕</span>
+                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #666666; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; top: 2px; color: #b85c5c; font-weight: bold; font-size: 18px;">✕</span>
                             You’re unwilling to learn a new, structured way to delegate, manage projects, and communicate asynchronously.
                         </li>
-                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #e5e5e5; line-height: 1.6; min-height: 48px;">
-                            <span style="position: absolute; left: 0; top: 0; color: #e07b7b; font-weight: bold; font-size: 19px;">✕</span>
+                        <li style="position: relative; padding-left: 35px; margin-bottom: 24px; font-size: 15px; color: #666666; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; top: 2px; color: #b85c5c; font-weight: bold; font-size: 18px;">✕</span>
                             You’re looking for a quick and cheap, short-term fix to deep-rooted operational bottlenecks.
                         </li>
-                        <li style="position: relative; padding-left: 35px; margin-bottom: 0; font-size: 15px; color: #e5e5e5; line-height: 1.6; min-height: 48px;">
-                            <span style="position: absolute; left: 0; top: 0; color: #e07b7b; font-weight: bold; font-size: 19px;">✕</span>
+                        <li style="position: relative; padding-left: 35px; margin-bottom: 0; font-size: 15px; color: #666666; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; top: 2px; color: #b85c5c; font-weight: bold; font-size: 18px;">✕</span>
                             You don't want to be challenged to grow as an executive leader.
                         </li>
                     </ul>
                 </div>
-
             </div>
+
         </div>
-    </section>
-
-    <!-- CALL TO ACTION / CONTACT SECTION -->
-    <section id="contact" style="padding: 90px 20px; background-color: var(--card-beige); text-align: center;">
-        <div style="max-width: 600px; margin: 0 auto;">
-            <p class="section-tag">Secure Operations Strategy</p>
-            <h2 style="font-family: 'Playfair Display', serif; font-size: 36px; margin-top: 0; margin-bottom: 15px;">Ready to reclaim mental space?</h2>
-            <p style="font-size: 16px; color: var(--text-muted); line-height: 1.6; margin-bottom: 40px;">Schedule your operational evaluation diagnostic call below to explore partnership placement configurations.</p>
-            
-            <form style="text-align: left; background: #ffffff; padding: 40px; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.01);">
-                <div style="margin-bottom: 20px;">
-                    <label style="display:block; font-size:12px; font-weight:600; text-transform:uppercase; margin-bottom:8px; color:#555;">Full Name</label>
-                    <input type="text" style="width:100%; padding:12px; border:1px solid #e0dbd5; border-radius:4px; font-family:inherit;" required>
-                </div>
-                <div style="margin-bottom: 20px;">
-                    <label style="display:block; font-size:12px; font-weight:600; text-transform:uppercase; margin-bottom:8px; color:#555;">Corporate Email</label>
-                    <input type="email" style="width:100%; padding:12px; border:1px solid #e0dbd5; border-radius:4px; font-family:inherit;" required>
-                </div>
-                <div style="margin-bottom: 30px;">
-                    <label style="display:block; font-size:12px; font-weight:600; text-transform:uppercase; margin-bottom:8px; color:#555;">Primary Scaling Bottleneck</label>
-                    <textarea style="width:100%; padding:12px; border:1px solid #e0dbd5; border-radius:4px; font-family:inherit; height:100px;" required></textarea>
-                </div>
-                <button type="submit" class="btn-primary" style="width: 100%;">Submit Inquiry</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer style="padding: 40px 20px; background-color: var(--charcoal); color: #8c857b; text-align: center; font-size: 13px;">
-        <p>&copy; 2026 Executive Operations Agency. All Corporate Space Rights Reserved.</p>
-    </footer>
-
-    <!-- INTERACTIVE ACCORDION SCRIPT -->
-    <script>
-        document.querySelectorAll('.faq-trigger').forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                const parent = trigger.parentElement;
-                const content = trigger.nextElementSibling;
-                
-                // Toggle active class
-                parent.classList.toggle('active');
-                
-                if (parent.classList.contains('active')) {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                } else {
-                    content.style.maxHeight = "0px";
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+    </div>
+</section>
+<!-- END OF RIGHT FIT / FILTER SECTION -->
