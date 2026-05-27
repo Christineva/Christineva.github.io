@@ -294,6 +294,8 @@
         .service-list { list-style: none; }
         .service-list li { font-size: 14px; color: var(--dark-grey); margin-bottom: 14px; padding-left: 20px; position: relative; font-weight: 400; letter-spacing: 0.1px; line-height: 1.6; }
         .service-list li::before { content: "—"; position: absolute; left: 0; color: var(--stone-grey); }
+        
+        /* IMAGE BLOCK FIXES */
         .split-image-section { padding: 0 8%; margin-top: 40px; }
         .split-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; background-color: var(--white); }
         .split-box { aspect-ratio: 1 / 1; overflow: hidden; background: var(--light-grey); }
@@ -302,35 +304,29 @@
         .services-cta { text-align: center; padding: 100px 10%; background: var(--white); }
         .btn { background: var(--dark-grey); color: white; padding: 22px 60px; border: none; text-transform: uppercase; letter-spacing: 3px; font-size: 10px; cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-block; }
 
-        /* HORIZONTAL SCROLLABLE PROCESS SECTION */
-        .page-header { text-align: center; padding: 100px 0 20px; background-color: var(--light-grey); }
-        .how-it-works-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4rem); color: var(--charcoal); letter-spacing: 2px; }
+        /* THEMED AND RESIZED PROCESS SECTION FIX */
+        .page-header { text-align: center; padding: 100px 0 20px; background-color: var(--beige); }
+        .how-it-works-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); color: var(--charcoal); letter-spacing: 2px; }
         
         .process-wrapper { 
-            background-color: var(--light-grey); 
-            padding: 20px 0 100px 0;
+            background-color: var(--beige); 
+            padding: 20px 8% 100px 8%;
             width: 100%;
-            overflow-x: auto;
-            overflow-y: hidden;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none; /* Hide standard scrollbar for clean aesthetic */
-        }
-        .process-wrapper::-webkit-scrollbar {
-            display: none; /* Hide scrollbar for Chrome/Safari */
         }
         .process-inner {
-            display: flex;
-            gap: 40px;
-            padding: 20px 8%;
-            width: max-content; /* Force single line horizontal scaling */
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         .step-section { 
-            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
         }
         .circle-card { 
-            width: 480px; 
-            height: 480px; 
+            width: 340px; 
+            height: 340px; 
             background: var(--white); 
             border-radius: 50%; 
             display: flex; 
@@ -338,18 +334,18 @@
             justify-content: center; 
             align-items: center; 
             text-align: center; 
-            padding: 60px; 
+            padding: 40px; 
             border: 1px solid var(--border);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.02); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.02); 
             transition: transform 0.3s ease;
         }
         .circle-card:hover {
             transform: translateY(-5px);
         }
-        .step-id { background: var(--charcoal); color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: 600; margin-bottom: 20px; font-family: 'Inter', sans-serif; font-size: 15px; }
-        .step-section h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px; line-height: 1.2; font-weight: 700; color: var(--charcoal); }
-        .centered-box { max-width: 90%; margin: 0 auto; text-align: center; }
-        .step-section p { font-size: 15px; line-height: 1.6; color: #555555; font-weight: 400; font-family: 'Inter', sans-serif; }
+        .step-id { background: var(--charcoal); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: 600; margin-bottom: 15px; font-family: 'Inter', sans-serif; font-size: 14px; }
+        .step-section h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 12px; line-height: 1.2; font-weight: 700; color: var(--charcoal); }
+        .centered-box { max-width: 95%; margin: 0 auto; text-align: center; }
+        .step-section p { font-size: 14px; line-height: 1.5; color: #555555; font-weight: 400; font-family: 'Inter', sans-serif; }
 
         /* CONTACT SECTION */
         .contact-hero { background-color: var(--beige); padding: 80px 10% 60px; text-align: center; }
@@ -391,17 +387,14 @@
             .missing-section { padding: 0 5% 60px; }
             .missing-card { padding: 40px 25px; }
             
-            /* Responsive adjustments for horizontal track padding */
             .process-inner {
-                padding: 20px 5%;
-                margin: 0;
+                grid-template-columns: 1fr;
+                padding: 10px 0;
             }
             .circle-card {
-                width: 85vw;
-                height: 85vw;
-                max-width: 440px;
-                max-height: 440px;
-                padding: 40px;
+                width: 290px;
+                height: 290px;
+                padding: 30px;
             }
         }
     </style>
@@ -767,6 +760,7 @@
             </div>
         </section>
 
+        <!-- IMAGES UNDER SERVICES PATH RE-VERIFIED -->
         <section class="split-image-section">
             <div class="split-container">
                 <div class="split-box"><img src="gallery-1.jpg" alt="Operations Asset 1"></div>
@@ -794,7 +788,7 @@
                         <div class="step-id">1</div>
                         <h2>Discovery Call</h2>
                         <div class="centered-box">
-                            <p>We begin with a strategic deep dive to map your operational bottlenecks, system weak points, and growth expectations.</p>
+                            <p>We start with a discovery call where we deep dive into your business and identify your bottlenecks.</p>
                         </div>
                     </div>
                 </section>
@@ -805,7 +799,7 @@
                         <div class="step-id">2</div>
                         <h2>Custom Strategy & Proposal</h2>
                         <div class="centered-box">
-                            <p>We outline a tailored support roadmap detailing specialized resource allocation, tech configurations, and target outcomes.</p>
+                            <p>We create a tailored proposal and plan outlining exactly how we can support you.</p>
                         </div>
                     </div>
                 </section>
@@ -816,7 +810,7 @@
                         <div class="step-id">3</div>
                         <h2>Seamless Onboarding</h2>
                         <div class="centered-box">
-                            <p>Our quick integration protocol establishes workspace variables, secure access transfers, and workflows without stopping production.</p>
+                            <p>We complete a smooth onboarding process to transfer systems and begin execution efficiently.</p>
                         </div>
                     </div>
                 </section>
