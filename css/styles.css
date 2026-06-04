@@ -5,14 +5,24 @@
     justify-content: space-between;
     padding: 60px 8%;
     gap: 40px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
-.hero-left { flex: 1; text-align: left; }
-.hero-right { flex: 1; }
+.hero-left { 
+    flex: 1; 
+    min-width: 300px; /* Prevents text from becoming too narrow */
+    text-align: left; 
+}
+
+.hero-right { 
+    flex: 0 0 320px; /* Forces the video container to a fixed width */
+    display: flex;
+    justify-content: center;
+}
 
 .hero-right iframe {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 9 / 16; /* Corrected for YouTube Shorts vertical format */
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
@@ -27,6 +37,7 @@
     /* Stack Hero on Mobile */
     .hero { flex-direction: column; text-align: center; padding: 40px 6%; }
     .hero-left { text-align: center; }
+    .hero-right { flex: 0 0 100%; width: 100%; }
 
     /* 2. Navigation Fix */
     nav { 
@@ -75,7 +86,6 @@
         margin-top: 20px !important;
     }
 
-    /* Ensure the 3 squares stay large on small screens */
     .split-box {
         width: 100% !important;
         aspect-ratio: 1 / 1 !important;
@@ -96,7 +106,6 @@
         line-height: 1.2;
     }
 
-    /* Prevent the service boxes from being too long on A02 */
     .service-column {
         padding: 30px 20px !important;
     }
