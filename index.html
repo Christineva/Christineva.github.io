@@ -38,14 +38,17 @@
 }
 
 .hero-right { 
-    flex: 0 0 320px !important;
+   flex: 0 0 280px !important; /* Shrunk from 320px to 280px */
     display: flex !important;
     justify-content: center !important;
+    align-self: center !important;
+    max-height: 500px !important; /* Limits the overall height */
 }
 
 .hero-right iframe {
     width: 100% !important;
     aspect-ratio: 9 / 16 !important;
+    max-height: 480px !important; /* Ensures it doesn't get too tall */
     border-radius: 10px !important;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
 }
