@@ -30,17 +30,38 @@
     flex-wrap: wrap !important;
     width: 100% !important;
 }
-
+/* 1. TEXT CONTAINER (LEFT) */
 .hero-left { 
-   flex: 1 1 500px !important; 
-    text-align: left !important;
-}
-hero-left h1 {
-    font-size: 65px !important; /* Increase this number to make the title bigger */
+    flex: 1 1 500px !important; 
+    text-align: left !important; 
+    padding-right: 40px !important; 
 }
 
-.hero-left p {
-    font-size: 24px !important; /* Increase this number to make the subtitle/text bigger */
+.hero-left h1 { 
+    font-size: 65px !important; 
+    margin-bottom: 25px !important; 
+    line-height: 1.1 !important; 
+    color: var(--charcoal) !important;
+}
+
+.hero-left p { 
+   font-size: 24px !important; 
+    margin-bottom: 25px !important; 
+    color: var(--dark-grey) !important;
+}
+
+.hero-btn { 
+    .hero-left .hero-btn { 
+    display: inline-block !important; 
+    padding: 18px 40px !important; 
+    border: 1px solid var(--charcoal) !important; 
+    color: var(--charcoal) !important; 
+    text-decoration: none !important; 
+    font-size: 13px !important; 
+    letter-spacing: 3px !important; 
+    text-transform: uppercase !important; 
+    font-weight: 700 !important; 
+    background: transparent !important; 
 }
 
 .hero-right { 
